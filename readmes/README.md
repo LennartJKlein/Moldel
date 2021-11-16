@@ -52,4 +52,4 @@ Ik bedank iedereen die mij meegeholpen heeft bij dit project, daaronder vallen:
 
 # Contact
 Als je meer wilt weten over dit project kun je mij contacteren:
-* Haico Dorenbos: Multifacio@gmail.com (pseudoniem: Multifacio)
+* Haico: Multifacio@gmail.com (pseudoniem: Multifacio)
