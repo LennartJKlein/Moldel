@@ -18,25 +18,24 @@ Het **Moldel** is een algoritme, bedacht door Haico ([Multifacio](https://github
 
 ## 🛠 Installeren
 
-Voer de volgende commando's uit om op jouw computer het moldel te laten draaien:
+Je hebt een aantal programma's, software en pakketten nodig om het Moldel uit te voeren op je computer.
 
-### Installeer Git
+### Installeer deze software
 
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-
-### Installeer Python en twee package managers
-
 - [Python v3.9](https://www.python.org/downloads/)
 - [PIP](https://pypi.org/project/pip/)
 - [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
 
 ### Download de bestanden van deze repository
 
-`git clone https://github.com/LennartJKlein/Moldel.git`
+```python
+git clone https://github.com/LennartJKlein/Moldel.git
+```
 
-### Installeer de nodige Python modules in deze volgorde
+### Installeer modules voor Python in deze volgorde
 
-```c
+```python
 pip install aenum
 pip install numpy
 pip install scipy
@@ -49,10 +48,10 @@ pip install iteround
 pip install matplotlib
 pip install seaborn
 
-(macOS)
+# macOS
 brew install enchant
 
-(Windows/Ubuntu)
+# Windows/Ubuntu
 sudo apt-get install libenchant1c2a
 
 pip install pyenchant
