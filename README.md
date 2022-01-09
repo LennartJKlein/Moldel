@@ -1,12 +1,16 @@
 # Moldel
 
-**Een algoritme dat de Mol voorspelt.**
+Een algoritme om de Mol te voorspellen.
 
-## 🔎 Huidige voorspelling (s22 e2, 2022)
+## 🔦 Huidige voorspelling (s23e2, 2022)
 
-![Voorspelling na aflevering 2, seizoen 22 (2022)](https://github.com/LennartJKlein/Moldel/blob/master/results/Season%2023%20(2022)/s23e2.png?raw=true)
+![Voorspelling na aflevering 2, seizoen 23 (2022)](https://github.com/LennartJKlein/Moldel/blob/master/results/Season%2023%20(2022)/s23e2.png?raw=true)
 
-## Over het project
+## 📺 Over Wie is de Mol
+
+> _'Wie is de Mol?' is een programma op Nederland 1 dat elk jaar wordt uitgezonden sind 1999. In dit programma moeten kandidaten opdrachten doen waarmee je geld voor de pot kunt verdienen. Echter heb je ook een saboteur, die ook wel de 'Mol' wordt genoemd. De 'Mol' probeert te verhinderen dat er geld verdient wordt. De kandidaten moeten deze 'Mol' proberen te ontmaskeren. Bijna elke aflevering is er een test met vragen over de 'Mol' en de kandidaat die dan het minst weet over de 'Mol' valt af. Uiteindelijk blijven er op het einde 3 kandidaten over en degene die het meest weet over de 'Mol' is de winnaar van het spel en krijgt het bedrag dat in de pot zit._
+
+## 💡 Over het project
 
 Het **Moldel** is een algoritme, bedacht door Haico ([Multifacio](https://github.com/Multifacio)) dat voor elke kandidaat de waarschijnlijkheid berekent dat deze de 'Mol' is. Deze score komt tot stand door de voorspellingen van de volgende 'layers' te combineren:
 
