@@ -1,4 +1,4 @@
-from jenkspy import JenksNaturalBreaks
+from jenkspy import jenks_breaks
 
 from Tools.Encoders.Encoder import Encoder
 from numpy.random import RandomState
@@ -74,7 +74,7 @@ class SemiRankTransformer(Encoder):
         self.clusterings = []
         self.ignored_bounds = []
         for column, setting, rank_transformer in zip(X.T, self.__settings, self.rank_transformers):
-            clustering = JenksNaturalBreaks(nb_class = setting.num_clusters)
+            clustering = jenks_breaks(nb_class = setting.num_clusters)
             clustering.fit(column)
             self.clusterings.append(clustering)
             self.rank_splits = rank_transformer.transform(np.array(clustering.breaks_)[:, np.newaxis])
