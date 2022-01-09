@@ -3,7 +3,7 @@ from Layers.Appearance.AppearanceExtractor import AppearanceExtractor
 import matplotlib.pyplot as plt
 import numpy as np
 
-TEST_SEASONS = {13, 14, 15, 16, 17, 18, 19, 20, 21}
+TEST_SEASONS = {13, 14, 15, 16, 17, 18, 19, 20, 21, 22}
 
 extractor = AppearanceExtractor(0, 0, TEST_SEASONS, 1, 1)
 train_input, train_output = extractor.get_train_data()
