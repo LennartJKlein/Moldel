@@ -98,7 +98,7 @@ questions2 = {
         # Ja
         1: [Player.HILA_23, Player.SAHIL_23, Player.LAETITIA_23, Player.KIM_LIAN_23],
         # Nee
-        2: [Player.THOMAS_23. Player.FRESIA_23, Player.EVERON_23, Player.WELMOED_23]
+        2: [Player.THOMAS_23, Player.FRESIA_23, Player.EVERON_23, Player.WELMOED_23]
     })
 }
 input2 = {
