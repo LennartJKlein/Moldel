@@ -21,24 +21,42 @@ Voer de volgende commando's uit om op jouw computer het moldel te laten draaien:
 ### Installeer de nodige Python modules in deze volgorde
 
 `pip install aenum`
+
 `pip install numpy`
+
 `pip install scipy`
+
 `pip install k-means-constrained`
+
 `pip install sklearn`
+
 `pip install opencv-python`
-`conda install -c conda-forge jenkspy`
-`conda install -c conda-forge dlib`
-`pip install cmake`
-`pip install face-recognition`
+
+`pip install jenkspy`
+
 `pip install rootpath`
+
+`pip install iteround`
+
+`pip install matplotlib`
+
+`pip install seaborn`
+
 `brew install enchant` (MacOS) of `sudo apt-get install libenchant1c2a` (Windows/Ubuntu)
+
 `pip install pyenchant`
 
-- typing
+`conda install -c conda-forge dlib`
+
+`pip install cmake`
+
+`pip install face-recognition`
 
 ## 🎯 Uitvoeren
 
 Nu is het zo ver; laat het programma op basis van de 5 tactieken een kansberekening maken wie de Mol is!
+
+Ga naar de hoofdmap van het project en voer uit:
 
 `python moldel [SEASON] [LATEST EPISODE]`
 

@@ -1,4 +1,4 @@
-from jenkspy import jenks_breaks
+from jenkspy import JenksNaturalBreaks
 
 from Tools.Encoders.Encoder import Encoder
 from numpy.random import RandomState
@@ -16,7 +16,6 @@ class SemiRankTransformer(Encoder):
 
     def __init__(self, settings: List[Setting]):
         """ Constructor of the Semi Rank Transformer.
-
         Arguments:
             settings (List[Setting]): A list of settings, where each setting represents how many clusters should be
                 used per feature and which clusters containing a particular value should not be rank transformed.
@@ -35,11 +34,9 @@ class SemiRankTransformer(Encoder):
 
     def __transform_value(self, value: float, feature_index: int) -> float:
         """ Semi-Rank Transform a single value.
-
         Arguments:
             value (float): The value that is Semi-Rank transformed.
             feature_index (int): The index of the feature column which contained this value.
-
         Returns:
             The Semi-Rank Transformed value.
         """
@@ -53,7 +50,6 @@ class SemiRankTransformer(Encoder):
 
     def __fit_rank_transformers(self, X: np.array):
         """ Fit all the rank transformers for every feature.
-
         Arguments:
             X (np.array): The train input used to train the rank transformers.
         """
@@ -67,14 +63,13 @@ class SemiRankTransformer(Encoder):
     def __fit_clusters(self, X: np.array):
         """ Fit all the clusters for every feature and determine the lowest value & rank and highest value & rank for
         each cluster.
-
         Arguments:
             X (np.array): The train input used to train the clusters.
         """
         self.clusterings = []
         self.ignored_bounds = []
         for column, setting, rank_transformer in zip(X.T, self.__settings, self.rank_transformers):
-            clustering = jenks_breaks(nb_class = setting.num_clusters)
+            clustering = JenksNaturalBreaks(nb_class = setting.num_clusters)
             clustering.fit(column)
             self.clusterings.append(clustering)
             self.rank_splits = rank_transformer.transform(np.array(clustering.breaks_)[:, np.newaxis])
