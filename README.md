@@ -10,6 +10,10 @@ Het **Moldel** is een algoritme, bedacht door Haico ([Multifacio](https://github
 - **Social Media Layer**: Kijkt naar social media activiteit. Gelekte foto's, activiteit van kanidaten tijdens de opnameperiode, aanwezigheid van de kandidaat, etc.
 - **Appearance Layer**: Kijkt naar hoe vaak een kandidaat in beeld komt. [Mattijn van Hoek](https://github.com/mattijn/widm) ontdekte een tendens dat de Mol relatief weinig (onderste 20%) in beeld is in de eerste 5 afleveringen.
 
+## 📊 Voorspelling na aflevering 2, seizoen 23 (2022)
+
+![Voorspelling na aflevering 2, seizoen 23 (2022)](https://github.com/LennartJKlein/Moldel/blob/master/results/Season%2023%20(2022)/s23e2.png?raw=true)
+
 ## 🛠 Installeren
 
 Voer de volgende commando's uit om op jouw computer het moldel te laten draaien:
