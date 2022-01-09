@@ -43,16 +43,17 @@ class PieChartPrinter(Printer):
         self.__file_name = file_name
 
     def print(self, distribution: Dict[Player, float]):
-        palette = sns.color_palette(None, len(distribution))
+        palette = sns.color_palette("viridis", len(distribution))
         labels = []
         sizes = []
         colors = []
 
         i = 0
-        for player in sorted(distribution.keys(), key=lambda item: item.value):
-            likelihood = distribution[player]
+        for playerEstimation in sorted(distribution.items(), key=lambda x:x[1]):
+            print (playerEstimation)
+            likelihood = playerEstimation[1]
             if likelihood != 0:
-                labels.append(get_name(player))
+                labels.append(get_name(playerEstimation[0]))
                 sizes.append(likelihood)
                 colors.append(palette[i])
             i += 1
