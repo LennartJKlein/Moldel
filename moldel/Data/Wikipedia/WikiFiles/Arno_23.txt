@@ -1,0 +1,95 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.10/ http://www.mediawiki.org/xml/export-0.10.xsd" version="0.10" xml:lang="nl">
+  <siteinfo>
+    <sitename>Wikipedia</sitename>
+    <dbname>nlwiki</dbname>
+    <base>https://nl.wikipedia.org/wiki/Hoofdpagina</base>
+    <generator>MediaWiki 1.38.0-wmf.16</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Speciaal</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Overleg</namespace>
+      <namespace key="2" case="first-letter">Gebruiker</namespace>
+      <namespace key="3" case="first-letter">Overleg gebruiker</namespace>
+      <namespace key="4" case="first-letter">Wikipedia</namespace>
+      <namespace key="5" case="first-letter">Overleg Wikipedia</namespace>
+      <namespace key="6" case="first-letter">Bestand</namespace>
+      <namespace key="7" case="first-letter">Overleg bestand</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">Overleg MediaWiki</namespace>
+      <namespace key="10" case="first-letter">Sjabloon</namespace>
+      <namespace key="11" case="first-letter">Overleg sjabloon</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Overleg help</namespace>
+      <namespace key="14" case="first-letter">Categorie</namespace>
+      <namespace key="15" case="first-letter">Overleg categorie</namespace>
+      <namespace key="100" case="first-letter">Portaal</namespace>
+      <namespace key="101" case="first-letter">Overleg portaal</namespace>
+      <namespace key="828" case="first-letter">Module</namespace>
+      <namespace key="829" case="first-letter">Overleg module</namespace>
+      <namespace key="2300" case="first-letter">Uitbreiding</namespace>
+      <namespace key="2301" case="first-letter">Overleg uitbreiding</namespace>
+      <namespace key="2302" case="case-sensitive">Uitbreidingsdefinitie</namespace>
+      <namespace key="2303" case="case-sensitive">Overleg uitbreidingsdefinitie</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>Arno Kantelberg</title>
+    <ns>0</ns>
+    <id>2090128</id>
+    <revision>
+      <id>60794423</id>
+      <parentid>60768910</parentid>
+      <timestamp>2022-01-09T01:38:33Z</timestamp>
+      <contributor>
+        <username>Wikiwernerbot</username>
+        <id>1061913</id>
+      </contributor>
+      <minor/>
+      <comment>[[Speciaal:Permalink/60259738|Botverzoeken]]: toevoegen archieflinks en vervangen http:// door https://</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="5573" xml:space="preserve">{{Infobox persoon Wikidata}}
+'''Arno Kantelberg''' ([[Gemert (Gemert-Bakel)|Gemert]], [[1968]]) is een Nederlands [[journalist]]. Hij was jarenlang [[hoofdredacteur]] van tijdschriften als ''[[Esquire (Nederland)|Esquire]]'' en ''[[National Geographic (tijdschrift)|National Geographic]],'' en staat bekend als de Stijlpastoor des Vaderlands.&lt;ref&gt;{{Citeer web|url=https://www.nporadio1.nl/fragmenten/de-taalstaat/7e0fba61-4cec-460b-af11-1084faf6fb4c/2018-07-21-arno-kantelberg|titel=Arno Kantelberg|datum=2018-07-21|werk=NPO1|archiefurl=https://web.archive.org/web/20220102203414/https://www.nporadio1.nl/fragmenten/de-taalstaat/7e0fba61-4cec-460b-af11-1084faf6fb4c/2018-07-21-arno-kantelberg|archiefdatum=2 januari 2022|dodeurl=nee}}&lt;/ref&gt;
+
+== Loopbaan ==
+Kantelberg studeerde in 1991 cum laude af aan de [[Fontys Hogeschool Journalistiek]] in Tilburg. Al tijdens zijn studie ging hij aan de slag als redacteur bij het opinieweekblad ''[[HP/De Tijd]]''. Na zijn afstuderen werkte hij naast zijn werk voor HP/De Tijd als gastdocent Journalistiek bij de Fontys Hogeschool Journalistiek. Achtereenvolgens was hij adjunct-hoofdredacteur van de ''[[VARAgids]]'', ''[[Carp*]]'' en ''[[Nieuwe Revu]]''. In 2003 werd hij hoofdredacteur van ''Man'' en ''[[Esquire (Nederland)|Esquire]]'', toen nog uitgegeven door de [[Telegraaf Tijdschriften Groep]]. Na een [[managementbuy-out]] gaf Kantelberg vanaf 2006 ''Esquire'' in eigen beheer uit. In de jaren daarna publiceerde hij met zijn uitgeverij meerdere tijdschriften, waaronder de oorspronkelijke Britse publicatie ''[[FHM]]''.
+
+In 2011 verkocht Kantelberg de licentie van ''Esquire'' aan Hearst Netherlands, uitgever van onder meer ''[[Quote]]'' en ''[[ELLE]].'' Hij bleef zelf aan als hoofdredacteur. In 2017 werd hij aangesteld als hoofdredacteur van ''[[Men's Health]]''. In 2018 kwam daar het hoofdredacteurschap bij van ''[[National Geographic (tijdschrift)|National Geographic]]'', het maandelijkse tijdschrift dat ook verantwoordelijk is voor de uitgave van [[National Geographic (tijdschrift)|''National Geographic'']] ''Traveller'' en ''National Geographic Historia''.
+
+=== Televisie ===
+Arno Kantelberg is sinds 2018 deskundige bij RTL Boulevard, waar hij wekelijks zijn expertise laat gelden op het terrein van lifestyle en goede smaak. Kantelberg schreef met Henri de By het scenario voor de door Theo van Gogh geregisseerde tv-comedy ''[[De eenzame oorlog van Koos Tak]]'', in 1995 genomineerd voor Gouden Beeld Beste Comedy. Voor de VARA bedacht Kantelberg in 2001 het wekelijkse programma De Gids, met Matthijs van Nieuwkerk als presentator. Voor enkele andere omroepen, waaronder Veronica, presenteerde hij interviewprogramma's. 
+
+Arno Kantelberg neemt deel aan het 22e seizoen van het televisieprogramma ''[[Wie is de Mol?]]''.
+
+=== Column ===
+Kantelberg levert met enige regelmaat bijdragen aan tijdschriften en dagbladen. Vanaf 2012 bespreekt hij wekelijks de stijl van bekende Nederlanders in het ''[[de Volkskrant|Volkskrant Magazine]]''. Door de opvoedkundige toon in zijn columns wordt hij ook wel 'de stijlpastoor des Nederlands' genoemd.&lt;ref&gt;{{Citeer web|werk=Het Parool|url=https://www.parool.nl/nieuws/arno-kantelberg-ik-loop-echt-niet-de-hele-dag-de-stijljihadist-uit-te-hangen~bc3fa418/|titel=Arno Kantelberg: 'Ik loop echt niet de hele dag de stijljihadist uit te hangen'|datum=2017-11-18|auteur=Roelf Jan Duin|archiefurl=https://web.archive.org/web/20210709185807/https://www.parool.nl/nieuws/arno-kantelberg-ik-loop-echt-niet-de-hele-dag-de-stijljihadist-uit-te-hangen~bc3fa418/|archiefdatum=9 juli 2021|dodeurl=nee}}&lt;/ref&gt; Hij is vanaf de oprichting in 2015 als vaste columnist verbonden aan het voetbalblad ''[[Santos (tijdschrift)|Santos]]''.
+
+=== Radio ===
+Vanaf 2013 is Arno Kantelberg vaste gast van het Mediaforum op Radio 1. Om de twee weken geeft hij in het programma Spraakmakers op Radio 1 commentaar op het nieuws en de ontwikkelingen in de media. In het voorjaar van 2018 viel hij in voor presentator Peter de Bie bij het Radio 1-programma Nieuwsweekend.
+
+=== Prijzen ===
+Kantelberg werd in 2008 door het [[Nederlands Uitgevers Verbond]] uitgeroepen tot Hoofdredacteur van het Jaar. In 2007 was hij reeds genomineerd voor die prijs.
+
+=== Boeken ===
+Kantelberg schreef meerdere boeken. Zijn boek Man op z'n Best uit 2016 wordt gezien als de stijlbijbel op het terrein van de mannenmode.
+
+== Bibliografie ==
+* ''Voetbaltaal – Van aanspeelpunt tot zwabberbal'' (1997, Uitgeverij Prometheus)
+* ''Vloekenboek – Een verzameling hedendaagse verwensingen'' (1998, Uitgeverij Prometheus)
+* ''Telefoonboek – De mens en zijn mobiele telefoon'' (1999, Uitgeverij Bert Bakker)
+* Met het bord op schoot – Een halve eeuw televisieherinneringen (2001, Uitgeverij Prometheus)
+* Voetbaltaal – Speciale herziene EK-editie (2008, Uitgeverij Prometheus)
+* Smaak – Ongevraagd stijladvies aan bekende mensen (waar u ook wat aan heeft) (2013, Uitgeverij Bertram + De Leeuw)
+* Het wonder van Eindhoven – Reizen door de geschiedenis van de lichtstad (2013, Uitgeverij Podium)
+* Man op z'n best - kledingadvies van sneaker tot maatpak (2016, Uitgeverij Podium)
+* De stijl van de schrijver – Schrijvers &amp; hun kleding (2018, Uitgeverij Podium)
+
+== Persoonlijk ==
+Arno Kantelberg was jarenlang jeugdtrainer bij de basketbalverenigingen Mosquitos en Harlem Lakers in Amsterdam. Met enkele jeugdselecties werd hij kampioen van Nederland. Kantelberg is getrouwd. Hij heeft drie kinderen.
+
+{{Appendix}}
+{{Bibliografische informatie}}
+{{DEFAULTSORT:Kantelberg, Arno}}
+[[Categorie:Nederlands journalist]]
