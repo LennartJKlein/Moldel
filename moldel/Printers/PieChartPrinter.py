@@ -33,13 +33,15 @@ class PieChartPrinter(Printer):
     # The relative length of the line with respect to the radius of the circle
     __THRESHOLD_LINE_LENGTH = 0.3
 
-    def __init__(self, file_name: Union[str, None] = None):
+    def __init__(self, season, latest_episode, file_name: Union[str, None] = None):
         """ Constructor of the Pie Chart Printer.
 
         Parameters:
             file_name (Union[str, None]): If set then instead of showing a Pie Chart, it will save a Pie Chart as this
                 given file name.
         """
+        self.__season = season
+        self.__latest_episode = latest_episode
         self.__file_name = file_name
 
     def print(self, distribution: Dict[Player, float]):
@@ -50,7 +52,6 @@ class PieChartPrinter(Printer):
 
         i = 0
         for playerEstimation in sorted(distribution.items(), key=lambda x:x[1]):
-            print (playerEstimation)
             likelihood = playerEstimation[1]
             if likelihood != 0:
                 labels.append(get_name(playerEstimation[0]))
@@ -85,6 +86,7 @@ class PieChartPrinter(Printer):
                 plt.annotate(name.get_text(), xy=(x, y), xytext=(x_text, y_text), horizontalalignment =
                     horizontalalignment, **kw)
 
+        plt.title(f"Overeenkomst met een Mol (na aflevering {self.__latest_episode}, seizoen {self.__season})")
         if self.__file_name is None:
             plt.show()
         else:
