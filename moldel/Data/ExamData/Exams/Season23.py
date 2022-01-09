@@ -102,7 +102,7 @@ questions2 = {
     })
 }
 input2 = {
-    Player.WELMOED_23: TestInput(3: 9}),
+    Player.WELMOED_23: TestInput({3: 9}),
     Player.FRESIA_23: TestInput({11: 4}),
     Player.GLEN_23: TestInput({17: 1}),
     Player.WELMOED_23: TestInput(jokers = 1)
