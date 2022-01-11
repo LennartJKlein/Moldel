@@ -36,8 +36,8 @@ def evaluate(likelihoods1: np.array, likelihoods2: np.array):
                                                            alternative = "greater"))))
 
 RANDOM_SEED = 949019755
-VALIDATE_SEASONS = {9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21}
-TRAIN_SEASONS = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21}
+VALIDATE_SEASONS = {9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22}
+TRAIN_SEASONS = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22}
 EPISODE_GROUPS = 9
 POTENTIAL_MOL_GROUPS = [10, 9, 8, 7, 6, 5, 4, 3, 2]
 
