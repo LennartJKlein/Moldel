@@ -10,7 +10,7 @@ if len(sys.argv) > 1:
     if not sys.argv[1].isdigit() \
     or not sys.argv[2].isdigit() \
     or not int(sys.argv[1]) > 0 \
-    or not int(sys.argv[2]) > 0:
+    or not int(sys.argv[2]) >= 0:
         print("Usage: python moldel [SEASON] [LATEST EPISODE] [--file]")
         exit()
     else:
