@@ -11,7 +11,7 @@ exercises1 = [
     Exercise(episode = 1, alive = players1, maximum = 1500, earned = []),
     # Opdracht 2: Avondklok
     Exercise(episode = 1, alive = players1, maximum = 1500, earned = [
-        Earning(money = 1500, major = {Player.FRESIA_23, Player.GLEN_23, Player.THOMAS_23}, minor = {Player.ARNO_23, Player.EVERON_23, Player.HILA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.SUZANNE_23, Player.WELMOED_23}),
+        Earning(money = 1500, major = {Player.FRESIA_23, Player.GLEN_23, Player.THOMAS_23, Player.ARNO_23, Player.EVERON_23, Player.HILA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.SUZANNE_23, Player.WELMOED_23}),
     ]),
     # Opdracht 3: Ontmaskerd?
     Exercise(episode = 1, alive = players1, maximum = 5000, earned = [
@@ -31,9 +31,16 @@ exercises2 = [
     ]),
     # Opdracht 2: Prikactie (goud en laatste = 150, groen = 10, rood = -10)
     Exercise(episode = 2, alive = players1, maximum = 3000, earned = [
-        Earning(money = 290, major = players2),
-        Earning(money = 600, major = {Player.ARNO_23, Player.EVERON_23}),
-        Earning(money = -90, major = {Player.THOMAS_23})
+        Earning(money = 300, major = {Player.ARNO_23}),
+        Earning(money = 320, major = {Player.EVERON_23}),
+        Earning(money = -10, major = {Player.FRESIA_23}),
+        Earning(money = -30, major = {Player.GLEN_23}),
+        Earning(money = 10, major = {Player.HILA_23}),
+        Earning(money = 50, major = {Player.KIM_LIAN_23}),
+        Earning(money = 0, major = {Player.LAETITIA_23}),
+        Earning(money = 10, major = {Player.SAHIL_23}),
+        Earning(money = -110, major = {Player.THOMAS_23}),
+        Earning(money = 10, major = {Player.WELMOED_23}),
     ]),
     # Opdracht 3: Ver gelijken
     Exercise(episode = 2, alive = players1, maximum = 1800, earned = [
