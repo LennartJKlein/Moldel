@@ -24,10 +24,12 @@ class TestInput:
         immunity (bool): Whether the player used/had a 'Vrijstelling' for the test. If this value is equal to true
             then the player used/had a 'Vrijstelling' for the test, false otherwise.
         jokers (int): How many jokers the player used on the test.
+        accusations (List[Player]): A list of players that were accused by this player
     """
     answers: Dict[int, Union[int, DelayedAnswer]] = None
     immunity: bool = False
     jokers: int = 0
+    accusations: List[Player] = None
 
     def __post_init__(self):
         if self.answers is None:
