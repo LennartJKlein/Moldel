@@ -1,5 +1,5 @@
 from Data.Player import Player
-from Layers.Appearance.ParserConfiguration import ALIVE_PLAYERS, FACE_IMAGE_LOCATIONS, EPISODE_VIDEO_LOCATION, \
+from Layers.Appearance.VideoParserSettings import ALIVE_PLAYERS, FACE_IMAGE_LOCATIONS, EPISODE_VIDEO_LOCATION, \
     FRAME_SKIP, SAVE_FOLDER, SEASON_NUMBER, EPISODE_NUMBER
 from typing import Dict, Set, List, NamedTuple, Union
 import cv2
@@ -8,15 +8,19 @@ import os
 import pickle
 import rootpath
 
-ParsedVideo = NamedTuple("ParsedVideo", [("player_occurrences", Dict[Player, Union[List[int], Set[int]]]),
-                                         ("alive_players", Set[Player]), ("frame_skip", int)])
+ParsedVideo = NamedTuple("ParsedVideo", [
+    ("player_occurrences",
+    Dict[Player, Union[List[int], Set[int]]]),
+    ("alive_players", Set[Player]),
+    ("frame_skip", int)
+])
 class VideoParser:
     """ The Video Parser parses when the face of a candidate is visible during an episode based on the given video
     by the Parser Configuration file. This code is based on the project of mattijn: https://github.com/mattijn/widm
     and uses the https://github.com/ageitgey/face_recognition and https://github.com/skvark/opencv-python projects.
     Update the Parser Configuration file manually before running this code. """
 
-    # Setting the tolerance higher means that faces get detected more earlier
+    # Setting the tolerance higher means that faces get detected sooner
     TOLERANCE = 0.50
 
     # Every this number of frames progress will be shown of the Video Parser
@@ -119,7 +123,6 @@ class VideoParser:
                 player_occurrence = VideoParser.__get_player_occurrence_in_frame(frame, all_players, face_encodings)
                 for player in player_occurrence:
                     occurrences[player] = occurrences[player].union({frame_index})
-
         return occurrences
 
     @staticmethod

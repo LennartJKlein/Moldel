@@ -2,9 +2,9 @@
 
 Een algoritme om de Mol te voorspellen.
 
-## 🔦 Huidige voorspelling (s23e2, 2022)
+## 🔦 Huidige voorspelling (s23e4, 2022)
 
-![Voorspelling na aflevering 2, seizoen 23 (2022)](https://github.com/LennartJKlein/Moldel/blob/master/results/Season%2023%20(2022)/s23e2.png?raw=true)
+![Voorspelling na aflevering 4, seizoen 23 (2022)](https://github.com/LennartJKlein/Moldel/blob/master/results/Season%2023%20(2022)/s23e4.png?raw=true)
 
 ## 📺 Over Wie is de Mol
 
@@ -71,6 +71,27 @@ Nu is het zo ver; laat het algoritme op basis van de 5 tactieken een kansbereken
 `python moldel [SEASON] [LATEST EPISODE] [--file]`
 
 _De optie `--file` is optioneel en zorgt ervoor dat de uitkomst als bestand wordt opgeslagen, ipv als popup geopend._
+
+## 📝 Nieuwe data invoeren
+
+### Exam Drop Layer
+
+### Exam Pass Layer
+
+### Wikipedia Layer
+
+### Social Media Layer
+
+### Appearance Layer
+
+In het Moldel wordt **elke** aflevering geanalyseerd hoe vaak iemand in beeld komt. Je moet voor elke nieuwe aflevering de volgende stappen volgen:
+
+1. Zorg dat voor elke kandidaat van het seizoen een portretfoto in de map `Data/AppearanceData/Faces` staat
+2. Voeg de aflevering die geanalyseerd moet worden toe in de map `Data/AppearanceData`
+3. Pas de instellingen in het bestand `Layers/Appearance/VideoParserSettings.py` aan, zodat ze kloppen voor jouw seizoen en aflevering.
+4. Laat de aflevering automatisch analyseren vanuit de map 'moldel' met het commando: `python -m Layers.Appearance.VideoParser`
+
+De data van deze aflevering is nu automatisch opgeslagen in het Moldel en wordt gebruikt om de Mol te ontmaskeren!
 
 ## 📚 Verdiepende uitleg van Multifacio
 

@@ -4,7 +4,7 @@ from Layers.Appearance.VideoParser import VideoParser, ParsedVideo
 from scipy.stats import pearsonr, kendalltau
 import itertools
 
-TEST_SEASONS = {13, 14, 15, 16, 17, 18, 19, 20, 21}
+TEST_SEASONS = {13, 14, 15, 16, 17, 18, 19, 20, 21, 22}
 
 input = []
 output = []
