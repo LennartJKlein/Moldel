@@ -74,6 +74,33 @@ exercises3 = [
     ])
 ]
 
+################
+# Aflevering 4
+players4 = {Player.ARNO_23, Player.EVERON_23, Player.FRESIA_23, Player.HILA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23}
+exercises4 = [
+    # Opdracht 1: Luid sprekers
+    Exercise(episode = 4, alive = players4, maximum = 2000, earned = [
+        Earning(money = 150, major = {Player.KIM_LIAN_23}, minor = {Player.SAHIL_23})
+    ]),
+    # Opdracht 2: Hoog spel spelen
+    Exercise(episode = 4, alive = players4, maximum = 2000, earned = [
+        Earning(money = 250, major = {Player.KIM_LIAN_23}, minor = {Player.HILA_23}),
+        Earning(money = 250, major = {Player.THOMAS_23}, minor = {Player.LAETITIA_23}),
+        Earning(money = 250, major = {Player.HILA_23}),
+        Earning(money = -250, major = {Player.KIM_LIAN_23})
+    ]),
+    # Opdracht 3: --
+    Exercise(episode = 4, alive = players4, maximum = 2000, earned = [
+        Earning(money = 100, major = {Player.KIM_LIAN_23}, minor = {Player.LAETITIA_23}),
+        Earning(money = 100, major = {Player.LAETITIA_23}),
+        Earning(money = 100, major = {Player.KIM_LIAN_23}),
+        Earning(money = 100, major = {Player.FRESIA_23}),
+        Earning(money = 400, major = {Player.EVERON_23}),
+        Earning(money = 200, major = {Player.HILA_23}),
+        Earning(money = 100, major = {Player.THOMAS_23})
+    ])
+]
+
 season23 = Season(
-    exercises1 + exercises2 + exercises3
+    exercises1 + exercises2 + exercises3 + exercises4
 )

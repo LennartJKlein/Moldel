@@ -139,9 +139,9 @@ questions3 = {
     # Is de Mol in het water geweest tijdens de opdracht 'Net of net niet'?
     5: Question({
         # Ja
-        1: [],
+        1: [Player.ARNO_23, Player.FRESIA_23, Player.HILA_23, Player.KIM_LIAN_23, Player.SAHIL_23, Player.THOMAS_23, Player.WELMOED_23],
         # Nee
-        2: []
+        2: [Player.EVERON_23, Player.LAETITIA_23]
     }),
     # Werd de Mol afgeschoten tijdens de opdracht 'Waar rook is, is vuur'?
     11: Question({
@@ -215,12 +215,155 @@ result3 = Result(DropType.EXECUTION_DROP, [Player.WELMOED_23])
 episode3 = Episode(players3, result3, input3, questions3)
 
 ################
+# Aflevering 4
+players4 = [Player.ARNO_23, Player.EVERON_23, Player.FRESIA_23, Player.HILA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23]
+questions4 = {
+    # De Mol is een...
+    1: Question({
+        # Man
+        1: [Player.ARNO_23, Player.EVERON_23, Player.SAHIL_23, Player.THOMAS_23],
+        # Vrouw
+        2: [Player.FRESIA_23, Player.HILA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SUZANNE_23]
+    }),
+    # Met wie vormde de Mol een duo tijdens de opdracht 'Luid sprekers'?
+    4: Question({
+        # Arno
+        1: [Player.ARNO_23],
+        # Everon
+        2: [Player.EVERON_23],
+        # Fresia
+        3: [Player.FRESIA_23],
+        # Hila
+        4: [Player.HILA_23],
+        # Kim-Lian
+        5: [Player.KIM_LIAN_23],
+        # Laetitia
+        6: [Player.LAETITIA_23],
+        # Sahil
+        7: [Player.SAHIL_23],
+        # Thomas
+        8: [Player.THOMAS_23]
+    }),
+    # Wat deed de Mol in het kistje 'ondersteboven' tijdens de opdracht 'Hoog spel spelen'?
+    11: Question({
+        # Twee jokers
+        1: [Player.ARNO_23, Player.EVERON_23, Player.FRESIA_23, Player.LAETITIA_23],
+        # 250 euro
+        2: [Player.HILA_23, Player.KIM_LIAN_23, Player.THOMAS_23],
+        # Niets
+        3: [Player.SAHIL_23]
+    }),
+    # Wie is de Mol?
+    20: Question({
+        # Arno
+        1: [Player.ARNO_23],
+        # Everon
+        2: [Player.EVERON_23],
+        # Fresia
+        3: [Player.FRESIA_23],
+        # Hila
+        4: [Player.HILA_23],
+        # Kim-Lian
+        5: [Player.KIM_LIAN_23],
+        # Laetitia
+        6: [Player.LAETITIA_23],
+        # Sahil
+        7: [Player.SAHIL_23],
+        # Thomas
+        8: [Player.THOMAS_23]
+    })
+}
+input4 = {
+    Player.ARNO_23: TestInput(
+        {11: 1}
+    ),
+    Player.EVERON_23: TestInput(
+        jokers = 1,
+        accusations = [Player.KIM_LIAN_23, Player.THOMAS_23]
+    ),
+    Player.HILA_23: TestInput(
+        accusations = [Player.FRESIA_23, Player.SAHIL_23]
+    ),
+    Player.KIM_LIAN_23: TestInput(
+        accusations = [Player.EVERON_23, Player.SAHIL_23]
+    ),
+    Player.LAETITIA_23: TestInput(
+        {1: 1}
+    ),
+    Player.FRESIA_23: TestInput(
+        {4: 3},
+        jokers = 1
+    ),
+    Player.SAHIL_23: TestInput(
+        {20: 8},
+        accusations = [Player.ARNO_23, Player.KIM_LIAN_23, Player.THOMAS_23]
+    ),
+    Player.THOMAS_23: TestInput(
+        jokers = 2,
+        accusations = [Player.ARNO_23, Player.KIM_LIAN_23, Player.SAHIL_23]
+    ),
+}
+result4 = Result(DropType.EXECUTION_DROP, [Player.ARNO_23])
+episode4 = Episode(players4, result4, input4, questions4)
+
+################
+# Aflevering 5
+players5 = [Player.EVERON_23, Player.FRESIA_23, Player.HILA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23]
+# questions5 = {
+# }
+# input5 = {
+# }
+# result5 = Result(DropType.EXECUTION_DROP, )
+# episode5 = Episode(players5, result5, input5, questions5)
+
+################
+# Aflevering 6
+players6 = [Player.EVERON_23, Player.FRESIA_23, Player.HILA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23]
+# questions6 = {
+# }
+# input6 = {
+# }
+# result6 = Result(DropType.EXECUTION_DROP, )
+# episode6 = Episode(players6, result6, input6, questions6)
+
+################
+# Aflevering 7
+players7 = [Player.EVERON_23, Player.FRESIA_23, Player.HILA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23]
+# questions7 = {
+# }
+# input7 = {
+# }
+# result7 = Result(DropType.EXECUTION_DROP, )
+# episode7 = Episode(players7, result7, input7, questions7)
+
+################
+# Aflevering 8
+players8 = [Player.EVERON_23, Player.FRESIA_23, Player.HILA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23]
+# questions8 = {
+# }
+# input8 = {
+# }
+# result8 = Result(DropType.EXECUTION_DROP, )
+# episode8 = Episode(players8, result8, input8, questions8)
+
+################
+# Aflevering 9
+players9 = [Player.EVERON_23, Player.FRESIA_23, Player.HILA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23]
+# questions9 = {
+# }
+# input9 = {
+# }
+# result9 = Result(DropType.EXECUTION_DROP, )
+# episode9 = Episode(players9, result9, input9, questions9)
+
+################
 # Summary
 season23 = Season(
     players1,
     {
         1: episode1,
         2: episode2,
-        3: episode3
+        3: episode3,
+        4: episode4
     }
 )
