@@ -14,12 +14,12 @@ Een algoritme om de Mol te voorspellen.
 
 Het **Moldel** is een algoritme, bedacht door Haico ([Multifacio](https://github.com/Multifacio)) dat voor elke kandidaat de waarschijnlijkheid berekent dat deze de 'Mol' is. Deze score komt tot stand door de voorspellingen van de volgende 'layers' te combineren:
 
-- **Exam Drop Layer**: Kijkt naar onderlinge verdenkingen via de antwoorden op de test.
-- **Exam Accusations Layer**: Kijkt naar onderlinge verdenkingen door gesproken beschuldigingen tijdens de test.
+- **Exam Drop Layer**: Kijkt naar onderlinge verdenkingen middels de antwoorden op de test.
+- **Exam Accusations Layer**: Kijkt naar onderlinge verdenkingen middels de gesproken beschuldigingen tijdens de test.
 - **Exam Pass Layer**: Kijkt wie hoeveel jokers bij de test heeft ingezet.
 - **Wikipedia Layer**: Kijkt naar wikipediapagina's van de kandidaten. Kijkt naar beroepen, aantal woorden, etc.
-- **Social Media Layer**: Kijkt naar social media activiteit. Gelekte foto's, activiteit van kanidaten tijdens de opnameperiode, aanwezigheid van de kandidaat, etc.
-- **Appearance Layer**: Kijkt naar hoe vaak een kandidaat in beeld komt. [Mattijn van Hoek](https://github.com/mattijn/widm) ontdekte een tendens dat de Mol relatief weinig (onderste 20%) in beeld is in de eerste 5 afleveringen.
+- **Social Media Layer**: Kijkt naar social media activiteit. Gelekte foto's, activiteit van kandidaten tijdens de opnameperiode, aanwezigheid van de kandidaat, etc.
+- **Appearance Layer**: Kijkt naar hoe vaak een kandidaat in beeld komt. [Mattijn van Hoek](https://github.com/mattijn/widm) ontdekte een tendens dat de Mol relatief weinig in beeld is in de eerste 5 afleveringen.
 
 ## 🛠 Installeren
 
