@@ -73,15 +73,13 @@ Nu is het zo ver; laat het algoritme op basis van de 5 tactieken een kansbereken
 
 _De optie `--file` is optioneel en zorgt ervoor dat de uitkomst als bestand wordt opgeslagen, ipv als popup geopend._
 
-## 📝 Nieuwe data invoeren
+## 📝 Nieuwe data invoeren tijdens het seizoen
 
 ### Exam Drop Layer
 
 ### Exam Pass Layer
 
 ### Exam Accusations Layer
-
-`python moldel/Validate.py`
 
 ### Wikipedia Layer
 
@@ -97,6 +95,10 @@ In het Moldel wordt **elke** aflevering geanalyseerd hoe vaak iemand in beeld ko
 4. Laat de aflevering automatisch analyseren vanuit de map 'moldel' met het commando: `python -m Layers.Appearance.VideoParser`
 
 De data van deze aflevering is nu automatisch opgeslagen in het Moldel en wordt gebruikt om de Mol te ontmaskeren!
+
+## 📝 Nieuwe trainingsdata opslaan in geheugen
+
+`python moldel/Validate.py`
 
 ## 📚 Verdiepende uitleg van Multifacio
 
