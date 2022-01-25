@@ -40,7 +40,7 @@ class InnerExamPassLayer(Layer):
         """ Train the estimator, which estimates the probability that someone drops off, based on the jokers used.
 
         Arguments:
-            train_seasons (Set[int]):  All seasons used as training data.
+            train_seasons (Set[int]): All seasons used as training data.
 
         Returns:
             The estimator used to estimate the likelihood that someone drops out based on the joker usage.

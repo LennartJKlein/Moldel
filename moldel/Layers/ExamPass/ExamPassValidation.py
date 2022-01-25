@@ -51,11 +51,8 @@ for season_id in TRAIN_SEASONS:
 
         probability_sum = sum(prob for prob in drop_probabilities.values())
         drop_probabilities = {player: prob / probability_sum for player, prob in drop_probabilities.items()}
-        print(drop_probabilities)
-        for player in episode.result.players:
-            print(player)
-            print(drop_probabilities[player])
-        print("Mol Probability: ")
-        print(drop_probabilities[get_mol_in_season(season_id)])
-        print("Uniform Probability: ")
-        print(1 / len(drop_probabilities))
+        # print(drop_probabilities)
+        # for player in episode.result.players:
+            # print(player)
+            # print(drop_probabilities[player])
+        print("Probability comparison s" + str(season_id) + "e" + str(episode.id) + ": " + str(round(drop_probabilities[get_mol_in_season(season_id)], 2)), str(round(1 / len(drop_probabilities), 2)))

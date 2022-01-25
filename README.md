@@ -14,7 +14,8 @@ Een algoritme om de Mol te voorspellen.
 
 Het **Moldel** is een algoritme, bedacht door Haico ([Multifacio](https://github.com/Multifacio)) dat voor elke kandidaat de waarschijnlijkheid berekent dat deze de 'Mol' is. Deze score komt tot stand door de voorspellingen van de volgende 'layers' te combineren:
 
-- **Exam Drop Layer**: Kijkt naar antwoorden op de test en wie er afvalt.
+- **Exam Drop Layer**: Kijkt naar onderlinge verdenkingen via de antwoorden op de test.
+- **Exam Accusations Layer**: Kijkt naar onderlinge verdenkingen door gesproken beschuldigingen tijdens de test.
 - **Exam Pass Layer**: Kijkt wie hoeveel jokers bij de test heeft ingezet.
 - **Wikipedia Layer**: Kijkt naar wikipediapagina's van de kandidaten. Kijkt naar beroepen, aantal woorden, etc.
 - **Social Media Layer**: Kijkt naar social media activiteit. Gelekte foto's, activiteit van kanidaten tijdens de opnameperiode, aanwezigheid van de kandidaat, etc.
@@ -77,6 +78,10 @@ _De optie `--file` is optioneel en zorgt ervoor dat de uitkomst als bestand word
 ### Exam Drop Layer
 
 ### Exam Pass Layer
+
+### Exam Accusations Layer
+
+`python moldel/Validate.py`
 
 ### Wikipedia Layer
 

@@ -107,6 +107,18 @@ class Episode:
             joker_usage[player] = test_input.joker_usage(exemption_value)
         return joker_usage
 
+    def total_accusations(self) -> Dict[Player, List[Player]]:
+        """ Collect the total of spoken accusations made by all players in this episode.
+
+        Returns:
+            The spoken accusations of all players.
+        """
+        all_accusations = dict()
+        for player, test_input in self.input.items():
+            if test_input.accusations is not None:
+                all_accusations[player] = test_input.accusations
+        return all_accusations
+
     def same_pick_probabilities(self, picked_answer: Set[Player], max_episode: int) -> Dict[Player, float]:
         """ Get the probability for each player that it selects one of the players in the given answer. If the player
         did not fill in a question on another player then it is assumed that the player uniform randomly selects another
