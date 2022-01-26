@@ -21,14 +21,14 @@ TRAIN_SEASONS = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 
 
 distributions = dict()
 random_generator = RandomState(RANDOM_SEED)
-moldel = PotentialMolLayer()
+layerToTrain = ExamAccusationsLayer(random_generator)
 
 total_tasks = sum([get_last_episode(season) + 1 for season in VALIDATE_SEASONS])
 progress_bar = Bar("Distributions Computed:", max = total_tasks)
 for season in VALIDATE_SEASONS:
     train_seasons = TRAIN_SEASONS.difference({season})
     for episode in range(get_last_episode(season) + 1):
-        distributions[(season, episode)] = moldel.compute_distribution(season, episode, train_seasons)
+        distributions[(season, episode)] = layerToTrain.compute_distribution(season, episode, train_seasons)
         progress_bar.next()
 progress_bar.finish()
 

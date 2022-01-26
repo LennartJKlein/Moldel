@@ -15,7 +15,7 @@ Een algoritme om de Mol te voorspellen.
 Het **Moldel** is een algoritme, bedacht door Haico ([Multifacio](https://github.com/Multifacio)) dat voor elke kandidaat de waarschijnlijkheid berekent dat deze de 'Mol' is. Deze score komt tot stand door de voorspellingen van de volgende 'layers' te combineren:
 
 - **Exam Drop Layer**: Kijkt naar onderlinge verdenkingen middels de antwoorden op de test.
-- **Exam Accusations Layer**: Kijkt naar onderlinge verdenkingen middels de gesproken beschuldigingen tijdens de test.
+- **Exam Accusations Layer**: Kijkt naar de gesproken beschuldigingen tijdens het invullen van de test.
 - **Exam Pass Layer**: Kijkt wie hoeveel jokers bij de test heeft ingezet.
 - **Wikipedia Layer**: Kijkt naar wikipediapagina's van de kandidaten. Kijkt naar beroepen, aantal woorden, etc.
 - **Social Media Layer**: Kijkt naar social media activiteit. Gelekte foto's, activiteit van kandidaten tijdens de opnameperiode, aanwezigheid van de kandidaat, etc.
@@ -73,13 +73,15 @@ Nu is het zo ver; laat het algoritme op basis van de 5 tactieken een kansbereken
 
 _De optie `--file` is optioneel en zorgt ervoor dat de uitkomst als bestand wordt opgeslagen, ipv als popup geopend._
 
-## 📝 Nieuwe data invoeren tijdens het seizoen
+## 📝 Nieuwe data invoeren
 
 ### Exam Drop Layer
 
 ### Exam Pass Layer
 
 ### Exam Accusations Layer
+
+Alleen gesproken beschuldigingen opschrijven.
 
 ### Wikipedia Layer
 
@@ -94,11 +96,15 @@ In het Moldel wordt **elke** aflevering geanalyseerd hoe vaak iemand in beeld ko
 3. Pas de instellingen in het bestand `Layers/Appearance/VideoParserSettings.py` aan, zodat ze kloppen voor jouw seizoen en aflevering.
 4. Laat de aflevering automatisch analyseren vanuit de map 'moldel' met het commando: `python -m Layers.Appearance.VideoParser`
 
-De data van deze aflevering is nu automatisch opgeslagen in het Moldel en wordt gebruikt om de Mol te ontmaskeren!
+Hoe veel een kandidaat in beeld komt tijdens deze aflevering, is nu opgeslagen in het Moldel.
 
-## 📝 Nieuwe trainingsdata opslaan in geheugen
+## 📝 Trainen van het geheugen van het Moldel
 
-`python moldel/Validate.py`
+Het Moldel kun je trainen, zodat z'n geheugen groter wordt. Doe dit elke keer dat een seizoen is afgelopen en de Mol bekend is, om dat seizoen aan zijn geheugen toe te voegen.
+
+1. Pas de instellingen in het bestand `Validate.py` aan, zodat alle afgeronde seizoenen zijn opgenomen.
+2. Pas de instellingen in het bestand `Moldel.py` aan, zodat alle afgeronde seizoenen zijn opgenomen.
+3. Voer uit: `python moldel/Validate.py`
 
 ## 📚 Verdiepende uitleg van Multifacio
 
