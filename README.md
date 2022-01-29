@@ -2,9 +2,9 @@
 
 Een algoritme om de Mol te voorspellen.
 
-## 🔦 Huidige voorspelling (s23e4, 2022)
+## 🔦 Huidige voorspelling (s23e5, 2022)
 
-![Voorspelling na aflevering 4, seizoen 23 (2022)](https://github.com/LennartJKlein/Moldel/blob/master/results/Season%2023%20(2022)/s23e4.png?raw=true)
+![Voorspelling na aflevering 5, seizoen 23 (2022)](https://github.com/LennartJKlein/Moldel/blob/master/results/Season%2023%20(2022)/s23e4.png?raw=true)
 
 ## 📺 Over Wie is de Mol
 
@@ -14,12 +14,13 @@ Een algoritme om de Mol te voorspellen.
 
 Het **Moldel** is een algoritme, bedacht door Haico ([Multifacio](https://github.com/Multifacio)) dat voor elke kandidaat de waarschijnlijkheid berekent dat deze de 'Mol' is. Deze score komt tot stand door de voorspellingen van de volgende 'layers' te combineren:
 
-- **Exam Drop Layer**: Kijkt naar onderlinge verdenkingen middels de antwoorden op de test.
-- **Exam Accusations Layer**: Kijkt naar de gesproken beschuldigingen tijdens het invullen van de test.
-- **Exam Pass Layer**: Kijkt wie hoeveel jokers bij de test heeft ingezet.
-- **Wikipedia Layer**: Kijkt naar wikipediapagina's van de kandidaten. Kijkt naar beroepen, aantal woorden, etc.
-- **Social Media Layer**: Kijkt naar social media activiteit. Gelekte foto's, activiteit van kandidaten tijdens de opnameperiode, aanwezigheid van de kandidaat, etc.
-- **Appearance Layer**: Kijkt naar hoe vaak een kandidaat in beeld komt. [Mattijn van Hoek](https://github.com/mattijn/widm) ontdekte een tendens dat de Mol relatief weinig in beeld is in de eerste 5 afleveringen.
+- **Exam Drop Layer**: Kijkt voor elke kandidaat of de afvaller van de aflevering antwoorden op hem/haar had ingevuld tijdens de test.
+- **Exam Accusations Layer**: Kijkt naar gesproken beschuldigingen tijdens de test. Voor elke kandidaat wordt gekeken hoe vaak hij/zij wordt verdacht, of hij/zij door de afvaller wordt verdacht en of hij/zij de afvaller verdacht.
+- **Exam Pass Layer**: Kijkt voor elke kandidaat hoeveel jokers hij/zij heeft ingezet bij de test.
+- **Money Layer**: Kijkt voor elke kandidaat welke invloed hij/zij had op het bedrag in de pot.
+- **Wikipedia Layer**: Kijkt voor elke kandidaat naar diens beroep en de grootte van diens wikipedia-pagina.
+- **Social Media Layer**: Kijkt naar social media activiteit. Gelekte foto's, activiteit van kandidaten tijdens de opnameperiode, afwezigheid van de kandidaat, etc.
+- **Appearance Layer**: Kijkt naar hoe veel een kandidaat in beeld komt. ©[Mattijn van Hoek](https://github.com/mattijn/widm)
 
 ## 🛠 Installeren
 
@@ -69,7 +70,7 @@ pip install face-recognition
 
 Nu is het zo ver; laat het algoritme op basis van de 5 tactieken een kansberekening maken wie de Mol is! Ga naar de hoofdmap van het project en voer het commando uit:
 
-`python moldel [SEASON] [LATEST EPISODE] [--file]`
+`python moldel predict [SEASON] [LATEST EPISODE] [--file]`
 
 _De optie `--file` is optioneel en zorgt ervoor dat de uitkomst als bestand wordt opgeslagen, ipv als popup geopend._
 
@@ -103,8 +104,9 @@ Hoe veel een kandidaat in beeld komt tijdens deze aflevering, is nu opgeslagen i
 Het Moldel kun je trainen, zodat z'n geheugen groter wordt. Doe dit elke keer dat een seizoen is afgelopen en de Mol bekend is, om dat seizoen aan zijn geheugen toe te voegen.
 
 1. Pas de instellingen in het bestand `Validate.py` aan, zodat alle afgeronde seizoenen zijn opgenomen.
-2. Pas de instellingen in het bestand `Moldel.py` aan, zodat alle afgeronde seizoenen zijn opgenomen.
-3. Voer uit: `python moldel/Validate.py`
+2. Voer uit: `python moldel/Validate.py`
+
+`python moldel train [LAYER] [SEASONS]`
 
 ## 📚 Verdiepende uitleg van Multifacio
 

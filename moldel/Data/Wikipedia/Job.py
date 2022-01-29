@@ -12,7 +12,7 @@ class Job(Enum):
     RADIO_PRODUCER = {"3fm", "avro", "bnn", "kro", "ncrv", "omroep", "produce", "programma", "radio", "schreef", "schrijf", "tekstschrijver", "vara", "veronica", "zender"}
     SCHRIJVER = {"blad", "boek", "column", "isbn", "krant", "schreef", "schrijf", "schrijver", "strip", "uitgever"}
     SONGWRITER = {"album", "artiest", "cd", "discografie", "hitnotering", "lied", "music", "muziek", "nummer", "schreef", "schrijf", "single", "song", "songwriter", "tmf", "top"}
-    # SPORTER = {"kampioen", "olympisch", "speel", "spel", "sport", "voetbal", "wk", "zwem"}
+    SPORTER = {"kampioen", "olympisch", "speel", "spel", "sport", "voetbal", "bal", "sporter", "wk", "zwem"}
     STEM_ACTEUR = {"animatie", "bijrol", "fabeltjeskrant", "film", "gastrol", "hoofdrol", "imdb", "movie", "nickelodeon", "personage", "programma", "radio", "reclame", "rol", "rollen", "serie", "stem", "stemacteur", "stemactrice", "televisie", "vertolk", "voice"}
     TONEEL_ACTEUR = {"acteer", "acteur", "actrice", "bijrol", "fabeltjeskrant", "gastrol", "hoofdrol", "musical", "personage", "rol", "rollen", "speel", "spel", "theater", "toneel", "vertolk", "voorstelling"}
     TONEEL_PRODUCER = {"fabeltjeskrant", "produce", "regisseur", "schreef", "schrijf", "theater", "toneel", "tekstschrijver", "voorstelling"}

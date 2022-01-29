@@ -89,7 +89,7 @@ exercises4 = [
         Earning(money = 250, major = {Player.HILA_23}),
         Earning(money = -250, major = {Player.KIM_LIAN_23})
     ]),
-    # Opdracht 3: --
+    # Opdracht 3: (Kamers met zoek de verschillen)
     Exercise(episode = 4, alive = players4, maximum = 2000, earned = [
         Earning(money = 100, major = {Player.KIM_LIAN_23}, minor = {Player.LAETITIA_23}),
         Earning(money = 100, major = {Player.LAETITIA_23}),
@@ -101,6 +101,25 @@ exercises4 = [
     ])
 ]
 
+################
+# Aflevering 5
+players5 = {Player.EVERON_23, Player.FRESIA_23, Player.HILA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23}
+exercises5 = [
+    # Opdracht 1: Uit de lucht gegrepen
+    Exercise(episode = 5, alive = players5, maximum = 2000, earned = [
+        Earning(money = 750, major = {Player.LAETITIA_23, Player.THOMAS_23}, minor = {Player.FRESIA_23})
+    ]),
+    # Opdracht 2: Zwanenmeer
+    Exercise(episode = 5, alive = players5, maximum = 3000, earned = [
+        Earning(money = 725, major = {Player.KIM_LIAN_23, Player.SAHIL_23, Player.LAETITIA_23, Player.EVERON_23, Player.HILA_23, Player.FRESIA_23}),
+        Earning(money = 75, major = {Player.THOMAS_23})
+    ]),
+    # Opdracht 3: Tijdsbeeld
+    Exercise(episode = 5, alive = players5, maximum = 2000, earned = [
+        Earning(money = 2000, major = {Player.EVERON_23, Player.FRESIA_23, Player.HILA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23})
+    ])
+]
+
 season23 = Season(
-    exercises1 + exercises2 + exercises3 + exercises4
+    exercises1 + exercises2 + exercises3 + exercises4 + exercises5
 )
