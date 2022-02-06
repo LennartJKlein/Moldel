@@ -120,6 +120,20 @@ exercises5 = [
     ])
 ]
 
+################
+# Aflevering 6
+players6 = {Player.EVERON_23, Player.FRESIA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23}
+exercises6 = [
+    # Opdracht 1: In het verschiet
+    Exercise(episode = 6, alive = players6, maximum = 3500, earned = [
+        Earning(money = 1400, major = {Player.KIM_LIAN_23, Player.THOMAS_23, Player.SAHIL_23}, minor = {Player.EVERON_23, Player.FRESIA_23, Player.LAETITIA_23})
+    ]),
+    # Opdracht 2: Reddingsactie
+    Exercise(episode = 6, alive = players6, maximum = 1740, earned = [
+        Earning(money = 1310, major = {Player.KIM_LIAN_23, Player.THOMAS_23, Player.SAHIL_23, Player.FRESIA_23, Player.LAETITIA_23}, minor = {Player.EVERON_23})
+    ])
+]
+
 season23 = Season(
-    exercises1 + exercises2 + exercises3 + exercises4 + exercises5
+    exercises1 + exercises2 + exercises3 + exercises4 + exercises5 + exercises6
 )

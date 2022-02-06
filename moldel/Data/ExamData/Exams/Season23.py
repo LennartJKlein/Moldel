@@ -394,17 +394,78 @@ episode5 = Episode(players5, result5, input5, questions5)
 
 ################
 # Aflevering 6
-players6 = [Player.EVERON_23, Player.FRESIA_23, Player.HILA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23]
-# questions6 = {
-# }
-# input6 = {
-# }
-# result6 = Result(DropType.EXECUTION_DROP, [])
-# episode6 = Episode(players6, result6, input6, questions6)
+players6 = [Player.EVERON_23, Player.FRESIA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23]
+questions6 = {
+    # Waar was de Mol tijdens de opdracht 'in het verschiet'?
+    4: Question({
+        # In het fort
+        1: [Player.EVERON_23, Player.FRESIA_23, Player.LAETITIA_23],
+        # In de duikbootbasis
+        2: [Player.KIM_LIAN_23, Player.SAHIL_23, Player.THOMAS_23]
+    }),
+    # Hoeveel sleutels vond de Mol in het fort tijdens de opdracht 'In het verschiet'?
+    6: Question({
+        # Geen
+        1: [Player.FRESIA_23],
+        # Een
+        2: [Player.EVERON_23],
+        # Twee
+        3: [Player.LAETITIA_23],
+        # De Mol was niet in het fort
+        4: [Player.KIM_LIAN_23, Player.SAHIL_23, Player.THOMAS_23]
+    }),
+    # Wat was de rol van de Mol tijdens de opdracht 'Reddingsactie'?
+    13: Question({
+        # Boeien sorteren met een jetski
+        1: [Player.FRESIA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23],
+        # Coordinatie op de centrale boot
+        2: [Player.EVERON_23]
+    }),
+    # Wie is de Mol?
+    20: Question({
+        # Everon
+        1: [Player.EVERON_23],
+        # Fresia
+        2: [Player.FRESIA_23],
+        # Kim-Lian
+        3: [Player.KIM_LIAN_23],
+        # Laetitia
+        4: [Player.LAETITIA_23],
+        # Sahil
+        5: [Player.SAHIL_23],
+        # Thomas
+        6: [Player.THOMAS_23]
+    })
+}
+input6 = {
+    Player.FRESIA_23: TestInput(
+        {13: 2},
+        accusations = [Player.EVERON_23]
+    ),
+    Player.EVERON_23: TestInput(
+        accusations = [Player.KIM_LIAN_23, Player.SAHIL_23]
+    ),
+    Player.KIM_LIAN_23: TestInput(
+        {6: 2},
+        accusations = [Player.SAHIL_23]
+    ),
+    Player.THOMAS_23: TestInput(
+        {20: 5},
+        accusations = [Player.SAHIL_23, Player.KIM_LIAN_23]
+    ),
+    Player.LAETITIA_23: TestInput(
+        immunity = True
+    ),
+    Player.SAHIL_23: TestInput(
+        {4: 2}
+    )
+}
+result6 = Result(DropType.EXECUTION_DROP, [Player.SAHIL_23])
+episode6 = Episode(players6, result6, input6, questions6)
 
 ################
 # Aflevering 7
-players7 = [Player.EVERON_23, Player.FRESIA_23, Player.HILA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23]
+players7 = [Player.EVERON_23, Player.FRESIA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.THOMAS_23]
 # questions7 = {
 # }
 # input7 = {
@@ -441,6 +502,7 @@ season23 = Season(
         2: episode2,
         3: episode3,
         4: episode4,
-        5: episode5
+        5: episode5,
+        6: episode6
     }
 )
