@@ -8,7 +8,8 @@ from ..Dataclasses.TestInput import TestInput, DelayedAnswer
 
 ################
 # Aflevering 1
-players1 = [Player.ARNO_23, Player.EVERON_23, Player.FRESIA_23, Player.GLEN_23, Player.HILA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.SUZANNE_23, Player.THOMAS_23, Player.WELMOED_23]
+players1 = [Player.ARNO_23, Player.EVERON_23, Player.FRESIA_23, Player.GLEN_23, Player.HILA_23,
+            Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.SUZANNE_23, Player.THOMAS_23, Player.WELMOED_23]
 questions1 = {
     # De Mol is een...
     1: Question({
@@ -42,24 +43,26 @@ questions1 = {
 input1 = {
     Player.ARNO_23: TestInput(
         {17: 2},
-        accusations = [Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23, Player.WELMOED_23]
+        accusations=[Player.LAETITIA_23, Player.SAHIL_23,
+                     Player.THOMAS_23, Player.WELMOED_23]
     ),
-    Player.EVERON_23: TestInput(accusations = [Player.HILA_23, Player.SAHIL_23]),
-    Player.FRESIA_23: TestInput(accusations = [Player.SAHIL_23, Player.GLEN_23]),
-    Player.GLEN_23: TestInput(accusations = [Player.LAETITIA_23, Player.THOMAS_23, Player.WELMOED_23]),
-    Player.HILA_23: TestInput(accusations = [Player.EVERON_23, Player.KIM_LIAN_23, Player.THOMAS_23]),
-    Player.KIM_LIAN_23: TestInput(accusations = [Player.EVERON_23]),
-    Player.LAETITIA_23: TestInput(jokers = 1),
-    Player.SAHIL_23: TestInput(accusations = [Player.WELMOED_23]),
+    Player.EVERON_23: TestInput(accusations=[Player.HILA_23, Player.SAHIL_23]),
+    Player.FRESIA_23: TestInput(accusations=[Player.SAHIL_23, Player.GLEN_23]),
+    Player.GLEN_23: TestInput(accusations=[Player.LAETITIA_23, Player.THOMAS_23, Player.WELMOED_23]),
+    Player.HILA_23: TestInput(accusations=[Player.EVERON_23, Player.KIM_LIAN_23, Player.THOMAS_23]),
+    Player.KIM_LIAN_23: TestInput(accusations=[Player.EVERON_23]),
+    Player.LAETITIA_23: TestInput(jokers=1),
+    Player.SAHIL_23: TestInput(accusations=[Player.WELMOED_23]),
     Player.SUZANNE_23: TestInput(
         {5: 1},
-        accusations = [Player.HILA_23]
+        accusations=[Player.HILA_23]
     ),
     Player.THOMAS_23: TestInput({1: 1}),
     Player.WELMOED_23: TestInput(
         {13: 1},
-        jokers = 1,
-        accusations = [Player.HILA_23, Player.KIM_LIAN_23, Player.SAHIL_23, Player.THOMAS_23]
+        jokers=1,
+        accusations=[Player.HILA_23, Player.KIM_LIAN_23,
+                     Player.SAHIL_23, Player.THOMAS_23]
     )
 }
 result1 = Result(DropType.EXECUTION_DROP, [Player.SUZANNE_23])
@@ -67,7 +70,8 @@ episode1 = Episode(players1, result1, input1, questions1)
 
 ################
 # Aflevering 2
-players2 = [Player.ARNO_23, Player.EVERON_23, Player.FRESIA_23, Player.GLEN_23, Player.HILA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23, Player.WELMOED_23]
+players2 = [Player.ARNO_23, Player.EVERON_23, Player.FRESIA_23, Player.GLEN_23, Player.HILA_23,
+            Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23, Player.WELMOED_23]
 questions2 = {
     # Wat is het sterrenbeeld van de Mol?
     3: Question({
@@ -112,21 +116,21 @@ questions2 = {
     })
 }
 input2 = {
-    Player.EVERON_23: TestInput(accusations = [Player.KIM_LIAN_23, Player.SAHIL_23, Player.THOMAS_23]),
+    Player.EVERON_23: TestInput(accusations=[Player.KIM_LIAN_23, Player.SAHIL_23, Player.THOMAS_23]),
     Player.FRESIA_23: TestInput(
         {11: 4},
-        accusations = [Player.SAHIL_23]
+        accusations=[Player.SAHIL_23]
     ),
     Player.GLEN_23: TestInput(
         {17: 1},
-        accusations = [Player.SAHIL_23, Player.THOMAS_23]
+        accusations=[Player.SAHIL_23, Player.THOMAS_23]
     ),
-    Player.LAETITIA_23: TestInput(accusations = [Player.KIM_LIAN_23, Player.SAHIL_23, Player.THOMAS_23, Player.WELMOED_23]),
-    Player.THOMAS_23: TestInput(accusations = [Player.ARNO_23, Player.GLEN_23, Player.HILA_23, Player.KIM_LIAN_23, Player.SAHIL_23]),
+    Player.LAETITIA_23: TestInput(accusations=[Player.KIM_LIAN_23, Player.SAHIL_23, Player.THOMAS_23, Player.WELMOED_23]),
+    Player.THOMAS_23: TestInput(accusations=[Player.ARNO_23, Player.GLEN_23, Player.HILA_23, Player.KIM_LIAN_23, Player.SAHIL_23]),
     Player.WELMOED_23: TestInput(
         {3: 9},
-        jokers = 1,
-        accusations = [Player.KIM_LIAN_23, Player.SAHIL_23, Player.THOMAS_23]
+        jokers=1,
+        accusations=[Player.KIM_LIAN_23, Player.SAHIL_23, Player.THOMAS_23]
     )
 }
 result2 = Result(DropType.EXECUTION_DROP, [Player.GLEN_23])
@@ -134,7 +138,8 @@ episode2 = Episode(players2, result2, input2, questions2)
 
 ################
 # Aflevering 3
-players3 = [Player.ARNO_23, Player.EVERON_23, Player.FRESIA_23, Player.HILA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23, Player.WELMOED_23]
+players3 = [Player.ARNO_23, Player.EVERON_23, Player.FRESIA_23, Player.HILA_23,
+            Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23, Player.WELMOED_23]
 questions3 = {
     # Is de Mol in het water geweest tijdens de opdracht 'Net of net niet'?
     5: Question({
@@ -182,33 +187,34 @@ questions3 = {
 input3 = {
     Player.ARNO_23: TestInput(
         # vrijstelling ongedaan gemaakt
-        accusations = [Player.WELMOED_23]
+        accusations=[Player.WELMOED_23]
     ),
-    Player.EVERON_23: TestInput(accusations = [Player.THOMAS_23]),
+    Player.EVERON_23: TestInput(accusations=[Player.THOMAS_23]),
     Player.FRESIA_23: TestInput(
         {20: 7},
-        accusations = [Player.SAHIL_23]
+        accusations=[Player.SAHIL_23]
     ),
     Player.HILA_23: TestInput(
         # zwarte vrijstelling
-        accusations = [Player.FRESIA_23, Player.THOMAS_23]
+        accusations=[Player.FRESIA_23, Player.THOMAS_23]
     ),
     Player.KIM_LIAN_23: TestInput(
         {20: 2},
-        accusations = [Player.EVERON_23]
+        accusations=[Player.EVERON_23]
     ),
-    Player.LAETITIA_23: TestInput(accusations = [Player.KIM_LIAN_23, Player.SAHIL_23]),
+    Player.LAETITIA_23: TestInput(accusations=[Player.KIM_LIAN_23, Player.SAHIL_23]),
     Player.SAHIL_23: TestInput(
         {12: 1},
-        accusations = [Player.KIM_LIAN_23, Player.THOMAS_23]
+        accusations=[Player.KIM_LIAN_23, Player.THOMAS_23]
     ),
     Player.THOMAS_23: TestInput(
         {5: 1},
-        accusations = [Player.ARNO_23, Player.KIM_LIAN_23, Player.SAHIL_23]
+        accusations=[Player.ARNO_23, Player.KIM_LIAN_23, Player.SAHIL_23]
     ),
     Player.WELMOED_23: TestInput(
         {11: 1},
-        accusations = [Player.HILA_23, Player.KIM_LIAN_23, Player.SAHIL_23, Player.THOMAS_23]
+        accusations=[Player.HILA_23, Player.KIM_LIAN_23,
+                     Player.SAHIL_23, Player.THOMAS_23]
     )
 }
 result3 = Result(DropType.EXECUTION_DROP, [Player.WELMOED_23])
@@ -216,7 +222,8 @@ episode3 = Episode(players3, result3, input3, questions3)
 
 ################
 # Aflevering 4
-players4 = [Player.ARNO_23, Player.EVERON_23, Player.FRESIA_23, Player.HILA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23]
+players4 = [Player.ARNO_23, Player.EVERON_23, Player.FRESIA_23, Player.HILA_23,
+            Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23]
 questions4 = {
     # De Mol is een...
     1: Question({
@@ -278,29 +285,29 @@ input4 = {
         {11: 1}
     ),
     Player.EVERON_23: TestInput(
-        jokers = 1,
-        accusations = [Player.KIM_LIAN_23, Player.THOMAS_23]
+        jokers=1,
+        accusations=[Player.KIM_LIAN_23, Player.THOMAS_23]
     ),
     Player.HILA_23: TestInput(
-        accusations = [Player.FRESIA_23, Player.SAHIL_23]
+        accusations=[Player.FRESIA_23, Player.SAHIL_23]
     ),
     Player.KIM_LIAN_23: TestInput(
-        accusations = [Player.EVERON_23, Player.SAHIL_23]
+        accusations=[Player.EVERON_23, Player.SAHIL_23]
     ),
     Player.LAETITIA_23: TestInput(
         {1: 1}
     ),
     Player.FRESIA_23: TestInput(
         {4: 3},
-        jokers = 1
+        jokers=1
     ),
     Player.SAHIL_23: TestInput(
         {20: 8},
-        accusations = [Player.ARNO_23, Player.KIM_LIAN_23, Player.THOMAS_23]
+        accusations=[Player.ARNO_23, Player.KIM_LIAN_23, Player.THOMAS_23]
     ),
     Player.THOMAS_23: TestInput(
-        jokers = 2,
-        accusations = [Player.ARNO_23, Player.KIM_LIAN_23, Player.SAHIL_23]
+        jokers=2,
+        accusations=[Player.ARNO_23, Player.KIM_LIAN_23, Player.SAHIL_23]
     ),
 }
 result4 = Result(DropType.EXECUTION_DROP, [Player.ARNO_23])
@@ -308,7 +315,8 @@ episode4 = Episode(players4, result4, input4, questions4)
 
 ################
 # Aflevering 5
-players5 = [Player.EVERON_23, Player.FRESIA_23, Player.HILA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23]
+players5 = [Player.EVERON_23, Player.FRESIA_23, Player.HILA_23,
+            Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23]
 questions5 = {
     # Waar was de Mol bij aanvang van de opdracht 'Uit de lucht gegrepen'?
     2: Question({
@@ -364,29 +372,29 @@ input5 = {
     ),
     Player.FRESIA_23: TestInput(
         {2: 1},
-        jokers = 1,
-        accusations = [Player.EVERON_23]
+        jokers=1,
+        accusations=[Player.EVERON_23]
     ),
     Player.EVERON_23: TestInput(
-        jokers = 1,
-        accusations = [Player.KIM_LIAN_23]
+        jokers=1,
+        accusations=[Player.KIM_LIAN_23]
     ),
     Player.HILA_23: TestInput(
         {19: 2},
-        jokers = 1
+        jokers=1
     ),
     Player.LAETITIA_23: TestInput(
-        jokers = 1
+        jokers=1
     ),
     Player.KIM_LIAN_23: TestInput(
         {6: 2},
-        jokers = 1,
-        accusations = [Player.EVERON_23, Player.SAHIL_23]
+        jokers=1,
+        accusations=[Player.EVERON_23, Player.SAHIL_23]
     ),
     Player.SAHIL_23: TestInput(
         {20: 7},
-        jokers = 1,
-        accusations = [Player.KIM_LIAN_23, Player.THOMAS_23]
+        jokers=1,
+        accusations=[Player.KIM_LIAN_23, Player.THOMAS_23]
     )
 }
 result5 = Result(DropType.EXECUTION_DROP, [Player.HILA_23])
@@ -394,7 +402,8 @@ episode5 = Episode(players5, result5, input5, questions5)
 
 ################
 # Aflevering 6
-players6 = [Player.EVERON_23, Player.FRESIA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23]
+players6 = [Player.EVERON_23, Player.FRESIA_23, Player.KIM_LIAN_23,
+            Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23]
 questions6 = {
     # Waar was de Mol tijdens de opdracht 'in het verschiet'?
     4: Question({
@@ -440,21 +449,21 @@ questions6 = {
 input6 = {
     Player.FRESIA_23: TestInput(
         {13: 2},
-        accusations = [Player.EVERON_23]
+        accusations=[Player.EVERON_23]
     ),
     Player.EVERON_23: TestInput(
-        accusations = [Player.KIM_LIAN_23, Player.SAHIL_23]
+        accusations=[Player.KIM_LIAN_23, Player.SAHIL_23]
     ),
     Player.KIM_LIAN_23: TestInput(
         {6: 2},
-        accusations = [Player.SAHIL_23]
+        accusations=[Player.SAHIL_23]
     ),
     Player.THOMAS_23: TestInput(
         {20: 5},
-        accusations = [Player.SAHIL_23, Player.KIM_LIAN_23]
+        accusations=[Player.SAHIL_23, Player.KIM_LIAN_23]
     ),
     Player.LAETITIA_23: TestInput(
-        immunity = True
+        immunity=True
     ),
     Player.SAHIL_23: TestInput(
         {4: 2}
@@ -475,7 +484,8 @@ players7 = [Player.EVERON_23, Player.FRESIA_23, Player.KIM_LIAN_23, Player.LAETI
 
 ################
 # Aflevering 8
-players8 = [Player.EVERON_23, Player.FRESIA_23, Player.HILA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23]
+players8 = [Player.EVERON_23, Player.FRESIA_23, Player.HILA_23,
+            Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23]
 # questions8 = {
 # }
 # input8 = {
@@ -485,7 +495,8 @@ players8 = [Player.EVERON_23, Player.FRESIA_23, Player.HILA_23, Player.KIM_LIAN_
 
 ################
 # Aflevering 9
-players9 = [Player.EVERON_23, Player.FRESIA_23, Player.HILA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23]
+players9 = [Player.EVERON_23, Player.FRESIA_23, Player.HILA_23,
+            Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23]
 # questions9 = {
 # }
 # input9 = {
