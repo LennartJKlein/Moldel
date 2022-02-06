@@ -3,13 +3,13 @@ from Layers.Appearance.AppearanceLayer import AppearanceLayer
 from Layers.ExamAccusations.ExamAccusationsLayer import ExamAccusationsLayer
 from Layers.ExamDrop.ExamDropLayer import ExamDropLayer
 from Layers.ExamPass.ExamPassLayer import ExamPassLayer
+from Layers.Wikipedia.WikipediaLayer import WikipediaLayer
 from Layers.Moldel import Moldel
 from numpy.random.mtrand import RandomState
 from progress.bar import Bar
 
 from Layers.Special.MemoryLayer import MemoryLayer
 from Layers.Special.PotentialMolLayer import PotentialMolLayer
-from Layers.Wikipedia.WikipediaLayer import WikipediaLayer
 from Validators.PieChartCreator import PieChartCreator
 from Validators.Precomputer import Precomputer
 from Validators.TotalLogLoss import TotalLogLoss
@@ -21,7 +21,8 @@ TRAIN_SEASONS = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 
 
 distributions = dict()
 random_generator = RandomState(RANDOM_SEED)
-layerToTrain = ExamAccusationsLayer(random_generator)
+# layerToTrain = ExamAccusationsLayer(random_generator)
+layerToTrain = WikipediaLayer(-0.524, 0.782, 5, random_generator)
 
 total_tasks = sum([get_last_episode(season) + 1 for season in VALIDATE_SEASONS])
 progress_bar = Bar("Distributions Computed:", max = total_tasks)
@@ -32,7 +33,8 @@ for season in VALIDATE_SEASONS:
         progress_bar.next()
 progress_bar.finish()
 
-validator = Precomputer("Exam Accusations Stacker")
+# validator = Precomputer("Exam Accusations Stacker")
+validator = Precomputer("Wikipedia Stacker")
 # validator = PieChartCreator("Uniform (9-21)")
 # validator = ValidationMetrics(9, [10, 9, 8, 7, 6, 5, 4, 3, 2])
 # validator = TotalLogLoss()
