@@ -18,15 +18,17 @@ for season in TRAIN_SEASONS:
             times_accused = 0
             accused_dropout = 0
             accused_by_dropout = 0
+            accusations_made = 0
             for p, accusations in all_accusations.items():
                 if p != player:
                     times_accused += sum(accusedPlayer == player for accusedPlayer in accusations)
                 if p == player:
                     accused_dropout += sum(accusedPlayer in dropouts for accusedPlayer in accusations)
+                    accusations_made = len(accusations)
                 if p in dropouts:
                     accused_by_dropout += sum(accusedPlayer == player for accusedPlayer in accusations)
 
-            train_input.append([times_accused, accused_dropout, accused_by_dropout])
+            train_input.append([times_accused, accused_dropout, accused_by_dropout, accusations_made])
             train_output.append(1.0 if get_is_mol(player) else 0.0)
 
 train_input = np.array(train_input)
@@ -47,14 +49,16 @@ for season_id in TRAIN_SEASONS:
             times_accused = 0
             accused_dropout = 0
             accused_by_dropout = 0
+            accusations_made = 0
             for p, accusations in all_accusations.items():
                 if p != player:
                     times_accused += sum(accusedPlayer == player for accusedPlayer in accusations)
                 if p == player:
                     accused_dropout += sum(accusedPlayer in dropouts for accusedPlayer in accusations)
+                    accusations_made = len(accusations)
                 if p in dropouts:
                     accused_by_dropout += sum(accusedPlayer == player for accusedPlayer in accusations)
-            features = [times_accused, accused_dropout, accused_by_dropout]
+            features = [times_accused, accused_dropout, accused_by_dropout, accusations_made]
             mol_likelihoods[player] = estimator.predict_proba(np.array([features]))[0][1]
         probability_sum = sum(mol_likelihoods.values())
         drop_probabilities = {player: likelihood / probability_sum for player, likelihood in mol_likelihoods.items()}

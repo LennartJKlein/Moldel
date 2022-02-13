@@ -14,25 +14,64 @@ from ..Dataclasses.TestInput import TestInput, DelayedAnswer
 # 1: Ajouad, Marlijn, Evelien, Martine, Viktor, Carolina, Chris; 2: Margriet, Rik, Pieter;
 # 20 - Wie is de Mol:
 # 1: Ajouad; 2: Carolina; 3: Chris; 4: Evelien; 5: Margriet; 6: Marlijn; 7: Martine; 8: Pieter; 9: Rik; 10: Viktor;
-# Antwoorden: Viktor (1, 1), Pieter (18, 1), Margriet (20, 2), Rik (20, 6), Marlijn (20, 10) (1 joker)
+# Antwoorden: Viktor (1, 1),
+# Pieter (18, 1), Margriet (20, 2), Rik (20, 6), Marlijn (20, 10) (1 joker)
 players1 = [Player.AJOUAD_15, Player.CAROLINA_15, Player.CHRIS_15, Player.EVELIEN_15, Player.MARGRIET_15,
             Player.MARLIJN_15, Player.MARTINE_15, Player.PIETER_15, Player.RIK_15, Player.VIKTOR_15]
-question1_1 = Question({1: [Player.AJOUAD_15, Player.CHRIS_15, Player.PIETER_15, Player.RIK_15, Player.VIKTOR_15],
-                        2: [Player.CAROLINA_15, Player.EVELIEN_15, Player.MARGRIET_15, Player.MARLIJN_15,
-                            Player.MARTINE_15]})
-question1_18 = Question({1: [Player.AJOUAD_15, Player.MARLIJN_15, Player.EVELIEN_15, Player.MARTINE_15,
-                             Player.VIKTOR_15, Player.CAROLINA_15, Player.CHRIS_15],
-                         2: [Player.MARGRIET_15, Player.RIK_15, Player.PIETER_15]})
-question1_20 = Question({1: [Player.AJOUAD_15], 2: [Player.CAROLINA_15], 3: [Player.CHRIS_15], 4: [Player.EVELIEN_15],
-                         5: [Player.MARGRIET_15], 6: [Player.MARLIJN_15], 7: [Player.MARTINE_15], 8: [Player.PIETER_15],
-                         9: [Player.RIK_15], 10: [Player.VIKTOR_15]})
+question1_1 = Question(
+    {1: [Player.AJOUAD_15, Player.CHRIS_15, Player.PIETER_15, Player.RIK_15, Player.VIKTOR_15],
+     2: [Player.CAROLINA_15, Player.EVELIEN_15, Player.MARGRIET_15, Player.MARLIJN_15,
+         Player.MARTINE_15]}
+)
+question1_18 = Question(
+    {1: [Player.AJOUAD_15, Player.MARLIJN_15, Player.EVELIEN_15, Player.MARTINE_15,
+         Player.VIKTOR_15, Player.CAROLINA_15, Player.CHRIS_15],
+     2: [Player.MARGRIET_15, Player.RIK_15, Player.PIETER_15]}
+)
+question1_20 = Question(
+    {1: [Player.AJOUAD_15], 2: [Player.CAROLINA_15], 3: [Player.CHRIS_15], 4: [Player.EVELIEN_15],
+     5: [Player.MARGRIET_15], 6: [Player.MARLIJN_15], 7: [Player.MARTINE_15], 8: [Player.PIETER_15],
+     9: [Player.RIK_15], 10: [Player.VIKTOR_15]}
+)
 result1 = Result(DropType.EXECUTION_DROP, [Player.PIETER_15])
-episode1 = Episode(players1, result1,
-                   {Player.VIKTOR_15: TestInput({1: 1}), Player.PIETER_15: TestInput({18: 1}),
-                    Player.MARGRIET_15: TestInput({20: 2}), Player.RIK_15: TestInput({20: 6}),
-                    Player.MARLIJN_15: TestInput({20: 10}, jokers = 1),
-                    Player.AJOUAD_15: TestInput(immunity = True)},
-                   {1: question1_1, 18: question1_18, 20: question1_20})
+episode1 = Episode(
+    players1,
+    result1,
+    {
+        Player.VIKTOR_15: TestInput(
+            {1: 1}
+        ),
+        Player.EVELIEN_15: TestInput(
+            accusations=[Player.AJOUAD_15, Player.CHRIS_15]
+        ),
+        Player.CAROLINA_15: TestInput(
+            accusations=[Player.PIETER_15, Player.CHRIS_15, Player.MARTINE_15]
+        ),
+        Player.PIETER_15: TestInput(
+            {18: 1},
+            accusations=[Player.CAROLINA_15, Player.CHRIS_15, Player.MARTINE_15]
+        ),
+        Player.MARGRIET_15: TestInput(
+            {20: 2},
+            accusations=[Player.CAROLINA_15]
+        ),
+        Player.RIK_15: TestInput(
+            {20: 6},
+            accusations=[Player.MARLIJN_15]
+        ),
+        Player.MARLIJN_15: TestInput(
+            {20: 10},
+            jokers=1,
+            accusations=[Player.VIKTOR_15]
+        ),
+        Player.AJOUAD_15: TestInput(
+            immunity=True
+        )
+    },
+    {
+        1: question1_1, 18: question1_18, 20: question1_20
+    }
+)
 
 # Aflevering 2 (afvaller: Evelien)
 # Vragen:
@@ -48,25 +87,68 @@ episode1 = Episode(players1, result1,
 # Margriet (1 joker), Martine (2 jokers), Ajouad (Vrijstelling)
 players2 = [Player.AJOUAD_15, Player.CAROLINA_15, Player.CHRIS_15, Player.EVELIEN_15, Player.MARGRIET_15,
             Player.MARLIJN_15, Player.MARTINE_15, Player.RIK_15, Player.VIKTOR_15]
-question2_1 = Question({1: [Player.AJOUAD_15, Player.CHRIS_15, Player.RIK_15, Player.VIKTOR_15],
-                        2: [Player.CAROLINA_15, Player.EVELIEN_15, Player.MARGRIET_15, Player.MARLIJN_15,
-                            Player.MARTINE_15]})
-question2_10 = Question({1: [Player.CHRIS_15, Player.VIKTOR_15, Player.MARTINE_15],
-                         2: [Player.RIK_15, Player.MARGRIET_15, Player.MARLIJN_15],
-                         3: [Player.EVELIEN_15, Player.AJOUAD_15, Player.CAROLINA_15]})
-question2_17 = Question({1: [Player.VIKTOR_15, Player.MARLIJN_15, Player.EVELIEN_15],
-                         2: [Player.RIK_15, Player.MARGRIET_15, Player.CAROLINA_15],
-                         3: [Player.MARTINE_15, Player.AJOUAD_15, Player.CHRIS_15]})
-question2_20 = Question({1: [Player.AJOUAD_15], 2: [Player.CAROLINA_15], 3: [Player.CHRIS_15], 4: [Player.EVELIEN_15],
-                         5: [Player.MARGRIET_15], 6: [Player.MARLIJN_15], 7: [Player.MARTINE_15], 8: [Player.RIK_15],
-                         9: [Player.VIKTOR_15]})
+question2_1 = Question(
+    {1: [Player.AJOUAD_15, Player.CHRIS_15, Player.RIK_15, Player.VIKTOR_15],
+     2: [Player.CAROLINA_15, Player.EVELIEN_15, Player.MARGRIET_15, Player.MARLIJN_15,
+         Player.MARTINE_15]}
+)
+question2_10 = Question(
+    {1: [Player.CHRIS_15, Player.VIKTOR_15, Player.MARTINE_15],
+     2: [Player.RIK_15, Player.MARGRIET_15, Player.MARLIJN_15],
+     3: [Player.EVELIEN_15, Player.AJOUAD_15, Player.CAROLINA_15]}
+)
+question2_17 = Question(
+    {1: [Player.VIKTOR_15, Player.MARLIJN_15, Player.EVELIEN_15],
+     2: [Player.RIK_15, Player.MARGRIET_15, Player.CAROLINA_15],
+     3: [Player.MARTINE_15, Player.AJOUAD_15, Player.CHRIS_15]}
+)
+question2_20 = Question(
+    {1: [Player.AJOUAD_15], 2: [Player.CAROLINA_15], 3: [Player.CHRIS_15], 4: [Player.EVELIEN_15],
+     5: [Player.MARGRIET_15], 6: [Player.MARLIJN_15], 7: [Player.MARTINE_15], 8: [Player.RIK_15],
+     9: [Player.VIKTOR_15]}
+)
 result2 = Result(DropType.EXECUTION_DROP, [Player.EVELIEN_15])
-episode2 = Episode(players2, result2,
-                   {Player.CHRIS_15: TestInput({10: 3}), Player.CAROLINA_15: TestInput({17: 3}, jokers = 1),
-                    Player.VIKTOR_15: TestInput({20: 3}), Player.RIK_15: TestInput({1: 2}),
-                    Player.MARLIJN_15: TestInput(jokers = 1), Player.MARGRIET_15: TestInput(jokers = 1),
-                    Player.MARTINE_15: TestInput(jokers = 2), Player.AJOUAD_15: TestInput(immunity = True)},
-                   {1: question2_1, 10: question2_10, 17: question2_17, 20: question2_20})
+episode2 = Episode(
+    players2,
+    result2,
+    {
+        Player.EVELIEN_15: TestInput(
+            accusations=[Player.CHRIS_15, Player.MARGRIET_15]
+        ),
+        Player.CHRIS_15: TestInput(
+            {10: 3},
+            accusations=[Player.CAROLINA_15]
+        ),
+        Player.CAROLINA_15: TestInput(
+            {17: 3},
+            jokers=1,
+            accusations=[Player.CHRIS_15, Player.MARTINE_15]
+        ),
+        Player.VIKTOR_15: TestInput(
+            {20: 3},
+            accusations=[Player.CHRIS_15, Player.RIK_15]
+        ),
+        Player.RIK_15: TestInput(
+            {1: 2},
+            accusations=[Player.MARLIJN_15]
+        ),
+        Player.MARLIJN_15: TestInput(
+            jokers=1
+        ),
+        Player.MARGRIET_15: TestInput(
+            jokers=1
+        ),
+        Player.MARTINE_15: TestInput(
+            jokers=2
+        ),
+        Player.AJOUAD_15: TestInput(
+            immunity=True
+        )
+    },
+    {
+        1: question2_1, 10: question2_10, 17: question2_17, 20: question2_20
+    }
+)
 
 # Aflevering 3 (niemand viel af, alleen Carolina kreeg haar groene scherm te zien)
 # Vragen:
@@ -85,29 +167,75 @@ episode2 = Episode(players2, result2,
 # Antwoorden: Carolina (6, 6) (20, 4), Martine (7, 2), Viktor (9, 1), Margriet (13, 2), Ajouad (1, 2), Marlijn (9, 2)
 players3 = [Player.AJOUAD_15, Player.CAROLINA_15, Player.CHRIS_15, Player.MARGRIET_15, Player.MARLIJN_15,
             Player.MARTINE_15, Player.RIK_15, Player.VIKTOR_15]
-question3_1 = Question({1: [Player.AJOUAD_15, Player.CHRIS_15, Player.RIK_15, Player.VIKTOR_15],
-                        2: [Player.CAROLINA_15, Player.MARGRIET_15, Player.MARLIJN_15, Player.MARTINE_15]})
-question3_6 = Question({1: [Player.VIKTOR_15], 2: [Player.RIK_15], 3: [Player.MARLIJN_15], 4: [Player.MARTINE_15],
-                        5: [Player.CHRIS_15], 6: [Player.MARGRIET_15], 7: [Player.CAROLINA_15], 8: [Player.AJOUAD_15]})
-question3_7 = Question({1: [Player.RIK_15, Player.CAROLINA_15],
-                        2: [Player.CHRIS_15, Player.MARLIJN_15],
-                        3: [Player.MARTINE_15, Player.MARGRIET_15],
-                        4: [Player.AJOUAD_15, Player.VIKTOR_15]})
-question3_9 = Question({1: [Player.RIK_15, Player.MARLIJN_15],
-                        2: [Player.VIKTOR_15, Player.MARTINE_15, Player.CHRIS_15, Player.MARGRIET_15,
-                            Player.CAROLINA_15, Player.AJOUAD_15]})
-question3_13 = Question({1: [Player.AJOUAD_15, Player.VIKTOR_15, Player.MARLIJN_15, Player.MARTINE_15,
-                             Player.MARGRIET_15, Player.CAROLINA_15],
-                         2: [Player.RIK_15, Player.CHRIS_15]})
-question3_20 = Question({1: [Player.AJOUAD_15], 2: [Player.CAROLINA_15], 3: [Player.CHRIS_15], 4: [Player.MARGRIET_15],
-                         5: [Player.MARLIJN_15], 6: [Player.MARTINE_15], 7: [Player.RIK_15], 8: [Player.VIKTOR_15]})
+question3_1 = Question(
+    {1: [Player.AJOUAD_15, Player.CHRIS_15, Player.RIK_15, Player.VIKTOR_15],
+     2: [Player.CAROLINA_15, Player.MARGRIET_15, Player.MARLIJN_15, Player.MARTINE_15]}
+)
+question3_6 = Question(
+    {1: [Player.VIKTOR_15], 2: [Player.RIK_15], 3: [Player.MARLIJN_15], 4: [Player.MARTINE_15],
+     5: [Player.CHRIS_15], 6: [Player.MARGRIET_15], 7: [Player.CAROLINA_15], 8: [Player.AJOUAD_15]}
+)
+question3_7 = Question(
+    {1: [Player.RIK_15, Player.CAROLINA_15],
+     2: [Player.CHRIS_15, Player.MARLIJN_15],
+     3: [Player.MARTINE_15, Player.MARGRIET_15],
+     4: [Player.AJOUAD_15, Player.VIKTOR_15]}
+)
+question3_9 = Question(
+    {1: [Player.RIK_15, Player.MARLIJN_15],
+     2: [Player.VIKTOR_15, Player.MARTINE_15, Player.CHRIS_15, Player.MARGRIET_15,
+         Player.CAROLINA_15, Player.AJOUAD_15]}
+)
+question3_13 = Question(
+    {1: [Player.AJOUAD_15, Player.VIKTOR_15, Player.MARLIJN_15, Player.MARTINE_15,
+         Player.MARGRIET_15, Player.CAROLINA_15],
+     2: [Player.RIK_15, Player.CHRIS_15]}
+)
+question3_20 = Question(
+    {1: [Player.AJOUAD_15], 2: [Player.CAROLINA_15], 3: [Player.CHRIS_15], 4: [Player.MARGRIET_15],
+     5: [Player.MARLIJN_15], 6: [Player.MARTINE_15], 7: [Player.RIK_15], 8: [Player.VIKTOR_15]}
+)
 result3 = Result(DropType.POSSIBLE_DROP, [Player.AJOUAD_15, Player.CHRIS_15, Player.MARGRIET_15, Player.MARLIJN_15,
                                           Player.MARTINE_15, Player.RIK_15, Player.VIKTOR_15])
-episode3 = Episode(players3, result3,
-                   {Player.CAROLINA_15: TestInput({6: 6, 20: 4}), Player.MARTINE_15: TestInput({7: 2}),
-                    Player.VIKTOR_15: TestInput({9: 1}), Player.MARGRIET_15: TestInput({13: 2}),
-                    Player.AJOUAD_15: TestInput({1: 2}), Player.MARLIJN_15: TestInput({9: 2})},
-                   {1: question3_1, 6: question3_6, 7: question3_7, 9: question3_9, 13: question3_13, 20: question3_20})
+episode3 = Episode(
+    players3,
+    result3,
+    {
+        Player.CAROLINA_15: TestInput(
+            {6: 6, 20: 4},
+            accusations=[Player.MARGRIET_15]
+        ),
+        Player.MARTINE_15: TestInput(
+            {7: 2},
+            accusations=[Player.CHRIS_15, Player.VIKTOR_15]
+        ),
+        Player.VIKTOR_15: TestInput(
+            {9: 1},
+            accusations=[Player.RIK_15, Player.CAROLINA_15, Player.MARLIJN_15]
+        ),
+        Player.MARGRIET_15: TestInput(
+            {13: 2},
+            accusations=[Player.CHRIS_15, Player.MARLIJN_15]
+        ),
+        Player.RIK_15: TestInput(
+            accusations=[Player.CHRIS_15, Player.MARGRIET_15, Player.CAROLINA_15, Player.MARLIJN_15, Player.VIKTOR_15]
+        ),
+        Player.AJOUAD_15: TestInput(
+            {1: 2},
+            accusations=[Player.MARTINE_15, Player.MARGRIET_15, Player.MARLIJN_15]
+        ),
+        Player.CHRIS_15: TestInput(
+            accusations=[Player.CAROLINA_15, Player.MARGRIET_15, Player.MARLIJN_15]
+        ),
+        Player.MARLIJN_15: TestInput(
+            {9: 2},
+            accusations=[Player.CHRIS_15]
+        )
+    },
+    {
+        1: question3_1, 6: question3_6, 7: question3_7, 9: question3_9, 13: question3_13, 20: question3_20
+    }
+)
 
 # Aflevering 4 (afvaller: Ajouad)
 # Vragen:
@@ -134,35 +262,83 @@ episode3 = Episode(players3, result3,
 # Margriet (11, 2) (12, 11 pas bekend vanaf aflevering 5)
 players4 = [Player.AJOUAD_15, Player.CAROLINA_15, Player.CHRIS_15, Player.MARGRIET_15, Player.MARLIJN_15,
             Player.MARTINE_15, Player.RIK_15, Player.VIKTOR_15]
-question4_1 = Question({1: [Player.AJOUAD_15, Player.CHRIS_15, Player.RIK_15, Player.VIKTOR_15],
-                        2: [Player.CAROLINA_15, Player.MARGRIET_15, Player.MARLIJN_15, Player.MARTINE_15]})
-question4_3 = Question({1: [Player.MARLIJN_15, Player.VIKTOR_15],
-                        2: [Player.RIK_15, Player.CAROLINA_15, Player.AJOUAD_15],
-                        3: [Player.CHRIS_15, Player.MARTINE_15, Player.MARGRIET_15]})
-question4_7 = Question({1: [Player.AJOUAD_15], 2: [Player.CAROLINA_15], 3: [Player.CHRIS_15], 4: [Player.MARLIJN_15],
-                        5: [Player.RIK_15], 6: [Player.MARTINE_15], 7: [Player.MARGRIET_15], 8: [Player.VIKTOR_15]})
-question4_11 = Question({1: [Player.MARGRIET_15],
-                         2: [Player.AJOUAD_15, Player.CAROLINA_15, Player.CHRIS_15, Player.MARTINE_15,
-                             Player.MARLIJN_15, Player.RIK_15, Player.VIKTOR_15]})
-question4_12 = Question({1: [Player.MARTINE_15], 2: [], 3: [], 4: [], 5: [Player.CAROLINA_15], 6: [Player.CHRIS_15],
-                         7: [Player.VIKTOR_15], 8: [], 9: [Player.MARLIJN_15], 10: [Player.RIK_15],
-                         11: [Player.MARGRIET_15], 12: [Player.AJOUAD_15]})
-question4_17 = Question({1: [Player.MARTINE_15], 2: [Player.AJOUAD_15], 3: [Player.CAROLINA_15], 4: [Player.VIKTOR_15],
-                         5: [Player.RIK_15], 6: [Player.MARGRIET_15], 7: [Player.MARLIJN_15], 8: [Player.CHRIS_15]})
-question4_19 = Question({1: [],
-                         2: [Player.CAROLINA_15, Player.MARLIJN_15, Player.MARTINE_15, Player.RIK_15, Player.VIKTOR_15],
-                         3: [Player.AJOUAD_15, Player.CHRIS_15, Player.MARGRIET_15],
-                         4: []})
-question4_20 = Question({1: [Player.AJOUAD_15], 2: [Player.CAROLINA_15], 3: [Player.CHRIS_15], 4: [Player.MARGRIET_15],
-                         5: [Player.MARLIJN_15], 6: [Player.MARTINE_15], 7: [Player.RIK_15], 8: [Player.VIKTOR_15]})
+question4_1 = Question(
+    {1: [Player.AJOUAD_15, Player.CHRIS_15, Player.RIK_15, Player.VIKTOR_15],
+     2: [Player.CAROLINA_15, Player.MARGRIET_15, Player.MARLIJN_15, Player.MARTINE_15]}
+)
+question4_3 = Question(
+    {1: [Player.MARLIJN_15, Player.VIKTOR_15],
+     2: [Player.RIK_15, Player.CAROLINA_15, Player.AJOUAD_15],
+     3: [Player.CHRIS_15, Player.MARTINE_15, Player.MARGRIET_15]}
+)
+question4_7 = Question(
+    {1: [Player.AJOUAD_15], 2: [Player.CAROLINA_15], 3: [Player.CHRIS_15], 4: [Player.MARLIJN_15],
+     5: [Player.RIK_15], 6: [Player.MARTINE_15], 7: [Player.MARGRIET_15], 8: [Player.VIKTOR_15]}
+)
+question4_11 = Question(
+    {1: [Player.MARGRIET_15],
+     2: [Player.AJOUAD_15, Player.CAROLINA_15, Player.CHRIS_15, Player.MARTINE_15,
+         Player.MARLIJN_15, Player.RIK_15, Player.VIKTOR_15]}
+)
+question4_12 = Question(
+    {1: [Player.MARTINE_15], 2: [], 3: [], 4: [], 5: [Player.CAROLINA_15], 6: [Player.CHRIS_15],
+     7: [Player.VIKTOR_15], 8: [], 9: [Player.MARLIJN_15], 10: [Player.RIK_15],
+     11: [Player.MARGRIET_15], 12: [Player.AJOUAD_15]}
+)
+question4_17 = Question(
+    {1: [Player.MARTINE_15], 2: [Player.AJOUAD_15], 3: [Player.CAROLINA_15], 4: [Player.VIKTOR_15],
+     5: [Player.RIK_15], 6: [Player.MARGRIET_15], 7: [Player.MARLIJN_15], 8: [Player.CHRIS_15]}
+)
+question4_19 = Question(
+    {1: [],
+     2: [Player.CAROLINA_15, Player.MARLIJN_15, Player.MARTINE_15, Player.RIK_15, Player.VIKTOR_15],
+     3: [Player.AJOUAD_15, Player.CHRIS_15, Player.MARGRIET_15],
+     4: []}
+)
+question4_20 = Question(
+    {1: [Player.AJOUAD_15], 2: [Player.CAROLINA_15], 3: [Player.CHRIS_15], 4: [Player.MARGRIET_15],
+     5: [Player.MARLIJN_15], 6: [Player.MARTINE_15], 7: [Player.RIK_15], 8: [Player.VIKTOR_15]}
+)
 result4 = Result(DropType.EXECUTION_DROP, [Player.AJOUAD_15])
-episode4 = Episode(players4, result4,
-                   {Player.CAROLINA_15: TestInput({11: DelayedAnswer(2, 5)}), Player.CHRIS_15: TestInput({3: 3}),
-                    Player.MARLIJN_15: TestInput({20: 7, 7: DelayedAnswer(3, 5)}), Player.RIK_15: TestInput({11: 2}),
-                    Player.MARTINE_15: TestInput({20: 4}), Player.VIKTOR_15: TestInput({17: 8, 19: DelayedAnswer(2, 5)}),
-                    Player.AJOUAD_15: TestInput({1: 2}), Player.MARGRIET_15: TestInput({11: 2, 12: DelayedAnswer(11, 5)})},
-                   {1: question4_1, 3: question4_3, 7: question4_7, 11: question4_11, 12: question4_12, 17: question4_17,
-                    19: question4_19, 20: question4_20})
+episode4 = Episode(
+    players4,
+    result4,
+    {
+        Player.CHRIS_15: TestInput(
+            {3: 3}
+        ),
+        Player.MARLIJN_15: TestInput(
+            {20: 7, 7: DelayedAnswer(3, 5)},
+            accusations=[Player.RIK_15]
+        ),
+        Player.RIK_15: TestInput(
+            {11: 2},
+            accusations=[Player.MARGRIET_15, Player.CHRIS_15, Player.CAROLINA_15, Player.VIKTOR_15]
+        ),
+        Player.MARTINE_15: TestInput(
+            {20: 4},
+            accusations=[Player.MARGRIET_15]
+        ),
+        Player.VIKTOR_15: TestInput(
+            {17: 8, 19: DelayedAnswer(2, 5)},
+            accusations=[Player.CHRIS_15, Player.RIK_15, Player.CAROLINA_15]
+        ),
+        Player.CAROLINA_15: TestInput(
+            {11: DelayedAnswer(2, 5)},
+            accusations=[Player.MARLIJN_15, Player.CHRIS_15, Player.MARTINE_15]
+        ),
+        Player.AJOUAD_15: TestInput(
+            {1: 2}
+        ),
+        Player.MARGRIET_15: TestInput(
+            {11: 2, 12: DelayedAnswer(11, 5)}
+        )
+    },
+    {
+        1: question4_1, 3: question4_3, 7: question4_7, 11: question4_11, 12: question4_12, 17: question4_17,
+        19: question4_19, 20: question4_20
+    }
+)
 
 # Aflevering 5 (afvaller: Viktor)
 # Vragen:
@@ -183,32 +359,77 @@ episode4 = Episode(players4, result4,
 # Antwoorden: Rik (18, 4), Marlijn (20, 2), Viktor (7, 2), Margriet (15, 2), Carolina (6, 1), Martine (4, 2)
 players5 = [Player.CAROLINA_15, Player.CHRIS_15, Player.MARGRIET_15, Player.MARLIJN_15, Player.MARTINE_15,
             Player.RIK_15, Player.VIKTOR_15]
-question5_4 = Question({1: [Player.RIK_15],
-                        2: [Player.CAROLINA_15, Player.CHRIS_15, Player.MARGRIET_15, Player.MARLIJN_15,
-                            Player.MARTINE_15, Player.VIKTOR_15]})
-question5_6 = Question({1: [Player.RIK_15],
-                        2: [Player.CAROLINA_15, Player.CHRIS_15, Player.MARGRIET_15, Player.MARLIJN_15,
-                            Player.MARTINE_15, Player.VIKTOR_15]})
-question5_7 = Question({1: [Player.MARLIJN_15, Player.CAROLINA_15],
-                        2: [Player.VIKTOR_15, Player.RIK_15, Player.MARGRIET_15, Player.MARTINE_15, Player.CHRIS_15]})
-question5_15 = Question({1: [Player.MARTINE_15, Player.RIK_15, Player.CAROLINA_15, Player.MARLIJN_15],
-                         2: [Player.MARGRIET_15, Player.VIKTOR_15, Player.CHRIS_15]})
-question5_17 = Question({1: [Player.VIKTOR_15], 2: [Player.RIK_15], 3: [Player.MARTINE_15], 4: [Player.MARLIJN_15],
-                         5: [Player.MARGRIET_15], 6: [Player.CAROLINA_15], 7: [Player.CHRIS_15]})
-question5_18 = Question({1: [Player.VIKTOR_15, Player.CAROLINA_15],
-                         2: [Player.RIK_15, Player.MARGRIET_15],
-                         3: [Player.MARTINE_15, Player.MARLIJN_15],
-                         4: [Player.CHRIS_15]})
-question5_20 = Question({1: [Player.CAROLINA_15], 2: [Player.CHRIS_15], 3: [Player.MARGRIET_15], 4: [Player.MARLIJN_15],
-                         5: [Player.MARTINE_15], 6: [Player.RIK_15], 7: [Player.VIKTOR_15]})
+question5_4 = Question(
+    {1: [Player.RIK_15],
+     2: [Player.CAROLINA_15, Player.CHRIS_15, Player.MARGRIET_15, Player.MARLIJN_15,
+         Player.MARTINE_15, Player.VIKTOR_15]}
+)
+question5_6 = Question(
+    {1: [Player.RIK_15],
+     2: [Player.CAROLINA_15, Player.CHRIS_15, Player.MARGRIET_15, Player.MARLIJN_15,
+         Player.MARTINE_15, Player.VIKTOR_15]}
+)
+question5_7 = Question(
+    {1: [Player.MARLIJN_15, Player.CAROLINA_15],
+     2: [Player.VIKTOR_15, Player.RIK_15, Player.MARGRIET_15, Player.MARTINE_15, Player.CHRIS_15]}
+)
+question5_15 = Question(
+    {1: [Player.MARTINE_15, Player.RIK_15, Player.CAROLINA_15, Player.MARLIJN_15],
+     2: [Player.MARGRIET_15, Player.VIKTOR_15, Player.CHRIS_15]}
+)
+question5_17 = Question(
+    {1: [Player.VIKTOR_15], 2: [Player.RIK_15], 3: [Player.MARTINE_15], 4: [Player.MARLIJN_15],
+     5: [Player.MARGRIET_15], 6: [Player.CAROLINA_15], 7: [Player.CHRIS_15]}
+)
+question5_18 = Question(
+    {1: [Player.VIKTOR_15, Player.CAROLINA_15],
+     2: [Player.RIK_15, Player.MARGRIET_15],
+     3: [Player.MARTINE_15, Player.MARLIJN_15],
+     4: [Player.CHRIS_15]}
+)
+question5_20 = Question(
+    {1: [Player.CAROLINA_15], 2: [Player.CHRIS_15], 3: [Player.MARGRIET_15], 4: [Player.MARLIJN_15],
+     5: [Player.MARTINE_15], 6: [Player.RIK_15], 7: [Player.VIKTOR_15]}
+)
 result5 = Result(DropType.EXECUTION_DROP, [Player.VIKTOR_15])
-episode5 = Episode(players5, result5,
-                   {Player.RIK_15: TestInput({18: 4}), Player.MARLIJN_15: TestInput({20: 2}),
-                    Player.VIKTOR_15: TestInput({7: 2}), Player.MARGRIET_15: TestInput({15: 2}),
-                    Player.CAROLINA_15: TestInput({6: 1}), Player.MARTINE_15: TestInput({4: 2}),
-                    Player.CHRIS_15: TestInput({17: 3})},
-                   {4: question5_4, 6: question5_6, 7: question5_7, 15: question5_15, 17: question5_17,
-                    18: question5_18, 20: question5_20})
+episode5 = Episode(
+    players5,
+    result5,
+    {
+        Player.RIK_15: TestInput(
+            {18: 4},
+            accusations=[Player.CHRIS_15, Player.MARGRIET_15, Player.MARLIJN_15]
+        ),
+        Player.MARLIJN_15: TestInput(
+            {20: 2},
+            accusations=[Player.MARGRIET_15, Player.CHRIS_15]
+        ),
+        Player.VIKTOR_15: TestInput(
+            {7: 2},
+            accusations=[Player.RIK_15, Player.CHRIS_15, Player.MARGRIET_15, Player.MARTINE_15]
+        ),
+        Player.MARGRIET_15: TestInput(
+            {15: 2},
+            accusations=[Player.CHRIS_15]
+        ),
+        Player.CAROLINA_15: TestInput(
+            {6: 1},
+            accusations=[Player.RIK_15]
+        ),
+        Player.MARTINE_15: TestInput(
+            {4: 2},
+            accusations=[Player.RIK_15]
+        ),
+        Player.CHRIS_15: TestInput(
+            {17: 3},
+            accusations=[Player.MARTINE_15]
+        )
+    },
+    {
+        4: question5_4, 6: question5_6, 7: question5_7, 15: question5_15, 17: question5_17,
+        18: question5_18, 20: question5_20
+    }
+)
 
 # Aflevering 6 (afvaller: Carolina)
 # Vragen:
@@ -223,23 +444,51 @@ episode5 = Episode(players5, result5,
 # Antwoorden: Carolina (7, 2), Chris (5, 2), Margriet (20, 2), Martine (16, 2)
 players6 = [Player.CAROLINA_15, Player.CHRIS_15, Player.MARGRIET_15, Player.MARLIJN_15, Player.MARTINE_15,
             Player.RIK_15]
-question6_5 = Question({1: [Player.CAROLINA_15, Player.CHRIS_15],
-                        2: [Player.MARGRIET_15],
-                        3: [Player.RIK_15],
-                        4: [Player.MARLIJN_15, Player.MARTINE_15]})
-question6_7 = Question({1: [Player.MARTINE_15, Player.RIK_15, Player.MARGRIET_15, Player.MARLIJN_15],
-                        2: [Player.CAROLINA_15, Player.CHRIS_15]})
-question6_16 = Question({1: [Player.CHRIS_15],
-                         2: [Player.MARGRIET_15, Player.RIK_15],
-                         3: [Player.MARTINE_15, Player.MARLIJN_15],
-                         4: [Player.CAROLINA_15]})
-question6_20 = Question({1: [Player.CAROLINA_15], 2: [Player.CHRIS_15], 3: [Player.MARGRIET_15], 4: [Player.MARLIJN_15],
-                         5: [Player.MARTINE_15], 6: [Player.RIK_15]})
+question6_5 = Question(
+    {1: [Player.CAROLINA_15, Player.CHRIS_15],
+     2: [Player.MARGRIET_15],
+     3: [Player.RIK_15],
+     4: [Player.MARLIJN_15, Player.MARTINE_15]}
+)
+question6_7 = Question(
+    {1: [Player.MARTINE_15, Player.RIK_15, Player.MARGRIET_15, Player.MARLIJN_15],
+     2: [Player.CAROLINA_15, Player.CHRIS_15]}
+)
+question6_16 = Question(
+    {1: [Player.CHRIS_15],
+     2: [Player.MARGRIET_15, Player.RIK_15],
+     3: [Player.MARTINE_15, Player.MARLIJN_15],
+     4: [Player.CAROLINA_15]}
+)
+question6_20 = Question(
+    {1: [Player.CAROLINA_15], 2: [Player.CHRIS_15], 3: [Player.MARGRIET_15], 4: [Player.MARLIJN_15],
+     5: [Player.MARTINE_15], 6: [Player.RIK_15]}
+)
 result6 = Result(DropType.EXECUTION_DROP, [Player.CAROLINA_15])
-episode6 = Episode(players6, result6,
-                   {Player.CAROLINA_15: TestInput({7: 2}), Player.CHRIS_15: TestInput({5: 2}),
-                    Player.MARGRIET_15: TestInput({20: 2}), Player.MARTINE_15: TestInput({16: 2})},
-                   {5: question6_5, 7: question6_7, 16: question6_16, 20: question6_20})
+episode6 = Episode(
+    players6,
+    result6,
+    {
+        Player.CAROLINA_15: TestInput(
+            {7: 2},
+            accusations=[Player.MARTINE_15, Player.CHRIS_15, Player.MARGRIET_15]
+        ),
+        Player.CHRIS_15: TestInput(
+            {5: 2},
+            accusations=[Player.CAROLINA_15, Player.MARGRIET_15]
+        ),
+        Player.MARGRIET_15: TestInput(
+            {20: 2},
+            accusations=[Player.CHRIS_15, Player.RIK_15, Player.MARLIJN_15]
+        ),
+        Player.MARTINE_15: TestInput(
+            {16: 2}
+        )
+    },
+    {
+        5: question6_5, 7: question6_7, 16: question6_16, 20: question6_20
+    }
+)
 
 # Aflevering 7 (geen schermen en geen afvallers maar wel data ingevuld voor regressie)
 # Vragen:
@@ -253,20 +502,52 @@ episode6 = Episode(players6, result6,
 # 1: Chris; 2: Margriet; 3: Marlijn; 4: Martine; 5: Rik;
 # Antwoorden: Marlijn (13, 2) (1 joker), Martine (15, 1), Chris (1, 2), Margriet (20, 5), Rik (1 joker)
 players7 = [Player.CHRIS_15, Player.MARGRIET_15, Player.MARLIJN_15, Player.MARTINE_15, Player.RIK_15]
-question7_1 = Question({1: [Player.CHRIS_15, Player.RIK_15],
-                        2: [Player.MARGRIET_15, Player.MARLIJN_15, Player.MARTINE_15]})
-question7_13 = Question({1: [Player.MARTINE_15], 2: [Player.MARLIJN_15], 3: [Player.RIK_15], 4: [Player.MARGRIET_15],
-                         5: [Player.CHRIS_15]})
-question7_15 = Question({1: [Player.CHRIS_15],
-                         2: [Player.MARGRIET_15, Player.MARLIJN_15, Player.MARTINE_15, Player.RIK_15]})
-question7_20 = Question({1: [Player.CHRIS_15], 2: [Player.MARGRIET_15], 3: [Player.MARLIJN_15], 4: [Player.MARTINE_15],
-                         5: [Player.RIK_15]})
+question7_1 = Question(
+    {1: [Player.CHRIS_15, Player.RIK_15],
+     2: [Player.MARGRIET_15, Player.MARLIJN_15, Player.MARTINE_15]}
+)
+question7_13 = Question(
+    {1: [Player.MARTINE_15], 2: [Player.MARLIJN_15], 3: [Player.RIK_15], 4: [Player.MARGRIET_15],
+     5: [Player.CHRIS_15]}
+)
+question7_15 = Question(
+    {1: [Player.CHRIS_15],
+     2: [Player.MARGRIET_15, Player.MARLIJN_15, Player.MARTINE_15, Player.RIK_15]}
+)
+question7_20 = Question(
+    {1: [Player.CHRIS_15], 2: [Player.MARGRIET_15], 3: [Player.MARLIJN_15], 4: [Player.MARTINE_15],
+     5: [Player.RIK_15]}
+)
 result7 = Result(DropType.NO_DROP_NOR_SCREENS, [])
-episode7 = Episode(players7, result7,
-                   {Player.MARLIJN_15: TestInput({13: 2}, jokers = 1), Player.MARTINE_15: TestInput({15: 1}),
-                    Player.CHRIS_15: TestInput({1: 2}), Player.MARGRIET_15: TestInput({20: 5}),
-                    Player.RIK_15: TestInput(jokers = 1)},
-                   {1: question7_1, 13: question7_13, 15: question7_15, 20: question7_20})
+episode7 = Episode(
+    players7,
+    result7,
+    {
+        Player.MARLIJN_15: TestInput(
+            {13: 2},
+            jokers=1,
+            accusations=[Player.MARGRIET_15, Player.CHRIS_15, Player.RIK_15]
+        ),
+        Player.MARTINE_15: TestInput(
+            {15: 1},
+            accusations=[Player.RIK_15, Player.CHRIS_15]
+        ),
+        Player.CHRIS_15: TestInput(
+            {1: 2},
+            accusations=[Player.MARGRIET_15]
+        ),
+        Player.MARGRIET_15: TestInput(
+            {20: 5},
+            accusations=[Player.RIK_15]
+        ),
+        Player.RIK_15: TestInput(
+            jokers=1
+        )
+    },
+    {
+        1: question7_1, 13: question7_13, 15: question7_15, 20: question7_20
+    }
+)
 
 # Aflevering 8 (afvaller: Martine)
 # Vragen:
@@ -282,23 +563,57 @@ episode7 = Episode(players7, result7,
 # 1: Rik; 2: Margriet, Marlijn; 3: Martine, Chris;
 # Antwoorden: Chris (16, 2), Marlijn (6, 4), Rik (12, 2), Margriet (18, 1), Martine (1, 2)
 players8 = [Player.CHRIS_15, Player.MARGRIET_15, Player.MARLIJN_15, Player.MARTINE_15, Player.RIK_15]
-question8_1 = Question({1: [Player.CHRIS_15, Player.RIK_15],
-                        2: [Player.MARGRIET_15, Player.MARLIJN_15, Player.MARTINE_15]})
-question8_6 = Question({1: [Player.CHRIS_15], 2: [Player.RIK_15], 3: [Player.MARTINE_15], 4: [Player.MARGRIET_15],
-                        5: [Player.MARLIJN_15]})
-question8_12 = Question({1: [Player.RIK_15, Player.MARTINE_15, Player.CHRIS_15],
-                         2: [Player.MARGRIET_15, Player.MARLIJN_15]})
-question8_16 = Question({1: [Player.MARTINE_15], 2: [Player.MARGRIET_15], 3: [Player.MARLIJN_15], 4: [Player.RIK_15],
-                         5: [Player.CHRIS_15]})
-question8_18 = Question({1: [Player.RIK_15],
-                         2: [Player.MARGRIET_15, Player.MARLIJN_15],
-                         3: [Player.MARTINE_15, Player.CHRIS_15]})
+question8_1 = Question(
+    {1: [Player.CHRIS_15, Player.RIK_15],
+     2: [Player.MARGRIET_15, Player.MARLIJN_15, Player.MARTINE_15]}
+)
+question8_6 = Question(
+    {1: [Player.CHRIS_15], 2: [Player.RIK_15], 3: [Player.MARTINE_15], 4: [Player.MARGRIET_15],
+     5: [Player.MARLIJN_15]}
+)
+question8_12 = Question(
+    {1: [Player.RIK_15, Player.MARTINE_15, Player.CHRIS_15],
+     2: [Player.MARGRIET_15, Player.MARLIJN_15]}
+)
+question8_16 = Question(
+    {1: [Player.MARTINE_15], 2: [Player.MARGRIET_15], 3: [Player.MARLIJN_15], 4: [Player.RIK_15],
+     5: [Player.CHRIS_15]}
+)
+question8_18 = Question(
+    {1: [Player.RIK_15],
+     2: [Player.MARGRIET_15, Player.MARLIJN_15],
+     3: [Player.MARTINE_15, Player.CHRIS_15]}
+)
 result8 = Result(DropType.EXECUTION_DROP, [Player.MARTINE_15])
-episode8 = Episode(players8, result8,
-                   {Player.CHRIS_15: TestInput({16: 2}), Player.MARLIJN_15: TestInput({6: 4}),
-                    Player.RIK_15: TestInput({12: 2}), Player.MARGRIET_15: TestInput({18: 1}),
-                    Player.MARTINE_15: TestInput({1: 2})},
-                   {1: question8_1, 6: question8_6, 12: question8_12, 16: question8_16, 18: question8_18})
+episode8 = Episode(
+    players8,
+    result8,
+    {
+        Player.CHRIS_15: TestInput(
+            {16: 2},
+            accusations=[Player.MARGRIET_15, Player.MARLIJN_15]
+        ),
+        Player.MARLIJN_15: TestInput(
+            {6: 4},
+            accusations=[Player.MARGRIET_15]
+        ),
+        Player.RIK_15: TestInput(
+            {12: 2},
+            accusations=[Player.MARLIJN_15]
+        ),
+        Player.MARGRIET_15: TestInput(
+            {18: 1},
+            accusations=[Player.RIK_15]
+        ),
+        Player.MARTINE_15: TestInput(
+            {1: 2},
+            accusations=[Player.MARGRIET_15]
+        )
+    },
+    {
+        1: question8_1, 6: question8_6, 12: question8_12, 16: question8_16, 18: question8_18
+    }
+)
 
 # Aflevering 9 - First (afvaller: Chris)
 # Vragen:
@@ -310,17 +625,44 @@ episode8 = Episode(players8, result8,
 # 1: Chris; 2: Margriet; 3: Marlijn; 4: Rik;
 # Antwoorden: Marlijn (1 joker), Rik (1, 2) (1 joker), Margriet (16, 3) (2 jokers), Chris (20, 2)
 players9f = [Player.CHRIS_15, Player.MARGRIET_15, Player.MARLIJN_15, Player.RIK_15]
-question9f_1 = Question({1: [Player.CHRIS_15, Player.RIK_15],
-                        2: [Player.MARGRIET_15, Player.MARLIJN_15]})
-question9f_16 = Question({1: [Player.CHRIS_15, Player.MARGRIET_15],
-                         2: [Player.MARLIJN_15],
-                         3: [Player.RIK_15]})
-question9f_20 = Question({1: [Player.CHRIS_15], 2: [Player.MARGRIET_15], 3: [Player.MARLIJN_15], 4: [Player.RIK_15]})
+question9f_1 = Question(
+    {1: [Player.CHRIS_15, Player.RIK_15],
+     2: [Player.MARGRIET_15, Player.MARLIJN_15]}
+)
+question9f_16 = Question(
+    {1: [Player.CHRIS_15, Player.MARGRIET_15],
+     2: [Player.MARLIJN_15],
+     3: [Player.RIK_15]}
+)
+question9f_20 = Question(
+    {1: [Player.CHRIS_15], 2: [Player.MARGRIET_15], 3: [Player.MARLIJN_15], 4: [Player.RIK_15]}
+)
 result9f = Result(DropType.EXECUTION_DROP, [Player.CHRIS_15])
-episode9f = Episode(players9f, result9f,
-                   {Player.MARLIJN_15: TestInput(jokers = 1), Player.RIK_15: TestInput({1: 2}, jokers = 1),
-                    Player.MARGRIET_15: TestInput({16: 3}, jokers = 2), Player.CHRIS_15: TestInput({20: 2})},
-                   {1: question9f_1, 16: question9f_16, 20: question9f_20})
+episode9f = Episode(
+    players9f,
+    result9f,
+    {
+        Player.MARLIJN_15: TestInput(
+            jokers=1
+        ),
+        Player.MARGRIET_15: TestInput(
+            {16: 3},
+            jokers=2,
+            accusations=[Player.RIK_15]
+        ),
+        Player.RIK_15: TestInput(
+            {1: 2},
+            jokers=1
+        ),
+        Player.CHRIS_15: TestInput(
+            {20: 2},
+            accusations=[Player.MARGRIET_15]
+        )
+    },
+    {
+        1: question9f_1, 16: question9f_16, 20: question9f_20
+    }
+)
 
 # Aflevering 9 - Second (afvaller: Marlijn) (pas in de reunie bekend)
 # 4 - Bemande de Mol bij aanvang van de Schermen-opdracht de controlroom:
@@ -335,19 +677,58 @@ episode9f = Episode(players9f, result9f,
 # 1: Margriet; 2: Marlijn; 3: Rik;
 # Antwoorden: Marlijn (4, 1) (40, 1), Margriet (14, 1) (18, 2) (40, 3), Rik (8, 2) (40, 1)
 players9s = [Player.MARGRIET_15, Player.MARLIJN_15, Player.RIK_15]
-question9s_4 = Question({1: [Player.MARGRIET_15],
-                         2: [Player.MARLIJN_15, Player.RIK_15]})
-question9s_8 = Question({1: [Player.MARLIJN_15],
-                         2: [Player.MARGRIET_15, Player.RIK_15]})
-question9s_14 = Question({1: [Player.RIK_15], 2: [Player.MARLIJN_15], 3: [Player.MARGRIET_15]})
-question9s_18 = Question({1: [Player.MARGRIET_15, Player.MARLIJN_15],
-                          2: [Player.RIK_15]})
-question9s_40 = Question({1: [Player.MARGRIET_15], 2: [Player.MARLIJN_15], 3: [Player.RIK_15]})
+question9s_4 = Question(
+    {1: [Player.MARGRIET_15],
+     2: [Player.MARLIJN_15, Player.RIK_15]}
+)
+question9s_8 = Question(
+    {1: [Player.MARLIJN_15],
+     2: [Player.MARGRIET_15, Player.RIK_15]}
+)
+question9s_14 = Question(
+    {1: [Player.RIK_15], 2: [Player.MARLIJN_15], 3: [Player.MARGRIET_15]}
+)
+question9s_18 = Question(
+    {1: [Player.MARGRIET_15, Player.MARLIJN_15],
+     2: [Player.RIK_15]}
+)
+question9s_40 = Question(
+    {1: [Player.MARGRIET_15], 2: [Player.MARLIJN_15], 3: [Player.RIK_15]}
+)
 result9s = Result(DropType.EXECUTION_DROP, [Player.MARLIJN_15])
-episode9s = Episode(players9s, result9s,
-                   {Player.MARLIJN_15: TestInput({4: 1, 40: 1}), Player.MARGRIET_15: TestInput({14: 1, 18: 2, 40: 3}),
-                    Player.RIK_15: TestInput({8: 2, 40: 1})},
-                   {4: question9s_4, 8: question9s_8, 14: question9s_14, 18: question9s_18, 40: question9s_40},
-                    num_questions = 40)
-season15 = Season(players1, {1: episode1, 2: episode2, 3: episode3, 4: episode4, 5: episode5, 6: episode6, 7: episode7,
-                             8: episode8, 9: episode9f, 10: episode9s})
+episode9s = Episode(
+    players9s,
+    result9s,
+    {
+        Player.MARLIJN_15: TestInput(
+            {4: 1, 40: 1},
+            accusations=[Player.MARGRIET_15]
+        ),
+        Player.MARGRIET_15: TestInput(
+            {14: 1, 18: 2, 40: 3},
+            accusations=[Player.RIK_15]
+        ),
+        Player.RIK_15: TestInput(
+            {8: 2, 40: 1},
+            accusations=[Player.MARGRIET_15]
+        )
+    },
+    {4: question9s_4, 8: question9s_8, 14: question9s_14, 18: question9s_18, 40: question9s_40},
+    num_questions=40
+)
+
+season15 = Season(
+    players1,
+    {
+        1: episode1,
+        2: episode2,
+        3: episode3,
+        4: episode4,
+        5: episode5,
+        6: episode6,
+        7: episode7,
+        8: episode8,
+        9: episode9f,
+        10: episode9s
+    }
+)

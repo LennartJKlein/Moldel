@@ -140,15 +140,17 @@ class InnerExamAccusationsLayer(Layer):
         times_accused = 0
         accused_dropout = 0
         accused_by_dropout = 0
+        accusations_made = 0
         for p, accusations in all_accusations.items():
             if p != player:
                 times_accused += sum(accusedPlayer == player for accusedPlayer in accusations)
             if p == player:
                 accused_dropout += sum(accusedPlayer in dropouts for accusedPlayer in accusations)
+                accusations_made = len(accusations)
             if p in dropouts:
                 accused_by_dropout += sum(accusedPlayer == player for accusedPlayer in accusations)
             
-        return [times_accused, accused_dropout, accused_by_dropout]
+        return [times_accused, accused_dropout, accused_by_dropout, accusations_made]
 
 class ExamAccusationsLayer(PotentialMolLayer):
     """ The Exam Accusations Layer predicts whether a player is the Mol based on spoken accusations. """
