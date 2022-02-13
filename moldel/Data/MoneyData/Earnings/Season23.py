@@ -134,6 +134,23 @@ exercises6 = [
     ])
 ]
 
+################
+# Aflevering 7
+players7 = {Player.EVERON_23, Player.FRESIA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.THOMAS_23}
+exercises7 = [
+    # Opdracht 1: Vakmanscha(a)p
+    Exercise(episode = 7, alive = players7, maximum = 2000, earned = [
+        Earning(money = -815, major = {Player.EVERON_23, Player.KIM_LIAN_23, Player.THOMAS_23, Player.FRESIA_23, Player.LAETITIA_23})
+    ]),
+    # Opdracht 2: De boot missen?
+    Exercise(episode = 7, alive = players7, maximum = 1500, earned = [
+        Earning(money = 100, major = {Player.FRESIA_23}),
+        Earning(money = 300, major = {Player.KIM_LIAN_23}),
+        Earning(money = 200, major = {Player.LAETITIA_23}),
+        Earning(money = 250, major = {Player.THOMAS_23})
+    ])
+]
+
 season23 = Season(
-    exercises1 + exercises2 + exercises3 + exercises4 + exercises5 + exercises6
+    exercises1 + exercises2 + exercises3 + exercises4 + exercises5 + exercises6 + exercises7
 )

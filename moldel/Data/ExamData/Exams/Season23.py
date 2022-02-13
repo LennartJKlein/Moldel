@@ -475,12 +475,51 @@ episode6 = Episode(players6, result6, input6, questions6)
 ################
 # Aflevering 7
 players7 = [Player.EVERON_23, Player.FRESIA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.THOMAS_23]
-# questions7 = {
-# }
-# input7 = {
-# }
-# result7 = Result(DropType.EXECUTION_DROP, [])
-# episode7 = Episode(players7, result7, input7, questions7)
+questions7 = {
+    # Schoot de Mol als eerste alle flessen kapot tijdens de opdracht 'Testafette'?
+    18: Question({
+        # Ja
+        1: [Player.THOMAS_23],
+        # Nee
+        2: [Player.EVERON_23, Player.FRESIA_23, Player.LAETITIA_23, Player.KIM_LIAN_23]
+    }),
+    # Wie is de Mol?
+    20: Question({
+        # Everon
+        1: [Player.EVERON_23],
+        # Fresia
+        2: [Player.FRESIA_23],
+        # Kim-Lian
+        3: [Player.KIM_LIAN_23],
+        # Laetitia
+        4: [Player.LAETITIA_23],
+        # Thomas
+        5: [Player.THOMAS_23]
+    })
+}
+input7 = {
+    Player.FRESIA_23: TestInput(
+        immunity=True
+    ),
+    Player.THOMAS_23: TestInput(
+        {20: 3},
+        accusations=[Player.KIM_LIAN_23]
+    ),
+    Player.EVERON_23: TestInput(
+        {18: 2, 20: 3},
+        accusations=[Player.KIM_LIAN_23]
+    ),
+    Player.LAETITIA_23: TestInput(
+        {20: 3},
+        accusations=[Player.KIM_LIAN_23]
+    ),
+    Player.KIM_LIAN_23: TestInput(
+        {20: 1},
+        accusations=[Player.EVERON_23]
+    ),
+}
+result7 = Result(DropType.EXECUTION_DROP, [Player.LAETITIA_23])
+episode7 = Episode(players7, result7, input7, questions7)
 
 ################
 # Aflevering 8
@@ -514,6 +553,7 @@ season23 = Season(
         3: episode3,
         4: episode4,
         5: episode5,
-        6: episode6
+        6: episode6,
+        7: episode7
     }
 )
