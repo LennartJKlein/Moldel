@@ -15,20 +15,21 @@ for season in TRAIN_SEASONS:
         all_accusations = episode.total_accusations()
         dropouts = episode.result.players
         for player in episode.players:
+            accusations_made = all_accusations.get(player)
             times_accused = 0
             accused_dropout = 0
             accused_by_dropout = 0
-            accusations_made = 0
+            accused_like_others = 0
             for p, accusations in all_accusations.items():
                 if p != player:
                     times_accused += sum(accusedPlayer == player for accusedPlayer in accusations)
+                    if accusations_made is not None:
+                        accused_like_others += sum(accusedPlayer in accusations_made for accusedPlayer in accusations)
                 if p == player:
                     accused_dropout += sum(accusedPlayer in dropouts for accusedPlayer in accusations)
-                    accusations_made = len(accusations)
                 if p in dropouts:
                     accused_by_dropout += sum(accusedPlayer == player for accusedPlayer in accusations)
-
-            train_input.append([times_accused, accused_dropout, accused_by_dropout, accusations_made])
+            train_input.append([times_accused, accused_dropout, accused_by_dropout, accused_like_others])
             train_output.append(1.0 if get_is_mol(player) else 0.0)
 
 train_input = np.array(train_input)
@@ -46,19 +47,21 @@ for season_id in TRAIN_SEASONS:
         dropouts = episode.result.players
         mol_likelihoods = dict()
         for player in episode.players:
+            accusations_made = all_accusations.get(player)
             times_accused = 0
             accused_dropout = 0
             accused_by_dropout = 0
-            accusations_made = 0
+            accused_like_others = 0
             for p, accusations in all_accusations.items():
                 if p != player:
                     times_accused += sum(accusedPlayer == player for accusedPlayer in accusations)
+                    if accusations_made is not None:
+                        accused_like_others += sum(accusedPlayer in accusations_made for accusedPlayer in accusations)
                 if p == player:
                     accused_dropout += sum(accusedPlayer in dropouts for accusedPlayer in accusations)
-                    accusations_made = len(accusations)
                 if p in dropouts:
                     accused_by_dropout += sum(accusedPlayer == player for accusedPlayer in accusations)
-            features = [times_accused, accused_dropout, accused_by_dropout, accusations_made]
+            features = [times_accused, accused_dropout, accused_by_dropout, accused_like_others]
             mol_likelihoods[player] = estimator.predict_proba(np.array([features]))[0][1]
         probability_sum = sum(mol_likelihoods.values())
         drop_probabilities = {player: likelihood / probability_sum for player, likelihood in mol_likelihoods.items()}
