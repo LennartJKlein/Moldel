@@ -523,19 +523,59 @@ episode7 = Episode(players7, result7, input7, questions7)
 
 ################
 # Aflevering 8
-players8 = [Player.EVERON_23, Player.FRESIA_23, Player.HILA_23,
-            Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23]
-# questions8 = {
-# }
-# input8 = {
-# }
-# result8 = Result(DropType.EXECUTION_DROP, [])
-# episode8 = Episode(players8, result8, input8, questions8)
+players8 = [Player.EVERON_23, Player.FRESIA_23, Player.KIM_LIAN_23, Player.THOMAS_23]
+questions8 = {
+    # Bracht de Mol als eerste een kleed naar het middelpunt tijdens de opdracht 'Carpe Diem'?
+    3: Question({
+        # Ja
+        1: [Player.KIM_LIAN_23],
+        # Nee
+        2: [Player.EVERON_23, Player.THOMAS_23, Player.FRESIA_23]
+    }),
+    # Waar was de Mol tijdens de opdracht
+    9: Question({
+        # 
+        1: [Player.FRESIA_23, Player.KIM_LIAN_23],
+        # 
+        2: [Player.THOMAS_23, Player.EVERON_23]
+    }),
+    # Had de Mol een metaaldetector in handen bij aanvang van de opdracht 'Zand erover'?
+    14: Question({
+        # Ja
+        1: [Player.EVERON_23, Player.FRESIA_23, Player.THOMAS_23],
+        # Nee
+        2: [Player.KIM_LIAN_23]
+    }),
+    # Is de Mol in het bezit van de Moltelefoon?
+    19: Question({
+        # Ja
+        1: [Player.THOMAS_23],
+        # Nee
+        2: [Player.EVERON_23, Player.KIM_LIAN_23, Player.FRESIA_23]
+    })
+}
+input8 = {
+    Player.KIM_LIAN_23: TestInput(
+        {19: 2},
+    ),
+    Player.THOMAS_23: TestInput(
+        {3: 2},
+        accusations=[Player.EVERON_23, Player.KIM_LIAN_23]
+    ),
+    Player.FRESIA_23: TestInput(
+        {14: 1}
+    ),
+    Player.EVERON_23: TestInput(
+        {9: 1},
+        accusations=[Player.KIM_LIAN_23]
+    )
+}
+result8 = Result(DropType.EXECUTION_DROP, [Player.THOMAS_23])
+episode8 = Episode(players8, result8, input8, questions8)
 
 ################
 # Aflevering 9
-players9 = [Player.EVERON_23, Player.FRESIA_23, Player.HILA_23,
-            Player.KIM_LIAN_23, Player.LAETITIA_23, Player.SAHIL_23, Player.THOMAS_23]
+players9 = [Player.EVERON_23, Player.FRESIA_23, Player.KIM_LIAN_23, Player.THOMAS_23]
 # questions9 = {
 # }
 # input9 = {
@@ -554,6 +594,7 @@ season23 = Season(
         4: episode4,
         5: episode5,
         6: episode6,
-        7: episode7
+        7: episode7,
+        8: episode8
     }
 )
