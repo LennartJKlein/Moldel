@@ -9,6 +9,7 @@ if TYPE_CHECKING:
     from .Answer import Answer
     from .Question import Question
     from ...Player import Player
+    from .Result import Result
 
 @dataclass
 class Episode:

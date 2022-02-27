@@ -64,17 +64,6 @@ class InnerExamAccusationsLayer(Layer):
         Returns:
             A dictionary with as key a player that could be the Mol and as value the probability that it is the Mol.
         """
-        # mol_likelihoods = self.__get_mol_likelihoods(episode, estimator)
-        # predictions = dict()
-        # dropouts = episode.result.players
-        # drop_likelihood = np.prod([mol_likelihoods[p] for p in dropouts])
-        # for mol in alive_players:
-        #     possible_dropouts = set(episode.players).difference({mol})
-        #     drop_sum = 0.0
-        #     for players in it.combinations(possible_dropouts, len(dropouts)):
-        #         drop_sum += np.prod([mol_likelihoods[p] for p in players])
-        #     predictions[mol] = drop_likelihood / drop_sum
-        # return predictions
         mol_likelihoods = self.__get_mol_likelihoods(episode, estimator)
         predictions = dict()
         for p in alive_players:
@@ -94,11 +83,13 @@ class InnerExamAccusationsLayer(Layer):
         """
         train_input = []
         train_output = []
+        dropouts = []
         for season in train_seasons:
             season = EXAM_DATA[season]
             for episode in season.episodes.values():
                 all_accusations = episode.total_accusations()
-                dropouts = episode.result.players
+                if episode.result.drop == DropType.EXECUTION_DROP:
+                    dropouts = episode.result.players
                 for player in episode.players:
                     train_input.append(self.__get_input(player, all_accusations, dropouts))
                     train_output.append(1.0 if get_is_mol(player) else 0.0)
@@ -147,10 +138,10 @@ class InnerExamAccusationsLayer(Layer):
                 times_accused += sum(accusedPlayer == player for accusedPlayer in accusations)
                 if accusations_made is not None:
                     accused_like_others += sum(accusedPlayer in accusations_made for accusedPlayer in accusations)
-            if p == player:
-                accused_dropout += sum(accusedPlayer in dropouts for accusedPlayer in accusations)
-            if p in dropouts:
-                accused_by_dropout += sum(accusedPlayer == player for accusedPlayer in accusations)
+                if p == player:
+                    accused_dropout += sum(accusedPlayer in dropouts for accusedPlayer in accusations)
+                if p in dropouts:
+                    accused_by_dropout += sum(accusedPlayer == player for accusedPlayer in accusations)
 
         return [times_accused, accused_dropout, accused_by_dropout, accused_like_others]
 
