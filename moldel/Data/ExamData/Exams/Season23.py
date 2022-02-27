@@ -662,7 +662,7 @@ input9 = {
     )
 }
 result9 = Result(DropType.NO_DROP_NOR_SCREENS, [])
-episode9 = Episode(players9, result9, input9, questions9)
+episode9 = Episode(players9, result9, input9, questions9, num_questions=40)
 
 ################
 # Summary
