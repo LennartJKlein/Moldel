@@ -182,6 +182,28 @@ exercises8 = [
     ])
 ]
 
+################
+# Aflevering 9
+players9 = {Player.EVERON_23, Player.FRESIA_23, Player.KIM_LIAN_23}
+exercises9 = [
+    # Opdracht 1: Alarmerend
+    Exercise(episode=9, alive=players9, maximum=2000, earned=[
+        Earning(money=405, major={Player.EVERON_23}),
+        Earning(money=565, major={Player.KIM_LIAN_23})
+    ]),
+    # Opdracht 2: Afrekenen
+    Exercise(episode=9, alive=players9, maximum=2000, earned=[
+        Earning(money=50, major={Player.KIM_LIAN_23}),
+        Earning(money=75, major={Player.EVERON_23}),
+        Earning(money=50, major={Player.EVERON_23}, minor={Player.KIM_LIAN_23}),
+        Earning(money=150, major={Player.FRESIA_23})
+    ]),
+    # Opdracht 3: Binnenskamers
+    Exercise(episode=9, alive=players9, maximum=2000, earned=[
+        Earning(money=-1000, major={Player.EVERON_23, Player.KIM_LIAN_23, Player.FRESIA_23})
+    ])
+]
+
 season23 = Season(
-    exercises1 + exercises2 + exercises3 + exercises4 + exercises5 + exercises6 + exercises7 + exercises8
+    exercises1 + exercises2 + exercises3 + exercises4 + exercises5 + exercises6 + exercises7 + exercises8 + exercises9
 )

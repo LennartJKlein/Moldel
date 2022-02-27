@@ -532,11 +532,11 @@ questions8 = {
         # Nee
         2: [Player.EVERON_23, Player.THOMAS_23, Player.FRESIA_23]
     }),
-    # Waar was de Mol tijdens de opdracht
+    # Waar was de Mol tijdens de opdracht Heftig?
     9: Question({
-        # 
-        1: [Player.FRESIA_23, Player.KIM_LIAN_23],
-        # 
+        # Op de kraan
+        1: [],
+        # Tussen de containers
         2: [Player.THOMAS_23, Player.EVERON_23]
     }),
     # Had de Mol een metaaldetector in handen bij aanvang van de opdracht 'Zand erover'?
@@ -575,13 +575,94 @@ episode8 = Episode(players8, result8, input8, questions8)
 
 ################
 # Aflevering 9
-players9 = [Player.EVERON_23, Player.FRESIA_23, Player.KIM_LIAN_23, Player.THOMAS_23]
-# questions9 = {
-# }
-# input9 = {
-# }
-# result9 = Result(DropType.EXECUTION_DROP, [])
-# episode9 = Episode(players9, result9, input9, questions9)
+players9 = [Player.EVERON_23, Player.FRESIA_23, Player.KIM_LIAN_23]
+questions9 = {
+    # Koos de Mol het juist Mili-portret tijdens de opdracht 'Ver gelijken'?
+    8: Question({
+        # Ja
+        1: [Player.EVERON_23],
+        # Nee
+        2: [Player.KIM_LIAN_23],
+        # De Mol koos geen portret
+        3: [Player.FRESIA_23]
+    }),
+    # De Mol speelde de opdracht 'Waar rook is, is vuur' samen met:
+    11: Question({
+        # Twee vrouwen
+        1: [Player.EVERON_23],
+        # Een man en een vrouw
+        2: [Player.KIM_LIAN_23, Player.FRESIA_23]
+    }),
+    # Wie stond er tegenover de Mol tijdens de opdracht 'Vakbondje'?
+    12: Question({
+        # Laetitia
+        1: [Player.FRESIA_23],
+        # Thomas
+        2: [Player.EVERON_23],
+        # Welmoed
+        3: [Player.KIM_LIAN_23]
+    }),
+    # Wat heeft de Mol verkregen tijdens de opdracht 'Hoog spel spelen'?
+    15: Question({
+        # 250 euro
+        1: [Player.KIM_LIAN_23],
+        # Twee jokers
+        2: [Player.FRESIA_23, Player.EVERON_23]
+    }),
+    # Welke kleur handschoenen droeg de Mol tijdens de opdracht 'Tijdsbeeld'?
+    20: Question({
+        # Groen
+        1: [Player.FRESIA_23],
+        # Rood
+        2: [Player.KIM_LIAN_23],
+        # Zwart
+        3: [Player.EVERON_23]
+    }),
+    # Waar was de Mol tijdens de opdracht 'Heftig'?
+    30: Question({
+        # In een hijskraan boven
+        1: [Player.KIM_LIAN_23, Player.FRESIA_23],
+        # Op de grond bij de containers
+        2: [Player.EVERON_23]
+    }),
+    # Wie is de Mol?
+    40: Question({
+        # Everon
+        1: [Player.EVERON_23],
+        # Fresia
+        2: [Player.FRESIA_23],
+        # Kim-Lian
+        3: [Player.KIM_LIAN_23]
+    }),
+}
+input9 = {
+    Player.KIM_LIAN_23: TestInput(
+        {
+            20: 3,
+            30: 2,
+            40: 1
+        },
+        accusations=[Player.EVERON_23]
+    ),
+    Player.FRESIA_23: TestInput(
+        {
+            11: 1,
+            12: 2,
+            40: 1
+        },
+        accusations=[Player.EVERON_23]
+    ),
+    Player.EVERON_23: TestInput(
+        {
+            8: 2,
+            15: 1,
+            40: 3
+        },
+        accusations=[Player.KIM_LIAN_23]
+    )
+}
+result9 = Result(DropType.NO_DROP_NOR_SCREENS, [])
+episode9 = Episode(players9, result9, input9, questions9)
 
 ################
 # Summary
@@ -595,6 +676,7 @@ season23 = Season(
         5: episode5,
         6: episode6,
         7: episode7,
-        8: episode8
+        8: episode8,
+        9: episode9
     }
 )
