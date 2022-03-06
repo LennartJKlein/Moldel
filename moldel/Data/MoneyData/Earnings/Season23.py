@@ -17,7 +17,7 @@ exercises1 = [
     ]),
     # Opdracht 3: Ontmaskerd?
     Exercise(episode=1, alive=players1, maximum=5000, earned=[
-        # Wordt pas bekend gemaakt in slotaflevering
+        Earning(money=-5000, major={Player.EVERON_23, Player.GLEN_23}),
     ])
 ]
 
