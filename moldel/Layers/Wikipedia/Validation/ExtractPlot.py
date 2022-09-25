@@ -8,7 +8,7 @@ import numpy as np
 
 from Tools.Classifiers.NaiveKDEClassifier import NaiveKDEClassifier
 
-TRAIN_SEASONS = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22}
+TRAIN_SEASONS = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}
 PREDICT_SEASON = 5
 TRAIN_SEASONS.difference_update({PREDICT_SEASON})
 RANDOM_SEED = 949019755
@@ -38,11 +38,11 @@ plt.figure(figsize=(12, 3))
 plt.xlabel("Job Feature")
 plt.ylabel("Is 'mol'")
 plt.yticks([0.0, 1.0])
-plt.gcf().subplots_adjust(bottom = 0.15)
+plt.gcf().subplots_adjust(bottom=0.15)
 # plt.plot(X, mol_y, color = "r")
 # plt.plot(X, non_mol_y, color = "g")
 # plt.plot(X, posterior, color = "b")
-plt.axvline(x = z_cutoff, c = 'black')
-plt.scatter(predict_input, predict_output, s = 4, c = "r")
-plt.scatter(train_input, train_output, s = 4, c = "g")
+plt.axvline(x=z_cutoff, c='black')
+plt.scatter(predict_input, predict_output, s=4, c="r")
+plt.scatter(train_input, train_output, s=4, c="g")
 plt.show()

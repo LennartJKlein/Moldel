@@ -5,7 +5,7 @@ from sklearn.linear_model import LogisticRegression
 import numpy as np
 import sys
 
-TRAIN_SEASONS = {7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22}
+TRAIN_SEASONS = {7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}
 train_input = []
 train_output = []
 for season in TRAIN_SEASONS:
@@ -14,7 +14,7 @@ for season in TRAIN_SEASONS:
         if episode.result.drop != DropType.EXECUTION_DROP:
             continue
 
-        joker_usage = episode.total_joker_usage(exemption_value = sys.maxsize)
+        joker_usage = episode.total_joker_usage(exemption_value=sys.maxsize)
         for player in episode.players:
             own_usage = joker_usage[player]
             less_1_joker = sum(joker_usage[p] <= own_usage - 1 for p in joker_usage if p not in episode.result.players)
@@ -35,7 +35,7 @@ for season_id in TRAIN_SEASONS:
             continue
 
         drop_probabilities = dict()
-        joker_usage = episode.total_joker_usage(exemption_value = sys.maxsize)
+        joker_usage = episode.total_joker_usage(exemption_value=sys.maxsize)
         for player in episode.players:
             if episode.input[player].immunity:
                 drop_probabilities[player] = 0.0
@@ -53,6 +53,7 @@ for season_id in TRAIN_SEASONS:
         drop_probabilities = {player: prob / probability_sum for player, prob in drop_probabilities.items()}
         # print(drop_probabilities)
         # for player in episode.result.players:
-            # print(player)
-            # print(drop_probabilities[player])
-        print("Probability comparison s" + str(season_id) + "e" + str(episode.id) + ": " + str(round(drop_probabilities[get_mol_in_season(season_id)], 2)), str(round(1 / len(drop_probabilities), 2)))
+        # print(player)
+        # print(drop_probabilities[player])
+        print("Probability comparison s" + str(season_id) + "e" + str(episode.id) + ": " +
+              str(round(drop_probabilities[get_mol_in_season(season_id)], 2)), str(round(1 / len(drop_probabilities), 2)))

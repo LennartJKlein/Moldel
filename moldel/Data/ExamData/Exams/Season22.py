@@ -8,7 +8,8 @@ from ..Dataclasses.TestInput import TestInput, DelayedAnswer
 
 ################
 # Aflevering 1
-players1 = [Player.CHARLOTTE_22, Player.ERIK_22, Player.FLORENTIJN_22, Player.JOSHUA_22, Player.LAKSHMI_22, Player.MARIJE_22, Player.REMCO_22, Player.RENEE_22, Player.ROCKY_22, Player.SPLINTER_22]
+players1 = [Player.CHARLOTTE_22, Player.ERIK_22, Player.FLORENTIJN_22, Player.JOSHUA_22, Player.LAKSHMI_22,
+            Player.MARIJE_22, Player.REMCO_22, Player.RENEE_22, Player.ROCKY_22, Player.SPLINTER_22]
 questions1 = {
     # Heeft de Mol geld uit een kistje gepakt tijdens de opdracht 'Vriend of Vijand':
     7: Question({
@@ -32,23 +33,24 @@ questions1 = {
     })
 }
 input1 = {
-    Player.ERIK_22: TestInput({12: 6}, accusations = [Player.SPLINTER_22, Player.CHARLOTTE_22]),
-    Player.LAKSHMI_22: TestInput(accusations = [Player.JOSHUA_22, Player.ERIK_22]),
-    Player.CHARLOTTE_22: TestInput(accusations = [Player.REMCO_22]),
-    Player.REMCO_22: TestInput({7: 2}, accusations = [Player.ERIK_22]),
-    Player.MARIJE_22: TestInput(jokers = 1, accusations = [Player.FLORENTIJN_22]),
-    Player.ROCKY_22: TestInput(jokers = 1, accusations = [Player.RENEE_22]),
-    Player.RENEE_22: TestInput(jokers = 1, accusations = [Player.JOSHUA_22, Player.MARIJE_22, Player.REMCO_22, Player.FLORENTIJN_22]),
-    Player.JOSHUA_22: TestInput(accusations = [Player.ROCKY_22]),
-    Player.FLORENTIJN_22: TestInput(accusations = [Player.JOSHUA_22]),
-    Player.SPLINTER_22: TestInput(accusations = [Player.JOSHUA_22])
+    Player.ERIK_22: TestInput({12: 6}, accusations=[Player.SPLINTER_22, Player.CHARLOTTE_22]),
+    Player.LAKSHMI_22: TestInput(accusations=[Player.JOSHUA_22, Player.ERIK_22]),
+    Player.CHARLOTTE_22: TestInput(accusations=[Player.REMCO_22]),
+    Player.REMCO_22: TestInput({7: 2}, accusations=[Player.ERIK_22]),
+    Player.MARIJE_22: TestInput(jokers=1, accusations=[Player.FLORENTIJN_22]),
+    Player.ROCKY_22: TestInput(jokers=1, accusations=[Player.RENEE_22]),
+    Player.RENEE_22: TestInput(jokers=1, accusations=[Player.JOSHUA_22, Player.MARIJE_22, Player.REMCO_22, Player.FLORENTIJN_22]),
+    Player.JOSHUA_22: TestInput(accusations=[Player.ROCKY_22]),
+    Player.FLORENTIJN_22: TestInput(accusations=[Player.JOSHUA_22]),
+    Player.SPLINTER_22: TestInput(accusations=[Player.JOSHUA_22])
 }
 result1 = Result(DropType.EXECUTION_DROP, [Player.REMCO_22])
 episode1 = Episode(players1, result1, input1, questions1)
 
 ################
 # Aflevering 2
-players2 = [Player.CHARLOTTE_22, Player.ERIK_22, Player.FLORENTIJN_22, Player.JOSHUA_22, Player.LAKSHMI_22, Player.MARIJE_22, Player.RENEE_22, Player.ROCKY_22, Player.SPLINTER_22]
+players2 = [Player.CHARLOTTE_22, Player.ERIK_22, Player.FLORENTIJN_22, Player.JOSHUA_22,
+            Player.LAKSHMI_22, Player.MARIJE_22, Player.RENEE_22, Player.ROCKY_22, Player.SPLINTER_22]
 questions2 = {
     # De Mol is een:
     1: Question({
@@ -117,32 +119,32 @@ input2 = {
         12: 1,
         16: DelayedAnswer(1, 3),
         20: DelayedAnswer(7, 3)
-    }, accusations = [Player.JOSHUA_22]),
+    }, accusations=[Player.JOSHUA_22]),
     Player.FLORENTIJN_22: TestInput({
         2: DelayedAnswer(3, 3),
         3: DelayedAnswer(2, 3),
         6: DelayedAnswer(2, 3),
         16: DelayedAnswer(1, 3)
-    }, accusations = [Player.JOSHUA_22]),
+    }, accusations=[Player.JOSHUA_22]),
     Player.JOSHUA_22: TestInput({
         3: DelayedAnswer(1, 3),
         6: DelayedAnswer(3, 3),
         10: 2,
         16: DelayedAnswer(1, 3)
-    }, accusations = [Player.RENEE_22, Player.ERIK_22]),
+    }, accusations=[Player.RENEE_22, Player.ERIK_22]),
     Player.LAKSHMI_22: TestInput({
         2: DelayedAnswer(3, 3),
         3: DelayedAnswer(1, 3),
         6: DelayedAnswer(2, 3),
         16: DelayedAnswer(1, 3)
-    }, accusations = [Player.JOSHUA_22, Player.MARIJE_22, Player.ERIK_22, Player.RENEE_22]),
+    }, accusations=[Player.JOSHUA_22, Player.MARIJE_22, Player.ERIK_22, Player.RENEE_22]),
     Player.MARIJE_22: TestInput({
         2: DelayedAnswer(4, 3),
         3: DelayedAnswer(3, 3),
         6: 3,
         16: DelayedAnswer(1, 3),
         20: DelayedAnswer(1, 3)
-    }, accusations = [Player.JOSHUA_22, Player.CHARLOTTE_22, Player.ROCKY_22, Player.FLORENTIJN_22]),
+    }, accusations=[Player.JOSHUA_22, Player.CHARLOTTE_22, Player.ROCKY_22, Player.FLORENTIJN_22]),
     Player.RENEE_22: TestInput({
         2: DelayedAnswer(3, 3),
         3: DelayedAnswer(1, 3),
@@ -150,20 +152,20 @@ input2 = {
         8: 2,
         16: DelayedAnswer(2, 3),
         20: DelayedAnswer(6, 3)
-    }, accusations = [Player.JOSHUA_22, Player.MARIJE_22, Player.FLORENTIJN_22]),
+    }, accusations=[Player.JOSHUA_22, Player.MARIJE_22, Player.FLORENTIJN_22]),
     Player.ROCKY_22: TestInput({
         2: DelayedAnswer(1, 3),
         3: DelayedAnswer(3, 3),
         6: DelayedAnswer(3, 3),
         16: 3
-    }, accusations = [Player.FLORENTIJN_22, Player.MARIJE_22, Player.RENEE_22]),
-    Player.ERIK_22: TestInput(accusations = [Player.MARIJE_22, Player.SPLINTER_22, Player.ROCKY_22]),
+    }, accusations=[Player.FLORENTIJN_22, Player.MARIJE_22, Player.RENEE_22]),
+    Player.ERIK_22: TestInput(accusations=[Player.MARIJE_22, Player.SPLINTER_22, Player.ROCKY_22]),
     Player.SPLINTER_22: TestInput({
         1: 2,
         2: DelayedAnswer(3, 3),
         16: DelayedAnswer(1, 3),
         20: DelayedAnswer(7, 3)
-    }, accusations = [Player.FLORENTIJN_22, Player.RENEE_22, Player.ROCKY_22, Player.MARIJE_22, Player.LAKSHMI_22, Player.CHARLOTTE_22, Player.ERIK_22])
+    }, accusations=[Player.FLORENTIJN_22, Player.RENEE_22, Player.ROCKY_22, Player.MARIJE_22, Player.LAKSHMI_22, Player.CHARLOTTE_22, Player.ERIK_22])
 }
 result2 = Result(DropType.EXECUTION_DROP, [Player.ERIK_22])
 episode2 = Episode(players2, result2, input2, questions2)
@@ -182,7 +184,8 @@ episode2 = Episode(players2, result2, input2, questions2)
 # 1: Charlotte; 2: Florentijn; 3: Joshua; 4: Lakshmi; 5: Marije; 6: Renee; 7: Rocky; 8: Splinter;
 # Antwoorden: Marije (4, 2) (1 joker), Lakshmi (1 joker), Florentijn (5, 2) (2 jokers), Splinter (12, 2) (1 joker)
 # Charlotte (14, 1) (1 joker), Renee (1 joker), Joshua (20, 7), Rocky (2 jokers)
-players3 = [Player.CHARLOTTE_22, Player.FLORENTIJN_22, Player.JOSHUA_22, Player.LAKSHMI_22, Player.MARIJE_22, Player.RENEE_22, Player.ROCKY_22, Player.SPLINTER_22]
+players3 = [Player.CHARLOTTE_22, Player.FLORENTIJN_22, Player.JOSHUA_22, Player.LAKSHMI_22,
+            Player.MARIJE_22, Player.RENEE_22, Player.ROCKY_22, Player.SPLINTER_22]
 question3_4 = Question({1: [Player.ROCKY_22, Player.SPLINTER_22],
                         2: [Player.JOSHUA_22, Player.MARIJE_22],
                         3: [Player.FLORENTIJN_22, Player.LAKSHMI_22],
@@ -198,17 +201,18 @@ question3_20 = Question({1: [Player.CHARLOTTE_22], 2: [Player.FLORENTIJN_22], 3:
                          4: [Player.LAKSHMI_22], 5: [Player.MARIJE_22], 6: [Player.RENEE_22], 7: [Player.ROCKY_22],
                          8: [Player.SPLINTER_22]})
 input3 = {
-    Player.MARIJE_22: TestInput({4: 2}, jokers = 1, accusations = [Player.JOSHUA_22, Player.CHARLOTTE_22, Player.LAKSHMI_22]),
-    Player.LAKSHMI_22: TestInput(jokers = 1, accusations = [Player.JOSHUA_22, Player.MARIJE_22]),
-    Player.FLORENTIJN_22: TestInput({5: 2}, jokers = 2, accusations = [Player.JOSHUA_22, Player.MARIJE_22]),
-    Player.SPLINTER_22: TestInput({12: 2}, jokers = 1, accusations = [Player.CHARLOTTE_22, Player.RENEE_22, Player.MARIJE_22]),
-    Player.CHARLOTTE_22: TestInput({14: 1}, jokers = 1),
-    Player.RENEE_22: TestInput(jokers = 1, accusations = [Player.JOSHUA_22, Player.MARIJE_22]),
-    Player.JOSHUA_22: TestInput({20: 7}, accusations = [Player.ROCKY_22, Player.RENEE_22]),
-    Player.ROCKY_22: TestInput(jokers = 2)
+    Player.MARIJE_22: TestInput({4: 2}, jokers=1, accusations=[Player.JOSHUA_22, Player.CHARLOTTE_22, Player.LAKSHMI_22]),
+    Player.LAKSHMI_22: TestInput(jokers=1, accusations=[Player.JOSHUA_22, Player.MARIJE_22]),
+    Player.FLORENTIJN_22: TestInput({5: 2}, jokers=2, accusations=[Player.JOSHUA_22, Player.MARIJE_22]),
+    Player.SPLINTER_22: TestInput({12: 2}, jokers=1, accusations=[Player.CHARLOTTE_22, Player.RENEE_22, Player.MARIJE_22]),
+    Player.CHARLOTTE_22: TestInput({14: 1}, jokers=1),
+    Player.RENEE_22: TestInput(jokers=1, accusations=[Player.JOSHUA_22, Player.MARIJE_22]),
+    Player.JOSHUA_22: TestInput({20: 7}, accusations=[Player.ROCKY_22, Player.RENEE_22]),
+    Player.ROCKY_22: TestInput(jokers=2)
 }
 result3 = Result(DropType.EXECUTION_DROP, [Player.FLORENTIJN_22])
-episode3 = Episode(players3, result3, input3, {4: question3_4, 5: question3_5, 12: question3_12, 14: question3_14, 20: question3_20})
+episode3 = Episode(players3, result3, input3, {
+                   4: question3_4, 5: question3_5, 12: question3_12, 14: question3_14, 20: question3_20})
 
 # Aflevering 4 (afvaller: Lakshmi)
 # 4 - Op welke verdieping stond de Mol tijdens de opdracht 'Meeliften':
@@ -239,16 +243,18 @@ question4_17 = Question({1: [Player.CHARLOTTE_22],
                          2: [Player.JOSHUA_22, Player.LAKSHMI_22, Player.MARIJE_22, Player.RENEE_22, Player.ROCKY_22,
                              Player.SPLINTER_22]})
 input4 = {
-    Player.ROCKY_22: TestInput({4: 4}, accusations = [Player.RENEE_22]),
-    Player.MARIJE_22: TestInput({8: 2}, accusations = [Player.CHARLOTTE_22, Player.JOSHUA_22]),
-    Player.LAKSHMI_22: TestInput(accusations = [Player.JOSHUA_22, Player.MARIJE_22]),
-    Player.JOSHUA_22: TestInput(accusations = [Player.RENEE_22]),
-    Player.RENEE_22: TestInput({9: 2}, jokers = 1, accusations = [Player.CHARLOTTE_22]),
-    Player.CHARLOTTE_22: TestInput({12: 1}, accusations = [Player.SPLINTER_22, Player.RENEE_22]),
-    Player.SPLINTER_22: TestInput({17: 1}, accusations = [Player.ROCKY_22, Player.RENEE_22, Player.CHARLOTTE_22])
+    Player.ROCKY_22: TestInput({4: 4}, accusations=[Player.RENEE_22]),
+    Player.MARIJE_22: TestInput({8: 2}, accusations=[Player.CHARLOTTE_22, Player.JOSHUA_22]),
+    Player.LAKSHMI_22: TestInput(accusations=[Player.JOSHUA_22, Player.MARIJE_22]),
+    Player.JOSHUA_22: TestInput(accusations=[Player.RENEE_22]),
+    Player.RENEE_22: TestInput({9: 2}, jokers=1, accusations=[Player.CHARLOTTE_22]),
+    Player.CHARLOTTE_22: TestInput({12: 1}, accusations=[Player.SPLINTER_22, Player.RENEE_22]),
+    Player.SPLINTER_22: TestInput(
+        {17: 1}, accusations=[Player.ROCKY_22, Player.RENEE_22, Player.CHARLOTTE_22])
 }
 result4 = Result(DropType.EXECUTION_DROP, [Player.LAKSHMI_22])
-episode4 = Episode(players4, result4, input4, {4: question4_4, 8: question4_8, 9: question4_9, 12: question4_12, 17: question4_17})
+episode4 = Episode(players4, result4, input4, {
+                   4: question4_4, 8: question4_8, 9: question4_9, 12: question4_12, 17: question4_17})
 
 # Aflevering 5 (afvaller: Joshua)
 # 6 - Met wie vormde de Mol een duo tijdens de opdracht 'Wie, Wat ... Waar':
@@ -272,15 +278,17 @@ question5_18 = Question({1: [Player.CHARLOTTE_22, Player.ROCKY_22, Player.SPLINT
 question5_20 = Question({1: [Player.CHARLOTTE_22], 2: [Player.JOSHUA_22], 3: [Player.MARIJE_22], 4: [Player.RENEE_22],
                          5: [Player.ROCKY_22], 6: [Player.SPLINTER_22]})
 input5 = {
-    Player.CHARLOTTE_22: TestInput({6: 5}, immunity = True, accusations = [Player.JOSHUA_22, Player.SPLINTER_22, Player.MARIJE_22]),
-    Player.MARIJE_22: TestInput({20: 2}, immunity = True, accusations = [Player.CHARLOTTE_22, Player.JOSHUA_22]),
-    Player.ROCKY_22: TestInput(immunity = True, accusations = [Player.JOSHUA_22, Player.RENEE_22]),
-    Player.JOSHUA_22: TestInput({14: 2}, accusations = [Player.RENEE_22]),
-    Player.SPLINTER_22: TestInput({18: 2}, accusations = [Player.RENEE_22]),
-    Player.RENEE_22: TestInput({20: 2}, accusations = [Player.JOSHUA_22, Player.MARIJE_22, Player.CHARLOTTE_22])
+    Player.CHARLOTTE_22: TestInput({6: 5}, immunity=True, accusations=[Player.JOSHUA_22, Player.SPLINTER_22, Player.MARIJE_22]),
+    Player.MARIJE_22: TestInput({20: 2}, immunity=True, accusations=[Player.CHARLOTTE_22, Player.JOSHUA_22]),
+    Player.ROCKY_22: TestInput(immunity=True, accusations=[Player.JOSHUA_22, Player.RENEE_22]),
+    Player.JOSHUA_22: TestInput({14: 2}, accusations=[Player.RENEE_22]),
+    Player.SPLINTER_22: TestInput({18: 2}, accusations=[Player.RENEE_22]),
+    Player.RENEE_22: TestInput({20: 2}, accusations=[
+                               Player.JOSHUA_22, Player.MARIJE_22, Player.CHARLOTTE_22])
 }
 result5 = Result(DropType.EXECUTION_DROP, [Player.JOSHUA_22])
-episode5 = Episode(players5, result5, input5, {6: question5_6, 14: question5_14, 18: question5_18, 20: question5_20})
+episode5 = Episode(players5, result5, input5, {
+                   6: question5_6, 14: question5_14, 18: question5_18, 20: question5_20})
 
 # Aflevering 6 (geen afvaller, alleen Rocky en Splinter kregen hun scherm te zien)
 # 4 - Bij welke haltes is de Mol uit de bus gestapt tijdens de opdracht 'Brieven-bus':
@@ -294,7 +302,8 @@ episode5 = Episode(players5, result5, input5, {6: question5_6, 14: question5_14,
 # 20 - Wie is de Mol:
 # 1: Charlotte; 2: Marije; 3: Renee; 4: Rocky; 5: Splinter;
 # Antwoorden: Charlotte (5, 1) (1 joker), Splinter (4, 1), Rocky (10, 3) (1 joker), Renee (12, 5), Marije (20, 1)
-players6 = [Player.CHARLOTTE_22, Player.MARIJE_22, Player.RENEE_22, Player.ROCKY_22, Player.SPLINTER_22]
+players6 = [Player.CHARLOTTE_22, Player.MARIJE_22,
+            Player.RENEE_22, Player.ROCKY_22, Player.SPLINTER_22]
 question6_4 = Question({1: [Player.ROCKY_22], 2: [Player.SPLINTER_22], 3: [Player.CHARLOTTE_22], 4: [Player.RENEE_22],
                         5: [Player.MARIJE_22]})
 question6_5 = Question({1: [Player.MARIJE_22, Player.SPLINTER_22],
@@ -306,14 +315,16 @@ question6_12 = Question({1: [Player.CHARLOTTE_22], 2: [Player.ROCKY_22], 3: [Pla
 question6_20 = Question({1: [Player.CHARLOTTE_22], 2: [Player.MARIJE_22], 3: [Player.RENEE_22], 4: [Player.ROCKY_22],
                          5: [Player.SPLINTER_22]})
 input6 = {
-    Player.CHARLOTTE_22: TestInput({5: 1}, jokers = 1, accusations = [Player.MARIJE_22, Player.RENEE_22, Player.SPLINTER_22]),
-    Player.SPLINTER_22: TestInput({4: 1}, accusations = [Player.RENEE_22, Player.ROCKY_22]),
-    Player.ROCKY_22: TestInput({10: 3}, jokers = 1, accusations = [Player.RENEE_22]),
-    Player.RENEE_22: TestInput({12: 5}, accusations = [Player.MARIJE_22, Player.CHARLOTTE_22]),
-    Player.MARIJE_22: TestInput({20: 1}, accusations = [Player.CHARLOTTE_22])
+    Player.CHARLOTTE_22: TestInput({5: 1}, jokers=1, accusations=[Player.MARIJE_22, Player.RENEE_22, Player.SPLINTER_22]),
+    Player.SPLINTER_22: TestInput({4: 1}, accusations=[Player.RENEE_22, Player.ROCKY_22]),
+    Player.ROCKY_22: TestInput({10: 3}, jokers=1, accusations=[Player.RENEE_22]),
+    Player.RENEE_22: TestInput({12: 5}, accusations=[Player.MARIJE_22, Player.CHARLOTTE_22]),
+    Player.MARIJE_22: TestInput({20: 1}, accusations=[Player.CHARLOTTE_22])
 }
-result6 = Result(DropType.POSSIBLE_DROP, [Player.CHARLOTTE_22, Player.MARIJE_22, Player.RENEE_22])
-episode6 = Episode(players6, result6, input6, {4: question6_4, 5: question6_5, 10: question6_10, 12: question6_12, 20: question6_20})
+result6 = Result(DropType.POSSIBLE_DROP, [
+                 Player.CHARLOTTE_22, Player.MARIJE_22, Player.RENEE_22])
+episode6 = Episode(players6, result6, input6, {
+                   4: question6_4, 5: question6_5, 10: question6_10, 12: question6_12, 20: question6_20})
 
 # Aflevering 7 (afvaller: Marije)
 # 1 - De Mol is een:
@@ -325,7 +336,8 @@ episode6 = Episode(players6, result6, input6, {4: question6_4, 5: question6_5, 1
 # 17 - Hoeveel rondes heeft de Mol liedjes uitgebeeld tijdens de opdracht 'Aanwijzingen':
 # 1: Marije, Renee, Splinter (Twee rondes); 2: Charlotte, Rocky (Drie rondes);
 # Antwoorden: Renee (14, 1) (1 joker), Rocky (1, 2), Marije (2, 1), Charlotte (17, 1)
-players7 = [Player.CHARLOTTE_22, Player.MARIJE_22, Player.RENEE_22, Player.ROCKY_22, Player.SPLINTER_22]
+players7 = [Player.CHARLOTTE_22, Player.MARIJE_22,
+            Player.RENEE_22, Player.ROCKY_22, Player.SPLINTER_22]
 question7_1 = Question({1: [Player.SPLINTER_22],
                         2: [Player.CHARLOTTE_22, Player.MARIJE_22, Player.RENEE_22, Player.ROCKY_22]})
 question7_2 = Question({1: [Player.CHARLOTTE_22, Player.MARIJE_22, Player.ROCKY_22],
@@ -335,14 +347,16 @@ question7_14 = Question({1: [Player.MARIJE_22, Player.ROCKY_22, Player.SPLINTER_
 question7_17 = Question({1: [Player.MARIJE_22, Player.RENEE_22, Player.SPLINTER_22],
                          2: [Player.CHARLOTTE_22, Player.ROCKY_22]})
 input7 = {
-    Player.RENEE_22: TestInput({14: 1}, jokers = 1, accusations = [Player.CHARLOTTE_22, Player.ROCKY_22]),
-    Player.SPLINTER_22: TestInput(accusations = [Player.RENEE_22, Player.ROCKY_22]),
-    Player.ROCKY_22: TestInput({1: 2}, accusations = [Player.RENEE_22]),
-    Player.MARIJE_22: TestInput({2: 1}, accusations = [Player.CHARLOTTE_22]),
-    Player.CHARLOTTE_22: TestInput({17: 1}, accusations = [Player.SPLINTER_22, Player.MARIJE_22, Player.RENEE_22])
+    Player.RENEE_22: TestInput({14: 1}, jokers=1, accusations=[Player.CHARLOTTE_22, Player.ROCKY_22]),
+    Player.SPLINTER_22: TestInput(accusations=[Player.RENEE_22, Player.ROCKY_22]),
+    Player.ROCKY_22: TestInput({1: 2}, accusations=[Player.RENEE_22]),
+    Player.MARIJE_22: TestInput({2: 1}, accusations=[Player.CHARLOTTE_22]),
+    Player.CHARLOTTE_22: TestInput(
+        {17: 1}, accusations=[Player.SPLINTER_22, Player.MARIJE_22, Player.RENEE_22])
 }
 result7 = Result(DropType.EXECUTION_DROP, [Player.MARIJE_22])
-episode7 = Episode(players7, result7, input7, {1: question7_1, 2: question7_2, 14: question7_14, 17: question7_17})
+episode7 = Episode(players7, result7, input7, {
+                   1: question7_1, 2: question7_2, 14: question7_14, 17: question7_17})
 
 # Aflevering 8 (afvaller: Splinter)
 # 5 - Wat deed de Mol bij aanvang van de opdracht 'Voor Joker Staan':
@@ -354,22 +368,26 @@ episode7 = Episode(players7, result7, input7, {1: question7_1, 2: question7_2, 1
 # 18 - Aan wie gaf de Mol advies tijdens de opdracht 'Ra(a)dgeving':
 # 1: Splinter; 2: Rocky; 3: Charlotte; 4: Renée
 # Antwoorden: Renée (6, 1) (3 jokers), Charlotte (10, 4) (2 jokers), Splinter (18, 4) (2 jokers), Rocky (5, 2)
-players8 = [Player.CHARLOTTE_22, Player.RENEE_22, Player.ROCKY_22, Player.SPLINTER_22]
+players8 = [Player.CHARLOTTE_22, Player.RENEE_22,
+            Player.ROCKY_22, Player.SPLINTER_22]
 question8_5 = Question({1: [Player.SPLINTER_22],
                         2: [Player.RENEE_22],
                         3: [Player.CHARLOTTE_22, Player.ROCKY_22]})
 question8_6 = Question({1: [Player.CHARLOTTE_22, Player.ROCKY_22],
                         2: [Player.RENEE_22, Player.SPLINTER_22]})
-question8_10 = Question({1: [Player.SPLINTER_22], 2: [Player.ROCKY_22], 3: [Player.CHARLOTTE_22], 4: [Player.RENEE_22]})
-question8_18 = Question({1: [Player.SPLINTER_22], 2: [Player.ROCKY_22], 3: [Player.CHARLOTTE_22], 4: [Player.RENEE_22]})
+question8_10 = Question({1: [Player.SPLINTER_22], 2: [Player.ROCKY_22], 3: [
+                        Player.CHARLOTTE_22], 4: [Player.RENEE_22]})
+question8_18 = Question({1: [Player.SPLINTER_22], 2: [Player.ROCKY_22], 3: [
+                        Player.CHARLOTTE_22], 4: [Player.RENEE_22]})
 input8 = {
-    Player.RENEE_22: TestInput({6: 1}, jokers = 3, accusations = [Player.CHARLOTTE_22, Player.ROCKY_22]),
-    Player.CHARLOTTE_22: TestInput({10: 4}, jokers = 2, accusations = [Player.RENEE_22]),
-    Player.SPLINTER_22: TestInput({18: 4}, jokers = 2, accusations = [Player.RENEE_22, Player.ROCKY_22]),
-    Player.ROCKY_22: TestInput({5: 2}, accusations = [Player.RENEE_22])
+    Player.RENEE_22: TestInput({6: 1}, jokers=3, accusations=[Player.CHARLOTTE_22, Player.ROCKY_22]),
+    Player.CHARLOTTE_22: TestInput({10: 4}, jokers=2, accusations=[Player.RENEE_22]),
+    Player.SPLINTER_22: TestInput({18: 4}, jokers=2, accusations=[Player.RENEE_22, Player.ROCKY_22]),
+    Player.ROCKY_22: TestInput({5: 2}, accusations=[Player.RENEE_22])
 }
 result8 = Result(DropType.EXECUTION_DROP, [Player.SPLINTER_22])
-episode8 = Episode(players8, result8, input8, {5: question8_5, 6: question8_6, 10: question8_10, 18: question8_18})
+episode8 = Episode(players8, result8, input8, {
+                   5: question8_5, 6: question8_6, 10: question8_10, 18: question8_18})
 
 # Aflevering 9 (afvaller: Charlotte)
 # 9 - Werd de Mol uitgeschakeld tijdens de opdracht 'Blacklight Ballerina's':
@@ -398,16 +416,19 @@ question9_27 = Question({1: [Player.CHARLOTTE_22, Player.ROCKY_22],
                          2: [Player.RENEE_22]})
 question9_32 = Question({1: [Player.CHARLOTTE_22, Player.ROCKY_22],
                          2: [Player.RENEE_22]})
-question9_34 = Question({1: [Player.ROCKY_22], 2: [Player.CHARLOTTE_22], 3: [Player.RENEE_22]})
-question9_40 = Question({1: [Player.CHARLOTTE_22], 2: [Player.RENEE_22], 3: [Player.ROCKY_22]})
+question9_34 = Question(
+    {1: [Player.ROCKY_22], 2: [Player.CHARLOTTE_22], 3: [Player.RENEE_22]})
+question9_40 = Question({1: [Player.CHARLOTTE_22], 2: [
+                        Player.RENEE_22], 3: [Player.ROCKY_22]})
 input9 = {
-    Player.RENEE_22: TestInput({21: 2, 34: 1, 40: 3}, accusations = [Player.ROCKY_22]),
-    Player.ROCKY_22: TestInput({9: 1, 32: 2, 40: 2}, accusations = [Player.RENEE_22]),
-    Player.CHARLOTTE_22: TestInput({18: 1, 27: 2, 40: 2}, accusations = [Player.RENEE_22])
+    Player.RENEE_22: TestInput({21: 2, 34: 1, 40: 3}, accusations=[Player.ROCKY_22]),
+    Player.ROCKY_22: TestInput({9: 1, 32: 2, 40: 2}, accusations=[Player.RENEE_22]),
+    Player.CHARLOTTE_22: TestInput(
+        {18: 1, 27: 2, 40: 2}, accusations=[Player.RENEE_22])
 }
 result9 = Result(DropType.EXECUTION_DROP, [Player.CHARLOTTE_22])
 episode9 = Episode(players9, result9, input9, {9: question9_9, 18: question9_18, 21: question9_21, 27: question9_27, 32: question9_32,
-                    34: question9_34, 40: question9_40})
+                                               34: question9_34, 40: question9_40})
 
 
 season22 = Season(players1, {1: episode1, 2: episode2, 3: episode3, 4: episode4, 5: episode5, 6: episode6, 7: episode7,

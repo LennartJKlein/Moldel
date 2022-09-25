@@ -4,8 +4,8 @@ from Layers.Special.MemoryLayer import MemoryLayer
 from scipy.stats import pearsonr, kendalltau
 import math
 
-TRAIN_SEASONS = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22}
-TEST_SEASONS = {9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22}
+TRAIN_SEASONS = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}
+TEST_SEASONS = {9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}
 layer1 = MemoryLayer("Wikipedia Stacker")
 layer2 = MemoryLayer("Appearance Stacker")
 
@@ -21,8 +21,8 @@ for season in TEST_SEASONS:
 
         num_players = len(included) + 1
         uniform = 1 / num_players
-        excluded = {player for player, prob in prediction1.items() if math.isclose(prob, uniform, abs_tol = 2e-3)}
-        excluded.update({player for player, prob in prediction2.items() if math.isclose(prob, uniform, abs_tol = 2e-3)})
+        excluded = {player for player, prob in prediction1.items() if math.isclose(prob, uniform, abs_tol=2e-3)}
+        excluded.update({player for player, prob in prediction2.items() if math.isclose(prob, uniform, abs_tol=2e-3)})
         included.difference_update(excluded)
         pairs += [(prediction1[player] * num_players, prediction2[player] * num_players) for player in included]
 

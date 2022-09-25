@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 
-TRAIN_SEASONS = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22}
+TRAIN_SEASONS = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}
 MIN_CLUSTER_SIZE = 120
 
 train_data = []
@@ -18,7 +18,7 @@ train_output = np.array([1.0 if get_is_mol(sample.selected_player) else 0.0 for 
 m = ExamDropEncoder.NUM_CONTINUOUS_FEATURES
 
 for column, feature_name in zip(train_input.T[:-m], ExamDropEncoder.FEATURE_NAMES[:-m]):
-    trans_data = column[:,np.newaxis]
+    trans_data = column[:, np.newaxis]
     discretizer = StableDiscretizer(MIN_CLUSTER_SIZE)
     trans_data = discretizer.fit_transform(trans_data)
     print(feature_name + " - Num Features: " + str(len(trans_data[0])))

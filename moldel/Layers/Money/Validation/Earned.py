@@ -4,10 +4,10 @@ from statistics import mean
 import math
 import numpy as np
 
-TEST_SEASONS = {8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22}
+TEST_SEASONS = {8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}
 QUANTILES = np.linspace(0, 1, 21)
 
-np.set_printoptions(suppress = True)
+np.set_printoptions(suppress=True)
 
 major_mol_earned = []
 major_non_mol_earned = []

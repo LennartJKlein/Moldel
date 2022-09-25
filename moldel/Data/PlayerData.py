@@ -251,17 +251,17 @@ __ALL_PLAYER_DATA = {
     Player.ROCKY_22: PlayerData("Rocky", 22, False, 36),
     Player.SPLINTER_22: PlayerData("Splinter", 22, False, 24),
 
-    Player.ARNO_23: PlayerData("Arno", 23, None, 53),
-    Player.EVERON_23: PlayerData("Everon", 23, None, 39),
-    Player.FRESIA_23: PlayerData("Fresia", 23, None, 30),
+    Player.ARNO_23: PlayerData("Arno", 23, False, 53),
+    Player.EVERON_23: PlayerData("Everon", 23, True, 39),
+    Player.FRESIA_23: PlayerData("Fresia", 23, False, 30),
     Player.GLEN_23: PlayerData("Glen", 23, False, 41),
-    Player.HILA_23: PlayerData("Hila", 23, None, 29),
-    Player.KIM_LIAN_23: PlayerData("Kim-Lian", 23, None, 41),
-    Player.LAETITIA_23: PlayerData("Laetitia", 23, None, 28),
-    Player.SAHIL_23: PlayerData("Sahil", 23, None, 28),
+    Player.HILA_23: PlayerData("Hila", 23, False, 29),
+    Player.KIM_LIAN_23: PlayerData("Kim-Lian", 23, False, 41),
+    Player.LAETITIA_23: PlayerData("Laetitia", 23, False, 28),
+    Player.SAHIL_23: PlayerData("Sahil", 23, False, 28),
     Player.SUZANNE_23: PlayerData("Suzanne", 23, False, 58),
-    Player.THOMAS_23: PlayerData("Thomas", 23, None, 53),
-    Player.WELMOED_23: PlayerData("Welmoed", 23, None, 30)
+    Player.THOMAS_23: PlayerData("Thomas", 23, False, 53),
+    Player.WELMOED_23: PlayerData("Welmoed", 23, False, 30)
 }
 
 def get_name(player: Player) -> str:
