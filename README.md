@@ -52,6 +52,7 @@ pip install jenkspy
 pip install rootpath
 pip install iteround
 pip install matplotlib
+pip install progress
 pip install seaborn
 
 # macOS
