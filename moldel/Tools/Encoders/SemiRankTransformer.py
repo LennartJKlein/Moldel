@@ -10,6 +10,8 @@ import numpy as np
 Setting = NamedTuple("Setting", [("num_clusters", int), ("ignore_values", Set[float])])
 IgnoredBound = NamedTuple("IgnoredBound", [("lower_bound", float), ("lower_rank", float), ("upper_bound", float),
                                            ("upper_rank", float)])
+
+
 class SemiRankTransformer(Encoder):
     """ Semi-Rank Transformer applies a rank transformation individually per feature at some regions and linear
     interpolates ranks at other regions individually per feature. """
@@ -56,7 +58,7 @@ class SemiRankTransformer(Encoder):
         self.rank_transformers = []
         for column, setting in zip(X.T, self.__settings):
             column = column[:, np.newaxis]
-            rank_transformer = QuantileTransformer(n_quantiles = len(column))
+            rank_transformer = QuantileTransformer(n_quantiles=len(column))
             rank_transformer.fit(column)
             self.rank_transformers.append(rank_transformer)
 
@@ -69,7 +71,7 @@ class SemiRankTransformer(Encoder):
         self.clusterings = []
         self.ignored_bounds = []
         for column, setting, rank_transformer in zip(X.T, self.__settings, self.rank_transformers):
-            clustering = JenksNaturalBreaks(nb_class = setting.num_clusters)
+            clustering = JenksNaturalBreaks(n_classes=setting.num_clusters)
             clustering.fit(column)
             self.clusterings.append(clustering)
             self.rank_splits = rank_transformer.transform(np.array(clustering.breaks_)[:, np.newaxis])

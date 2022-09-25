@@ -4,6 +4,7 @@ from numpy.random import RandomState
 from typing import List
 import numpy as np
 
+
 class NaturalSplineEncoding(Encoder):
     """ Natural Spline Encoding encodes every feature individually as piecewise cubic spline with the following
     requirements:
@@ -41,7 +42,7 @@ class NaturalSplineEncoding(Encoder):
         """
         self.knots = []
         for column, num_curves in zip(X.T, self.num_curves):
-            breaks = jenks_breaks(column, nb_class = num_curves)
+            breaks = jenks_breaks(column, n_classes=num_curves)
             self.knots.append(breaks)
         self.knots = np.array(self.knots).T
 
