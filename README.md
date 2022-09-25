@@ -2,7 +2,7 @@
 
 Een algoritme om de Mol te voorspellen.
 
-## 🔦 Huidige voorspelling (s23e9, 2022)
+## 🔦 Nieuwste voorspelling (s23e9, 2022)
 
 ![Voorspelling na aflevering 9, seizoen 23 (2022)](https://github.com/LennartJKlein/Moldel/blob/master/results/Season%2023%20(2022)/s23e9.png?raw=true)
 
@@ -31,7 +31,7 @@ Je hebt een aantal programma's, software en pakketten nodig om het Moldel uit te
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [Python v3.9](https://www.python.org/downloads/)
 - [PIP](https://pypi.org/project/pip/)
-- [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
+- [Miniconda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
 
 ### Download de bestanden van deze repository
 
