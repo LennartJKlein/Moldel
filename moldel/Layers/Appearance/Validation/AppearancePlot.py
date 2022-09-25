@@ -2,7 +2,7 @@ from Layers.Appearance.AppearanceExtractor import AppearanceExtractor
 import matplotlib.pyplot as plt
 import numpy as np
 
-TEST_SEASONS = {13, 14, 15, 16, 17, 18, 19, 20, 21, 22}
+TEST_SEASONS = {13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}
 AUGMENTATION_CUTS = 1
 AUGMENTATION_MIN_CUTS_ON = 1
 OUTLIER_CUTOFF = 0.01
@@ -20,6 +20,6 @@ plt.figure(figsize=(12, 3))
 plt.xlabel("Relative Appearance")
 plt.ylabel("Is 'mol'")
 plt.yticks([0.0, 1.0])
-plt.gcf().subplots_adjust(bottom = 0.15)
-plt.scatter(train_input, train_output, s = 4)
+plt.gcf().subplots_adjust(bottom=0.15)
+plt.scatter(train_input, train_output, s=4)
 plt.show()

@@ -3,7 +3,7 @@ from Data.Wikipedia.Job import Job
 from Layers.Wikipedia.WikipediaParser import WikipediaParser
 import matplotlib.pyplot as plt
 
-SEASONS = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22}
+SEASONS = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}
 JOB = Job.TV_PRODUCER
 
 data = WikipediaParser.parse(SEASONS)
@@ -16,6 +16,6 @@ plt.figure(figsize=(12, 3))
 plt.xlabel("Score")
 plt.ylabel("Is 'mol'")
 plt.yticks([0.0, 1.0])
-plt.gcf().subplots_adjust(bottom = 0.15)
-plt.scatter(train_input, train_output, s = 4)
+plt.gcf().subplots_adjust(bottom=0.15)
+plt.scatter(train_input, train_output, s=4)
 plt.show()

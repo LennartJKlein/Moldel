@@ -5,7 +5,7 @@ from Layers.ExamDrop.ExamDropExtractor import ExamDropExtractor
 import numpy as np
 import sys
 
-TRAIN_SEASONS = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22}
+TRAIN_SEASONS = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}
 
 train_data = []
 for season in TRAIN_SEASONS:
@@ -13,11 +13,11 @@ for season in TRAIN_SEASONS:
 train_input = np.array([ExamDropEncoder.extract_features(sample, sys.maxsize) for sample in train_data])
 
 in_answer_ratio = sum(1 for data, input in zip(train_data, train_input) if data.selected_player in data.answer) \
-                  / len(train_data)
+    / len(train_data)
 is_mol_ratio = sum(1 for data, input in zip(train_data, train_input) if get_is_mol(data.selected_player)) \
-               / len(train_data)
+    / len(train_data)
 both_ratio = sum(1 for data, input in zip(train_data, train_input) if get_is_mol(data.selected_player) and
-              data.selected_player in data.answer) / len(train_data)
+                 data.selected_player in data.answer) / len(train_data)
 
 print("In answer ratio: " + str(in_answer_ratio))
 print("Is mol ratio: " + str(is_mol_ratio))

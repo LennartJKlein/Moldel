@@ -5,11 +5,11 @@ from Layers.Wikipedia.WikipediaExtractor import WikipediaExtractor
 from numpy.random.mtrand import RandomState
 
 RANDOM_SEED = 949019755
-SEASONS = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22}
+SEASONS = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}
 PCA_COMPONENTS = 5
 UNLIKELY_Z_SCORE = 0.0
 
-progress_bar = Bar("Distributions Computed:", max = len(SEASONS))
+progress_bar = Bar("Distributions Computed:", max=len(SEASONS))
 
 non_mol_outliers = 0
 mol_outliers = 0

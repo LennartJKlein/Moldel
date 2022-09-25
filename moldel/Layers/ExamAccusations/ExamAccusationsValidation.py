@@ -5,7 +5,7 @@ from sklearn.linear_model import LogisticRegression
 import numpy as np
 import sys
 
-TRAIN_SEASONS = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22}
+TRAIN_SEASONS = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}
 train_input = []
 train_output = []
 for season in TRAIN_SEASONS:
@@ -66,4 +66,5 @@ for season_id in TRAIN_SEASONS:
         probability_sum = sum(mol_likelihoods.values())
         drop_probabilities = {player: likelihood / probability_sum for player, likelihood in mol_likelihoods.items()}
 
-        print("Probability comparison s" + str(season_id) + "e" + str(episode.id) + ": " + str(round(drop_probabilities[get_mol_in_season(season_id)], 2)), str(round(1 / len(drop_probabilities), 2)))
+        print("Probability comparison s" + str(season_id) + "e" + str(episode.id) + ": " +
+              str(round(drop_probabilities[get_mol_in_season(season_id)], 2)), str(round(1 / len(drop_probabilities), 2)))

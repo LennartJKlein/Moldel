@@ -14,6 +14,7 @@ from Layers.Special.PotentialMolLayer import PotentialMolLayer
 from Validators.ValidationMetrics import ValidationMetrics
 import numpy as np
 
+
 def t_test(likelihoods1: np.array, likelihoods2: np.array) -> Tuple[float, float]:
     """ Do the paired student-t test, with "greater than" as alternative hypothesis.
 
@@ -28,16 +29,18 @@ def t_test(likelihoods1: np.array, likelihoods2: np.array) -> Tuple[float, float
     p_value = 1 - p_value / 2 if statistic < 0 else p_value / 2
     return statistic, p_value
 
+
 def evaluate(likelihoods1: np.array, likelihoods2: np.array):
-    print("Sample Size: " + str(len(likelihoods1)) )
+    print("Sample Size: " + str(len(likelihoods1)))
     print("Paired T-Test (Greater): " + str(t_test(likelihoods1, likelihoods2)))
     print("Log Paired T-Test (Greater): " + str(t_test(np.log(likelihoods1), np.log(likelihoods2))))
-    print("Wilcoxon Test (Greater): " + str(tuple(wilcoxon(likelihoods1, likelihoods2, zero_method = "zsplit",
-                                                           alternative = "greater"))))
+    print("Wilcoxon Test (Greater): " + str(tuple(wilcoxon(likelihoods1, likelihoods2, zero_method="zsplit",
+                                                           alternative="greater"))))
+
 
 RANDOM_SEED = 949019755
-VALIDATE_SEASONS = {9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22}
-TRAIN_SEASONS = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22}
+VALIDATE_SEASONS = {9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}
+TRAIN_SEASONS = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}
 EPISODE_GROUPS = 9
 POTENTIAL_MOL_GROUPS = [10, 9, 8, 7, 6, 5, 4, 3, 2]
 
@@ -49,7 +52,7 @@ model2 = PotentialMolLayer()
 
 # Obtain the predictions from the first model, which is supposed to be the better performing model.
 total_tasks = sum([get_last_episode(season) + 1 for season in VALIDATE_SEASONS])
-progress_bar = Bar("Distributions Computed of First Model: ", max = total_tasks)
+progress_bar = Bar("Distributions Computed of First Model: ", max=total_tasks)
 for season in VALIDATE_SEASONS:
     train_seasons = TRAIN_SEASONS.difference({season})
     for episode in range(get_last_episode(season) + 1):
@@ -58,7 +61,7 @@ for season in VALIDATE_SEASONS:
 progress_bar.finish()
 
 # Obtain the predictions from the second model, which is supposed to be the worser performing model.
-progress_bar = Bar("Distributions Computed of Second Model: ", max = total_tasks)
+progress_bar = Bar("Distributions Computed of Second Model: ", max=total_tasks)
 for season in VALIDATE_SEASONS:
     train_seasons = TRAIN_SEASONS.difference({season})
     for episode in range(get_last_episode(season) + 1):

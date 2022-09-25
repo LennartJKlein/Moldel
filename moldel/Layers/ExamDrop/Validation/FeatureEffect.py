@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 
-TRAIN_SEASONS = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22}
+TRAIN_SEASONS = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}
 MIN_CLUSTER_SIZE = 120
 NUM_CURVES = 4
 
@@ -22,14 +22,14 @@ train_output = np.array([1.0 if get_is_mol(sample.selected_player) else 0.0 for 
 m = ExamDropEncoder.NUM_CONTINUOUS_FEATURES
 
 discretizer = StableDiscretizer(MIN_CLUSTER_SIZE)
-discrete_input = discretizer.fit_transform(train_input[:,:-m])
+discrete_input = discretizer.fit_transform(train_input[:, :-m])
 spline_encoder = NaturalSplineEncoding([NUM_CURVES for _ in range(m)])
-continuous_input = spline_encoder.fit_transform(train_input[:,-m:])
-trans_input = np.concatenate((discrete_input, continuous_input), axis = 1)
+continuous_input = spline_encoder.fit_transform(train_input[:, -m:])
+trans_input = np.concatenate((discrete_input, continuous_input), axis=1)
 
 in_answer_input = [row for row, data in zip(trans_input, train_data) if data.selected_player in data.answer]
 in_answer_output = [to for to, data in zip(train_output, train_data) if data.selected_player in data.answer]
-classifier = LogisticRegression(max_iter = 1000)
+classifier = LogisticRegression(max_iter=1000)
 classifier.fit(in_answer_input, in_answer_output)
 ratio = sum(in_answer_output) / len(in_answer_output)
 logit_ratio = logit(ratio)
