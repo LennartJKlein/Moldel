@@ -4,6 +4,7 @@ from Layers.MultiLayer.MultiLayer import MultiLayer, MultiLayerResult
 from typing import Dict, List, Set
 import numpy as np
 
+
 class CombineLayer(MultiLayer):
     """ The Combine Layer combines the results of multiple layers into 1 Multi Layer. """
 

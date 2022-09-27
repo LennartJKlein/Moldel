@@ -8,6 +8,8 @@ import math
 import numpy as np
 
 TrainSample = NamedTuple("TrainSample", [("season", int), ("relative_occurrence", float), ("is_mol", bool)])
+
+
 class AppearanceExtractor:
     """ The Appearance Extractor deals with obtaining the train data and predict data. For this feature encoding
     and extraction techniques are used. Likewise train data gets resampled such that closer seasons have more influence
@@ -49,9 +51,10 @@ class AppearanceExtractor:
             for player, episodes in player_episodes.items():
                 for episode in episodes:
                     # Do the Data Augmentation by turning cuts on/off.
-                    for selection in itertools.product([False, True], repeat = self.__aug_num_cuts):
+                    for selection in itertools.product([False, True], repeat=self.__aug_num_cuts):
                         if sum(selection) >= self.__aug_min_cuts_on:
-                            relative_occurrence = self.get_relative_occurrence(player, parsed_videos[episode], selection)
+                            relative_occurrence = self.get_relative_occurrence(
+                                player, parsed_videos[episode], selection)
                             train_data.append(TrainSample(season, relative_occurrence, get_is_mol(player)))
 
         train_input = np.array([[ts.relative_occurrence] for ts in train_data])

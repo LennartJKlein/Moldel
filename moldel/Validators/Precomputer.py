@@ -1,3 +1,4 @@
+import Settings as s
 from Data.Player import Player
 from typing import Dict, Tuple, Union
 from Validators.Validator import Validator
@@ -5,22 +6,22 @@ import os
 import pickle
 import rootpath
 
+
 class Precomputer(Validator):
     """ The Precomputer stores the predictions as pickle files which can be used as train data by other layers. """
-
-    MAIN_SAVE_FOLDER = "moldel/Data/Predictions/" # The root folder in which all predictions are stored.
 
     def __init__(self, save_folder: str):
         """ Constructor of the Precomputer.
 
         Arguments:
-            save_folder (str): The folder inside the MAIN_SAVE_FOLDER where the predictions are stored.
+            save_folder (str): The folder inside the TRAIN_FOLDER where the predictions are stored.
         """
         self.__save_folder = save_folder
 
     def validate(self, distributions: Dict[Tuple[int, int], Dict[Player, float]]):
-        folder = rootpath.detect() + "/" + self.MAIN_SAVE_FOLDER + self.__save_folder
-        os.mkdir(folder)
+        folder = rootpath.detect() + "/" + s.TRAIN_FOLDER + self.__save_folder
+        if not os.path.exists(folder):
+            os.mkdir(folder)
 
         for pair, distribution in distributions.items():
             file_path = self.__get_file_path(*pair)
@@ -55,5 +56,5 @@ class Precomputer(Validator):
         Returns:
             The file path were the precomputed distribution will be stored.
         """
-        return rootpath.detect() + "/" + self.MAIN_SAVE_FOLDER + self.__save_folder + "/s" + str(season) + "e" + \
-               str(episode) + ".data"
+        return rootpath.detect() + "/" + s.TRAIN_FOLDER + self.__save_folder + "/s" + str(season) + "e" + \
+            str(episode) + ".data"

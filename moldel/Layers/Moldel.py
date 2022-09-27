@@ -12,27 +12,29 @@ from Layers.Special.MemoryLayer import MemoryLayer
 from Layers.Wikipedia.WikipediaLayer import WikipediaLayer
 from numpy.random import RandomState
 
+
 class MoldelStacker(StackLayer):
     SPLITS = [{2, 3, 4}, {5, 6}, {7, 8}, {9, 10, 11}]
 
     def __init__(self, random_generator: RandomState):
         predict_layers = [
-            ExamDropLayer(120, 4, random_generator),
-            WikipediaLayer(-0.524, 0.782, 5, random_generator),
             AppearanceLayer(2/11, 13, 4, 2, 0.01),
-            ExamPassLayer(random_generator),
-            MoneyLayer(0.99, 4, 9, random_generator),
-            ExamAccusationsLayer(random_generator)
+            # ExamAccusationsLayer(random_generator),
+            # ExamDropLayer(120, 4, random_generator),
+            # ExamPassLayer(random_generator),
+            # MoneyLayer(0.99, 4, 9, random_generator),
+            # WikipediaLayer(-0.524, 0.782, 5, random_generator)
         ]
         train_layers = [
-            MemoryLayer("Exam Drop Stacker"),
-            MemoryLayer("Wikipedia Stacker"),
             MemoryLayer("Appearance Stacker"),
-            MemoryLayer("Exam Pass Stacker"),
-            MemoryLayer("Money Stacker"),
-            MemoryLayer("Exam Accusations Stacker")
+            # MemoryLayer("Exam Accusations Stacker"),
+            # MemoryLayer("Exam Drop Stacker"),
+            # MemoryLayer("Exam Pass Stacker"),
+            # MemoryLayer("Money Stacker"),
+            # MemoryLayer("Wikipedia Stacker")
         ]
         super().__init__(CombineLayer(predict_layers, True), CombineLayer(train_layers, True), self.SPLITS)
+
 
 class Moldel(CompositeLayer):
     """ The Moldel is a combination of multiple layers used to do the total prediction of the Mol. """
