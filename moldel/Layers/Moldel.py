@@ -19,19 +19,19 @@ class MoldelStacker(StackLayer):
     def __init__(self, random_generator: RandomState):
         predict_layers = [
             AppearanceLayer(2/11, 13, 4, 2, 0.01),
-            # ExamAccusationsLayer(random_generator),
-            # ExamDropLayer(120, 4, random_generator),
-            # ExamPassLayer(random_generator),
-            # MoneyLayer(0.99, 4, 9, random_generator),
-            # WikipediaLayer(-0.524, 0.782, 5, random_generator)
+            ExamAccusationsLayer(random_generator),
+            ExamDropLayer(120, 4, random_generator),
+            ExamPassLayer(random_generator),
+            MoneyLayer(0.99, 4, 9, random_generator),
+            WikipediaLayer(-0.524, 0.782, 5, random_generator)
         ]
         train_layers = [
             MemoryLayer("Appearance Stacker"),
-            # MemoryLayer("Exam Accusations Stacker"),
-            # MemoryLayer("Exam Drop Stacker"),
-            # MemoryLayer("Exam Pass Stacker"),
-            # MemoryLayer("Money Stacker"),
-            # MemoryLayer("Wikipedia Stacker")
+            MemoryLayer("Exam Accusations Stacker"),
+            MemoryLayer("Exam Drop Stacker"),
+            MemoryLayer("Exam Pass Stacker"),
+            MemoryLayer("Money Stacker"),
+            MemoryLayer("Wikipedia Stacker")
         ]
         super().__init__(CombineLayer(predict_layers, True), CombineLayer(train_layers, True), self.SPLITS)
 
