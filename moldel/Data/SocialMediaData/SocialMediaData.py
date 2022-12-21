@@ -38,6 +38,9 @@ from Data.Player import *
 #   publishing a book.
 
 # Based on manual Social Media Analysis
+SEASON24 = set()
+
+# Based on manual Social Media Analysis
 SEASON23 = set()
 
 # Based on manual Social Media Analysis
@@ -67,5 +70,16 @@ SEASON15 = set()
 # Only based on http://www.jaapvanzessen.nl/social-media-analist-blogs/wie-de-mol-deelnemer-laten-sporen-achter-op-social-media/
 SEASON14 = {Player.MAURICE_14}
 
-SUSPICION_DATA = {23: SEASON23, 22: SEASON22, 21: SEASON21, 20: SEASON20, 19: SEASON19, 18: SEASON18, 17: SEASON17, 16: SEASON16,
-                  15: SEASON15, 14: SEASON14}
+SUSPICION_DATA = {
+  24: SEASON24,
+  23: SEASON23,
+  22: SEASON22,
+  21: SEASON21,
+  20: SEASON20,
+  19: SEASON19,
+  18: SEASON18,
+  17: SEASON17,
+  16: SEASON16,
+  15: SEASON15,
+  14: SEASON14
+}

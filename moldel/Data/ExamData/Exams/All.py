@@ -21,6 +21,7 @@ from .Season20 import season20
 from .Season21 import season21
 from .Season22 import season22
 from .Season23 import season23
+from .Season24 import season24
 
 EXAM_DATA = {
   1: season1,
@@ -45,5 +46,6 @@ EXAM_DATA = {
   20: season20,
   21: season21,
   22: season22,
-  23: season23
+  23: season23,
+  24: season24
 }

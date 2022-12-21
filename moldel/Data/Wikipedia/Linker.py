@@ -7,6 +7,16 @@ WIKI_FILES_PATH = "moldel/Data/Wikipedia/WikiFiles/"
 
 # The LINKER maps players to their corresponding Wikipedia data.
 LINKER = {
+    Player.ANKE_24: "Anke_24.txt",
+    Player.ANNICK_24: "Annick_24.txt",
+    Player.DANIEL_24: "Daniel_24.txt",
+    Player.FROUKJE_24: "Froukje_24.txt",
+    Player.JURRE_24: "Jurre_24.txt",
+    Player.NABIL_24: "Nabil_24.txt",
+    Player.RANOMI_24: "Ranomi_24.txt",
+    Player.SANDER_24: "Sander_24.txt",
+    Player.SARAH_24: "Sarah_24.txt",
+    Player.SOY_24: "Soy_24.txt",
     Player.ARNO_23: "Arno_23.txt",
     Player.EVERON_23: "Everon_23.txt",
     Player.FRESIA_23: "Fresia_23.txt",

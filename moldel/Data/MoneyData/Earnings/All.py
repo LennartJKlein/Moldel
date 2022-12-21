@@ -1,4 +1,4 @@
-# from Data.MoneyData.Earnings.Season1 import season1
+from Data.MoneyData.Earnings.Season1 import season1
 # from Data.MoneyData.Earnings.Season2 import season2
 # from Data.MoneyData.Earnings.Season3 import season3
 # from Data.MoneyData.Earnings.Season4 import season4
@@ -21,9 +21,10 @@ from Data.MoneyData.Earnings.Season20 import season20
 from Data.MoneyData.Earnings.Season21 import season21
 from Data.MoneyData.Earnings.Season22 import season22
 from Data.MoneyData.Earnings.Season23 import season23
+from Data.MoneyData.Earnings.Season24 import season24
 
 MONEY_DATA = {
-    # 1: season1,
+    1: season1,
     # 2: season2,
     # 3: season3,
     # 4: season4,
@@ -45,5 +46,6 @@ MONEY_DATA = {
     20: season20,
     21: season21,
     22: season22,
-    23: season23
+    23: season23,
+    24: season24
 }
