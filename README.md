@@ -2,9 +2,9 @@
 
 Een algoritme om de Mol te voorspellen.
 
-## 🔦 Nieuwste voorspelling (s23e9, 2022)
+## 🔦 Nieuwste voorspelling (s24e0, 2023)
 
-![Voorspelling na aflevering 9, seizoen 23 (2022)](https://github.com/LennartJKlein/Moldel/blob/master/results/Season%2023%20(2022)/s23e9.png?raw=true)
+![Voorspelling na aflevering 1, seizoen 24 (2023)](https://github.com/LennartJKlein/Moldel/blob/master/results/Season%2024%20(2023)/s24e1.png?raw=true)
 
 ## 📺 Over Wie is de Mol
 
@@ -55,11 +55,8 @@ pip install matplotlib
 pip install progress
 pip install seaborn
 
-# macOS
-brew install enchant
-
-# Windows/Ubuntu
-sudo apt-get install libenchant1c2a
+brew install enchant # macOS
+sudo apt-get install libenchant1c2a # Windows/Ubuntu
 
 pip install pyenchant
 conda install -c conda-forge dlib
@@ -87,6 +84,8 @@ Alleen gesproken beschuldigingen opschrijven.
 
 ### Wikipedia Layer
 
+Kopieer de wikipediapagina van de persoon van titel tot en met de categorieën onderaan diens pagina. Plak dit in een .txt bestand in de map `WikiFiles`. Voeg de nieuwe file toe in het bestand `Linker.py` om hem te koppelen aan de bijbehorende kandidaat.
+
 ### Social Media Layer
 
 ### Appearance Layer
@@ -104,10 +103,8 @@ Hoe veel een kandidaat in beeld komt tijdens deze aflevering, is nu opgeslagen i
 
 Het Moldel kun je trainen, zodat z'n geheugen groter wordt. Doe dit elke keer dat een seizoen is afgelopen en de Mol bekend is, om dat seizoen aan zijn geheugen toe te voegen.
 
-1. Pas de instellingen in het bestand `Validate.py` aan, zodat alle afgeronde seizoenen zijn opgenomen.
-2. Voer uit: `python moldel/Validate.py`
-
-`python moldel train [LAYER] [SEASONS]`
+1. Pas de instellingen in het bestand `Settings.py` aan, zodat alle afgeronde seizoenen zijn opgenomen.
+2. Voer uit: `python moldel train [LAYER]`
 
 ## 📚 Verdiepende uitleg van Multifacio
 
