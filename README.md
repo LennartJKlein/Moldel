@@ -29,7 +29,7 @@ Je hebt een aantal programma's, software en pakketten nodig om het Moldel uit te
 ### Installeer deze software
 
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- [Python v3.9](https://www.python.org/downloads/)
+- [Python v3.9 of hoger](https://www.python.org/downloads/)
 - [PIP](https://pypi.org/project/pip/)
 - [Miniconda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
 
