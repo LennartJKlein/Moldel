@@ -2,7 +2,7 @@
 
 Een algoritme om de Mol te voorspellen.
 
-## 🔦 Nieuwste voorspelling (s24e0, 2023)
+## 🔦 Nieuwste voorspelling (s24e1, 2023)
 
 ![Voorspelling na aflevering 1, seizoen 24 (2023)](https://github.com/LennartJKlein/Moldel/blob/master/results/Season%2024%20(2023)/s24e1.png?raw=true)
 
