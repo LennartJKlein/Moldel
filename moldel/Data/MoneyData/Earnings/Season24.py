@@ -9,20 +9,10 @@ players1 = {Player.ANKE_24, Player.ANNICK_24, Player.DANIEL_24, Player.FROUKJE_2
             Player.NABIL_24, Player.RANOMI_24, Player.SANDER_24, Player.SARAH_24, Player.SOY_24}
 exercises1 = [
     # Opdracht 1: Gulden middenweg
-    # (250, 500, 1000, 2000, 4000)
-    # anke-sander sara-jurre soy-annick sander-anke nabil-ranomi daniel-froukje
-    # licht aan: sara-jurre soy-annick sander-anke nabil-ranomi daniel-froukje
-    # ontsnapt: sara-jurre sander-anke daniel-froukje
-    # aangekomen: sara-jurre sander-anke
     Exercise(episode=1, alive=players1, maximum=4000, earned=[
         Earning(money=500, major={Player.SARAH_24, Player.SANDER_24, Player.JURRE_24, Player.ANKE_24}),
     ]),
     # Opdracht 2: Toonaangevend
-    # muzikaal oor: froukje, ranomi, daniel, nabil, annick
-    # opgaan in muziek: sander, sara, jurre, anke, soy
-    # 1500 op Sara
-    # 1000 op jurre
-    # 100 anke
     Exercise(episode=1, alive=players1, maximum=4000, earned=[
         Earning(money=1500, major={Player.SARAH_24}, minor={Player.NABIL_24,
                 Player.ANNICK_24, Player.DANIEL_24, Player.RANOMI_24, Player.FROUKJE_24}),
@@ -33,6 +23,24 @@ exercises1 = [
     ]),
 ]
 
+################
+# Aflevering 2
+players2 = {Player.ANKE_24, Player.ANNICK_24, Player.DANIEL_24, Player.FROUKJE_24, Player.JURRE_24,
+            Player.NABIL_24, Player.RANOMI_24, Player.SANDER_24, Player.SOY_24}
+exercises2 = [
+    # Opdracht 1: Stalen Zenuwen
+    Exercise(episode=2, alive=players2, maximum=3000, earned=[
+        Earning(money=1300, minor={Player.ANKE_24, Player.ANNICK_24, Player.DANIEL_24, Player.FROUKJE_24,
+                Player.JURRE_24, Player.NABIL_24, Player.RANOMI_24, Player.SANDER_24, Player.SOY_24}),
+    ]),
+    # Opdracht 2: Propvol
+    Exercise(episode=2, alive=players2, maximum=3000, earned=[
+        Earning(money=250, major={Player.DANIEL_24}, minor={Player.FROUKJE_24, Player.JURRE_24,
+                Player.NABIL_24, Player.ANNICK_24, Player.RANOMI_24, Player.SANDER_24}),
+    ]),
+]
+
 season24 = Season(
     exercises1
+    + exercises2
 )

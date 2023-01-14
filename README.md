@@ -2,9 +2,9 @@
 
 Een algoritme om de Mol te voorspellen.
 
-## 🔦 Nieuwste voorspelling (s24e1, 2023)
+## 🔦 Nieuwste voorspelling (s24e2, 2023)
 
-![Voorspelling na aflevering 1, seizoen 24 (2023)](https://github.com/LennartJKlein/Moldel/blob/master/results/Season%2024%20(2023)/s24e1.png?raw=true)
+![Voorspelling na aflevering 2, seizoen 24 (2023)](https://github.com/LennartJKlein/Moldel/blob/master/results/Season%2024%20(2023)/s24e2.png?raw=true)
 
 ## 📺 Over Wie is de Mol
 
@@ -14,13 +14,13 @@ Een algoritme om de Mol te voorspellen.
 
 Het **Moldel** is een algoritme, bedacht door Haico ([Multifacio](https://github.com/Multifacio)) dat voor elke kandidaat de waarschijnlijkheid berekent dat deze de 'Mol' is. Deze score komt tot stand door de voorspellingen van de volgende 'layers' te combineren:
 
-- **Exam Drop Layer**: Kijkt voor elke kandidaat of de afvaller van de aflevering antwoorden op hem/haar had ingevuld tijdens de test.
-- **Exam Accusations Layer**: Kijkt naar gesproken beschuldigingen tijdens de test. Voor elke kandidaat wordt gekeken hoe vaak hij/zij wordt verdacht, of hij/zij door de afvaller wordt verdacht, of hij/zij de afvaller verdacht en of hij/zij dezelfde beschuldigingen als andere spelers doet.
-- **Exam Pass Layer**: Kijkt voor elke kandidaat hoeveel jokers hij/zij heeft ingezet bij de test.
-- **Money Layer**: Kijkt voor elke kandidaat welke invloed hij/zij had op het bedrag in de pot.
-- **Wikipedia Layer**: Kijkt voor elke kandidaat naar diens beroep en de grootte van diens wikipedia-pagina.
-- **Social Media Layer**: Kijkt naar social media activiteit. Gelekte foto's, activiteit van kandidaten tijdens de opnameperiode, afwezigheid van de kandidaat, etc.
-- **Appearance Layer**: Kijkt naar hoe veel een kandidaat in beeld komt. ©[Mattijn van Hoek](https://github.com/mattijn/widm)
+* **Exam Drop Layer**: Kijkt voor elke kandidaat of de afvaller van de aflevering antwoorden op hem/haar had ingevuld tijdens de test.
+* **Exam Accusations Layer**: Kijkt naar gesproken beschuldigingen tijdens de test. Voor elke kandidaat wordt gekeken hoe vaak hij/zij wordt verdacht, of hij/zij door de afvaller wordt verdacht, of hij/zij de afvaller verdacht en of hij/zij dezelfde beschuldigingen als andere spelers doet.
+* **Exam Pass Layer**: Kijkt voor elke kandidaat hoeveel jokers hij/zij heeft ingezet bij de test.
+* **Money Layer**: Kijkt voor elke kandidaat welke invloed hij/zij had op het bedrag in de pot.
+* **Wikipedia Layer**: Kijkt voor elke kandidaat naar diens beroep en de grootte van diens wikipedia-pagina.
+* **Social Media Layer**: Kijkt naar social media activiteit. Gelekte foto's, activiteit van kandidaten tijdens de opnameperiode, afwezigheid van de kandidaat, etc.
+* **Appearance Layer**: Kijkt naar hoe veel een kandidaat in beeld komt. ©[Mattijn van Hoek](https://github.com/mattijn/widm)
 
 ## 🛠 Installeren
 
@@ -28,10 +28,10 @@ Je hebt een aantal programma's, software en pakketten nodig om het Moldel uit te
 
 ### Installeer deze software
 
-- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- [Python v3.9 of hoger](https://www.python.org/downloads/)
-- [PIP](https://pypi.org/project/pip/)
-- [Miniconda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
+* [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* [Python v3.9 of hoger](https://www.python.org/downloads/)
+* [PIP](https://pypi.org/project/pip/)
+* [Miniconda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
 
 ### Download de bestanden van deze repository
 
@@ -68,7 +68,7 @@ pip install face-recognition
 
 Nu is het zo ver; laat het algoritme op basis van de 5 tactieken een kansberekening maken wie de Mol is! Ga naar de hoofdmap van het project en voer het commando uit:
 
-`python moldel predict [SEASON] [LATEST EPISODE] [--file]`
+ `python moldel predict [SEASON] [LATEST EPISODE] [--file]`
 
 _De optie `--file` is optioneel en zorgt ervoor dat de uitkomst als bestand wordt opgeslagen, ipv als popup geopend._
 
@@ -84,7 +84,7 @@ Alleen gesproken beschuldigingen opschrijven.
 
 ### Wikipedia Layer
 
-Kopieer de wikipediapagina van de persoon van titel tot en met de categorieën onderaan diens pagina. Plak dit in een .txt bestand in de map `WikiFiles`. Voeg de nieuwe file toe in het bestand `Linker.py` om hem te koppelen aan de bijbehorende kandidaat.
+Kopieer de wikipediapagina van de persoon van titel tot en met de categorieën onderaan diens pagina. Plak dit in een .txt bestand in de map `WikiFiles` . Voeg de nieuwe file toe in het bestand `Linker.py` om hem te koppelen aan de bijbehorende kandidaat.
 
 ### Social Media Layer
 
