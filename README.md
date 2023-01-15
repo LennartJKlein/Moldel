@@ -41,27 +41,22 @@ git clone https://github.com/LennartJKlein/Moldel.git
 
 ### Installeer modules voor Python in deze volgorde
 
-```python
-pip install aenum
-pip install numpy
-pip install scipy
-pip install k-means-constrained
-pip install sklearn
-pip install opencv-python
-pip install jenkspy
-pip install rootpath
-pip install iteround
-pip install matplotlib
-pip install progress
-pip install seaborn
+```bash
+# For macOS (Apple Silicon M1 chip):
+arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+arch -x86_64 /usr/local/bin/brew install enchant
 
-brew install enchant # macOS
-sudo apt-get install libenchant1c2a # Windows/Ubuntu
+# For macOS (intel chip)
+brew install enchant
 
+# For Windows/Ubuntu
+sudo apt-get install libenchant1c2a 
+
+# For all platforms
+pip install aenum numpy scipy k-means-constrained sklearn scikit-learn opencv-python jenkspy rootpath iteround matplotlib progress seaborn
 pip install pyenchant
 conda install -c conda-forge dlib
-pip install cmake
-pip install face-recognition
+pip install cmake face-recognition
 ```
 
 ## 🚀 Uitvoeren
@@ -92,7 +87,7 @@ Kopieer de wikipediapagina van de persoon van titel tot en met de categorieën o
 
 In het Moldel wordt **elke** aflevering geanalyseerd hoe vaak iemand in beeld komt. Je moet voor elke nieuwe aflevering de volgende stappen volgen:
 
-1. Zorg dat voor elke kandidaat van het seizoen een portretfoto in de map `Data/AppearanceData/Faces` staat
+1. Zorg dat voor elke kandidaat van het seizoen een portretfoto in de map `Data/Faces` staat
 2. Voeg de aflevering die geanalyseerd moet worden toe in de map `Data/AppearanceData`
 3. Pas de instellingen in het bestand `Layers/Appearance/VideoParserSettings.py` aan, zodat ze kloppen voor jouw seizoen en aflevering.
 4. Laat de aflevering automatisch analyseren vanuit de map 'moldel' met het commando: `python -m Layers.Appearance.VideoParser`
