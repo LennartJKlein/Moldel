@@ -9,3 +9,4 @@ TRAIN_LAYER = "all"  # can be overwritten via command line <layer>
 PREDICT_SEASON = 24  # can be overwritten via command line <season>
 PREDICT_EPISODE = 1  # can be overwritten via command line <episode>
 SAVE_AS_FILE = False  # can be overwritten via command line --file
+SAVE_AS_REEL = False  # can be overwritten via command line --reel

@@ -43,6 +43,7 @@ if len(sys.argv) > 1:
                 print("<season>    :   number of the season to predict")
                 print("<episode>   :   number of the episode to predict")
                 print("--file      :   save the result as a file")
+                print("--reel      :   save the result as a Instagram reel image")
                 print("")
                 exit()
             else:
@@ -50,6 +51,10 @@ if len(sys.argv) > 1:
                 s.PREDICT_EPISODE = int(sys.argv[3])
             if len(sys.argv) > 4:
                 s.SAVE_AS_FILE = sys.argv[4] == "--file"
+                s.SAVE_AS_REEL = sys.argv[4] == "--reel"
+            if len(sys.argv) > 5:
+                s.SAVE_AS_FILE = sys.argv[5] == "--file"
+                s.SAVE_AS_REEL = sys.argv[5] == "--reel"
         import Predictor
 
     else:
