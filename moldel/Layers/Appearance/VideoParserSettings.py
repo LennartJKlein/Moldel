@@ -34,16 +34,16 @@ ALIVE_PLAYERS = {
 # If this new picture still does not give higher detection values then you should pick the best picture and stick to the
 # low detection values of the player.
 FACE_IMAGE_LOCATIONS = {
-    Player.ANKE_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/AppearanceData/Faces/24-ANKE.jpg",
-    Player.ANNICK_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/AppearanceData/Faces/24-ANNICK.jpg",
-    Player.DANIEL_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/AppearanceData/Faces/24-DANIEL.jpg",
-    Player.FROUKJE_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/AppearanceData/Faces/24-FROUKJE.jpg",
-    Player.JURRE_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/AppearanceData/Faces/24-JURRE.jpg",
-    Player.NABIL_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/AppearanceData/Faces/24-NABIL.jpg",
-    Player.RANOMI_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/AppearanceData/Faces/24-RANOMI.jpg",
-    Player.SANDER_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/AppearanceData/Faces/24-SANDER.jpg",
-    Player.SARAH_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/AppearanceData/Faces/24-SARAH.jpg",
-    Player.SOY_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/AppearanceData/Faces/24-SOY.jpg"
+    Player.ANKE_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/24-ANKE.jpg",
+    Player.ANNICK_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/24-ANNICK.jpg",
+    Player.DANIEL_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/24-DANIEL.jpg",
+    Player.FROUKJE_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/24-FROUKJE.jpg",
+    Player.JURRE_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/24-JURRE.jpg",
+    Player.NABIL_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/24-NABIL.jpg",
+    Player.RANOMI_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/24-RANOMI.jpg",
+    Player.SANDER_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/24-SANDER.jpg",
+    Player.SARAH_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/24-SARAH.jpg",
+    Player.SOY_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/24-SOY.jpg"
 }
 
 # How many frames get skipped before analysing a frame (setting this value higher will make the script run faster,
