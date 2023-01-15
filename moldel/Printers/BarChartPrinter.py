@@ -1,16 +1,15 @@
 from collections import deque
-
-from PIL import Image, ImageDraw
-
-from Data.PlayerData import get_name
 from Data.Player import Player
+from Data.PlayerData import get_name
 from iteround import saferound
+from matplotlib.offsetbox import OffsetImage, AnnotationBbox
+from PIL import Image, ImageDraw
 from Printers.Printer import Printer
 from typing import Dict, Union, List
-import matplotlib.ticker as mtick
-from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 import matplotlib.pyplot as plt
+import matplotlib.ticker as mtick
 import numpy as np
+import os
 import seaborn as sns
 
 
@@ -58,6 +57,7 @@ class BarChartPrinter(Printer):
         plt.gca().spines['right'].set_color('0.9')
         plt.gca().spines['left'].set_color('0.6')
         plt.gca().tick_params(axis="x", which="minor", bottom=False)
+        plt.xticks(fontsize=9, rotation=-12)
         plt.gca().tick_params(axis='y', colors="#aaa")
         plt.grid(True, which="major", axis="y", color="#ddd", zorder=0)
         plt.grid(True, which="minor", axis="y", color="#eee", zorder=0, linestyle="--")
@@ -65,34 +65,36 @@ class BarChartPrinter(Printer):
         plt.ylim(0, 100)
         container = plt.bar(names, likelihoods, color=colors, zorder=3)
         plt.bar_label(container, fmt="%.1f%%", color="#000", zorder=4, padding=4)
+        plt.gca().set_xticks(range(len(names)))
+        plt.gca().set_xticklabels(names)
 
         def get_photo(name):
             path = "moldel/Data/Faces/{}-{}.jpg".format(self.__season, name.upper())
-            im = Image.open(path)
-            smallestSize = min(im.width, im.height)
-            offsetX = (im.width-smallestSize)/2 if (im.width-smallestSize) else 0
-            offsetY = (im.height-smallestSize)/2 if (im.height-smallestSize) else 0
-            im = im.resize((300, 300), resample=Image.Resampling.BICUBIC, box=(
-                offsetX, offsetY, smallestSize + offsetX, smallestSize + offsetY))
+            if os.path.isfile(path):
+                im = Image.open(path)
+                smallestSize = min(im.width, im.height)
+                offsetX = (im.width-smallestSize)/2 if (im.width-smallestSize) else 0
+                offsetY = (im.height-smallestSize)/2 if (im.height-smallestSize) else 0
+                im = im.resize((300, 300), resample=Image.Resampling.BICUBIC, box=(
+                    offsetX, offsetY, smallestSize + offsetX, smallestSize + offsetY))
 
-            mask = Image.new("L", (300, 300), 0)
-            drawMask = ImageDraw.Draw(mask)
-            drawMask.ellipse((0, 0, 300, 300), fill=255)
-            bg = Image.new("RGBA", (300, 300), (255, 0, 0, 0))
-            im = Image.composite(im, bg, mask)
-            return im
+                mask = Image.new("L", (300, 300), 0)
+                drawMask = ImageDraw.Draw(mask)
+                drawMask.ellipse((0, 0, 300, 300), fill=255)
+                bg = Image.new("RGBA", (300, 300), (255, 0, 0, 0))
+                im = Image.composite(im, bg, mask)
+                return im
+            return None
 
         def insert_image(coord, name, ax):
             img = get_photo(name)
-            im = OffsetImage(img, zoom=0.1)
-            im.image.axes = ax
-            ab = AnnotationBbox(im, (coord, 0),  xybox=(0., -10), frameon=False,
-                                xycoords='data',  boxcoords="offset points", pad=0)
-            ax.add_artist(ab)
-
-        plt.gca().set_xticks(range(len(names)))
-        plt.gca().set_xticklabels(names)
-        plt.gca().tick_params(axis='x', which='major', pad=26)
+            if img:
+                im = OffsetImage(img, zoom=0.1)
+                im.image.axes = ax
+                ab = AnnotationBbox(im, (coord, 0),  xybox=(0., -10), frameon=False,
+                                    xycoords='data',  boxcoords="offset points", pad=0)
+                ax.add_artist(ab)
+                plt.gca().tick_params(axis='x', which='major', pad=24)
 
         for i, c in enumerate(names):
             insert_image(i, c, plt.gca())
