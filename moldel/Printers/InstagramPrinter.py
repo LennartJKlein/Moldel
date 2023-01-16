@@ -49,7 +49,7 @@ class InstagramPrinter(Printer):
         likelihoods = saferound([(likelihood / likelihoods_sum * 100) for likelihood in likelihoods], self.__PRECISION)
 
         plt.figure(dpi=300, figsize=[9, 16])
-        plt.subplots_adjust(bottom=0.08, top=0.91, left=0.2, right=0.8)
+        plt.subplots_adjust(bottom=0.105, top=0.89, left=0.24, right=0.83)
         plt.gca().spines["bottom"].set_color("0.6")
         plt.gca().spines["left"].set_color("0.6")
         plt.gca().spines["right"].set_color("0.9")
@@ -59,7 +59,7 @@ class InstagramPrinter(Printer):
         plt.minorticks_on()
         plt.gca().tick_params(axis="y", which="minor", bottom=False)
         plt.gca().tick_params(axis="x", colors="#aaa")
-        plt.yticks(fontsize=18, rotation=10, fontname="Avenir Next")
+        plt.yticks(fontsize=18, rotation=13, fontname="Avenir Next")
         plt.xticks(fontsize=18, fontname="Avenir")
         plt.gca().xaxis.set_major_formatter(mtick.PercentFormatter(100))
         plt.xlim(0, 100)
