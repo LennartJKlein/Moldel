@@ -53,7 +53,7 @@ brew install enchant
 sudo apt-get install libenchant1c2a 
 
 # For all platforms
-pip install aenum numpy scipy k-means-constrained sklearn scikit-learn opencv-python jenkspy rootpath iteround matplotlib progress seaborn
+pip install aenum numpy scipy k-means-constrained sklearn scikit-learn opencv-python jenkspy rootpath iteround matplotlib progress seaborn tinify
 pip install pyenchant
 conda install -c conda-forge dlib
 pip install cmake face-recognition

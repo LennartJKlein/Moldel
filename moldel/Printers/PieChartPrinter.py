@@ -10,6 +10,9 @@ import math
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
+import tinify
+tinify.key = "qN_KsJ5knq7PxpkJlRz1QurKzglsMAiB"
+
 
 class PieChartPrinter(Printer):
     """ The Pie Chart Printer prints a pie chart with the likelihoods that players are the Mol. """
@@ -51,7 +54,7 @@ class PieChartPrinter(Printer):
         colors = []
 
         i = 0
-        for playerEstimation in sorted(distribution.items(), key=lambda x:x[1]):
+        for playerEstimation in sorted(distribution.items(), key=lambda x: x[1]):
             likelihood = playerEstimation[1]
             if likelihood != 0:
                 labels.append(get_name(playerEstimation[0]))
@@ -75,7 +78,7 @@ class PieChartPrinter(Printer):
                 x_text = (1 + self.__THRESHOLD_LINE_LENGTH) * np.cos(np.deg2rad(text_angle))
                 y_text = (1 + self.__THRESHOLD_LINE_LENGTH) * np.sin(np.deg2rad(text_angle))
                 horizontalalignment = {-1: "right", 1: "left"}[int(np.sign(x))]
-                plt.annotate(name.get_text() + ": " + percentage.get_text(), xy= (x, y), xytext=(x_text, y_text),
+                plt.annotate(name.get_text() + ": " + percentage.get_text(), xy=(x, y), xytext=(x_text, y_text),
                              horizontalalignment=horizontalalignment, **kw)
             elif angle != text_angle:
                 name.update({'visible': False})
@@ -83,14 +86,16 @@ class PieChartPrinter(Printer):
                 x_text = (1 + self.__THRESHOLD_LINE_LENGTH) * np.cos(np.deg2rad(text_angle))
                 y_text = (1 + self.__THRESHOLD_LINE_LENGTH) * np.sin(np.deg2rad(text_angle))
                 horizontalalignment = {-1: "right", 1: "left"}[int(np.sign(x))]
-                plt.annotate(name.get_text(), xy=(x, y), xytext=(x_text, y_text), horizontalalignment =
-                    horizontalalignment, **kw)
+                plt.annotate(name.get_text(), xy=(x, y), xytext=(x_text, y_text),
+                             horizontalalignment=horizontalalignment, **kw)
 
         plt.title(f"Overeenkomst met een Mol (na aflevering {self.__latest_episode}, seizoen {self.__season})")
         if self.__file_name is None:
             plt.show()
         else:
             plt.savefig(self.__file_name)
+            source = tinify.from_file(self.__file_name + ".png")
+            source.to_file(self.__file_name + ".png")
             plt.clf()
 
     @classmethod

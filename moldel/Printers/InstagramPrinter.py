@@ -11,6 +11,8 @@ import matplotlib.ticker as mtick
 import numpy as np
 import os
 import seaborn as sns
+import tinify
+tinify.key = "qN_KsJ5knq7PxpkJlRz1QurKzglsMAiB"
 
 
 class InstagramPrinter(Printer):
@@ -116,4 +118,6 @@ class InstagramPrinter(Printer):
             plt.show()
         else:
             plt.savefig(self.__file_name, dpi=150)
+            source = tinify.from_file(self.__file_name + ".png")
+            source.to_file(self.__file_name + ".png")
             plt.clf()
