@@ -35,7 +35,7 @@ exercises2 = [
     ]),
     # Opdracht 2: Propvol
     Exercise(episode=2, alive=players2, maximum=3000, earned=[
-        Earning(money=250, major={Player.DANIEL_24}, minor={Player.FROUKJE_24, Player.JURRE_24,
+        Earning(money=250, major={Player.DANIEL_24}, minor={Player.JURRE_24,
                 Player.NABIL_24, Player.ANNICK_24, Player.RANOMI_24, Player.SANDER_24}),
     ]),
 ]
