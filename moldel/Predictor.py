@@ -20,7 +20,7 @@ distribution = moldel.compute_distribution(s.PREDICT_SEASON, s.PREDICT_EPISODE, 
 if s.SAVE_AS_FILE:
     filename = f"s{s.PREDICT_SEASON}e{s.PREDICT_EPISODE}"
     printer = BarChartPrinter(s.PREDICT_SEASON, s.PREDICT_EPISODE, filename)
-if s.SAVE_AS_REEL:
+elif s.SAVE_AS_REEL:
     filename = f"s{s.PREDICT_SEASON}e{s.PREDICT_EPISODE}-reel"
     printer = InstagramPrinter(s.PREDICT_SEASON, s.PREDICT_EPISODE, filename)
 else:
