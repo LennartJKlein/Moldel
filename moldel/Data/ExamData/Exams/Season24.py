@@ -153,11 +153,61 @@ result2 = Result(DropType.EXECUTION_DROP, [Player.FROUKJE_24])
 episode2 = Episode(players2, result2, input2, questions2)
 
 ################
+# Aflevering 3
+players3 = [Player.ANKE_24, Player.ANNICK_24, Player.DANIEL_24, Player.JURRE_24,
+            Player.NABIL_24, Player.RANOMI_24, Player.SANDER_24, Player.SOY_24]
+questions3 = {
+    # Welke kleur had de quat van de Mol?
+    4: Question({
+        # Wit
+        1: [Player.ANNICK_24, Player.JURRE_24, Player.ANKE_24, Player.SOY_24, Player.NABIL_24, Player.DANIEL_24],
+        # Geel
+        2: [Player.RANOMI_24, Player.SANDER_24],
+    }),
+    # Vertrok de Mol als laatste na het aantikken van de tablet, tijdens de opdracht in de duinen?
+    5: Question({
+        # Ja
+        1: [Player.ANNICK_24],
+        # Nee
+        2: [Player.ANKE_24, Player.DANIEL_24, Player.JURRE_24, Player.NABIL_24, Player.RANOMI_24, Player.SANDER_24, Player.SOY_24],
+    }),
+    # Diende het team van de Mol het codewoord in op de ijsbreker?
+    18: Question({
+        # Ja
+        1: [Player.SOY_24, Player.DANIEL_24, Player.JURRE_24],
+        # Nee
+        2: [Player.ANKE_24, Player.ANNICK_24, Player.NABIL_24, Player.RANOMI_24, Player.SANDER_24],
+    }),
+    # Wie is de Mol?
+    20: Question({
+        1: [Player.ANKE_24],
+        2: [Player.ANNICK_24],
+        3: [Player.DANIEL_24],
+        4: [Player.JURRE_24],
+        5: [Player.NABIL_24],
+        6: [Player.RANOMI_24],
+        7: [Player.SANDER_24],
+        8: [Player.SOY_24]
+    }),
+}
+input3 = {
+    Player.SOY_24: TestInput({4: 1}, jokers=1, accusations=[Player.NABIL_24]),
+    Player.NABIL_24: TestInput({5: 2}, accusations=[Player.ANNICK_24]),
+    Player.ANNICK_24: TestInput({20: 6}, jokers=1, accusations=[Player.RANOMI_24]),
+    Player.RANOMI_24: TestInput(jokers=1, accusations=[Player.SOY_24, Player.ANNICK_24]),
+    Player.JURRE_24: TestInput({18: 1}, jokers=2, accusations=[Player.RANOMI_24, Player.NABIL_24, Player.ANNICK_24, Player.DANIEL_24]),
+    Player.DANIEL_24: TestInput(jokers=1, accusations=[Player.RANOMI_24, Player.SOY_24, Player.ANNICK_24])
+}
+result3 = Result(DropType.EXECUTION_DROP, [Player.SANDER_24])
+episode3 = Episode(players3, result3, input3, questions3)
+
+################
 # Summary
 season24 = Season(
     players1,
     {
         1: episode1,
-        2: episode2
+        2: episode2,
+        3: episode3
     }
 )
