@@ -10,10 +10,12 @@ import rootpath
 
 ParsedVideo = NamedTuple("ParsedVideo", [
     ("player_occurrences",
-    Dict[Player, Union[List[int], Set[int]]]),
+     Dict[Player, Union[List[int], Set[int]]]),
     ("alive_players", Set[Player]),
     ("frame_skip", int)
 ])
+
+
 class VideoParser:
     """ The Video Parser parses when the face of a candidate is visible during an episode based on the given video
     by the Parser Configuration file. This code is based on the project of mattijn: https://github.com/mattijn/widm
@@ -72,7 +74,8 @@ class VideoParser:
             video_parsing = pickle.load(file)
 
         parsed_video = ParsedVideo(*video_parsing)
-        player_occurrences = {player: sorted(occurrences) for player, occurrences in parsed_video.player_occurrences.items()}
+        player_occurrences = {player: sorted(occurrences)
+                              for player, occurrences in parsed_video.player_occurrences.items()}
         return ParsedVideo(player_occurrences, parsed_video.alive_players, parsed_video.frame_skip)
 
     @staticmethod
@@ -117,7 +120,7 @@ class VideoParser:
                 video_capture.release()
                 break
             frame_index += 1
-            if frame_index % VideoParser.PROGRESS_FRAMES_FREQUENCY_PRINT == 0: # Prints the progress
+            if frame_index % VideoParser.PROGRESS_FRAMES_FREQUENCY_PRINT == 0:  # Prints the progress
                 print('{}/{}'.format(frame_index, length))
             if frame_index % FRAME_SKIP == 0:  # Only analyse every FRAME_SKIP frame
                 player_occurrence = VideoParser.__get_player_occurrence_in_frame(frame, all_players, face_encodings)
@@ -173,6 +176,7 @@ class VideoParser:
             The file path where the parsed video is/will be stored.
         """
         return rootpath.detect() + "/" + SAVE_FOLDER + "s" + str(season) + "e" + str(episode) + ".data"
+
 
 if __name__ == "__main__":
     vp = VideoParser()
