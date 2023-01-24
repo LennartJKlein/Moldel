@@ -1,6 +1,7 @@
+import Settings as s
 from collections import deque
 from Data.Player import Player
-from Data.PlayerData import get_name
+from Data.PlayerData import get_name, get_is_mol
 from iteround import saferound
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 from PIL import Image, ImageDraw
@@ -15,15 +16,15 @@ import tinify
 tinify.key = "qN_KsJ5knq7PxpkJlRz1QurKzglsMAiB"
 
 
-class InstagramPrinter(Printer):
-    """ The Instagram Printer prints a reel-sizes bar chart with the likelihoods that players are the Mol. """
+class MolPrinter(Printer):
+    """ The Mol Printer prints a reel-sizes bar chart with the Mol of the season highlighted. """
 
     # Up to how many decimals the likelihoods will be rounded before printing them (if you do not round the likelihoods
     # then the pie chart will be cluttered).
     __PRECISION = 3
 
     def __init__(self, season, latest_episode, file_name: Union[str, None] = None):
-        """ Constructor of the Instagram Printer.
+        """ Constructor of the Mol Printer.
 
         Parameters:
             file_name (Union[str, None]): If set, the image will be saved as this filename
@@ -35,6 +36,7 @@ class InstagramPrinter(Printer):
     def print(self, distribution: Dict[Player, float]):
         palette = sns.color_palette("viridis", len(distribution))
         names = []
+        mol = None
         likelihoods = []
         colors = []
 
@@ -42,9 +44,14 @@ class InstagramPrinter(Printer):
         for playerEstimation in sorted(distribution.items(), key=lambda x: x[1]):
             likelihood = playerEstimation[1]
             if likelihood != 0:
-                names.append(get_name(playerEstimation[0]))
+                name = get_name(playerEstimation[0])
+                names.append(name)
+                if get_is_mol(playerEstimation[0]):
+                    mol = name
+                    colors.append("red")
+                else:
+                    colors.append(palette[i])
                 likelihoods.append(likelihood * 100)
-                colors.append(palette[i])
             i += 1
 
         likelihoods_sum = sum(likelihoods)
@@ -88,18 +95,22 @@ class InstagramPrinter(Printer):
                 return im
             return None
 
-        def insert_image(coord, name, ax):
+        def insert_image(coord, name, ax, is_mol):
             img = get_photo(name)
             if img:
                 im = OffsetImage(img, zoom=0.14)
                 im.image.axes = ax
-                ab = AnnotationBbox(im, (0, coord),  xybox=(0, 0.), frameon=False,
-                                    xycoords="data",  boxcoords="offset points", pad=0)
+                if is_mol:
+                    ab = AnnotationBbox(im, (0, coord), xybox=(0, 0.), frameon=True, bboxprops=dict(boxstyle='circle', edgecolor='red'),
+                                        xycoords="data", boxcoords="offset points", pad=0)
+                else:
+                    ab = AnnotationBbox(im, (0, coord), xybox=(0, 0.), frameon=False,
+                                        xycoords="data", boxcoords="offset points", pad=0)
                 ax.add_artist(ab)
                 plt.gca().tick_params(axis="y", which="major", pad=30)
 
-        for i, c in enumerate(names):
-            insert_image(i, c, plt.gca())
+        for coord, name in enumerate(names):
+            insert_image(coord, name, plt.gca(), name == mol)
 
         if (self.__latest_episode == 0):
             plt.title(

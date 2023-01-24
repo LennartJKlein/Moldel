@@ -15,6 +15,7 @@ import itertools as it
 import numpy as np
 import sys
 
+
 class InnerExamAccusationsLayer(Layer):
     def __init__(self, random_generator: RandomState):
         self.__random_generator = random_generator
@@ -46,7 +47,7 @@ class InnerExamAccusationsLayer(Layer):
             The estimator used to estimate the likelihood that someone is the Mol based on spoken accusations.
         """
         train_input, train_output = self.__get_train_data(train_seasons)
-        estimator = LogisticRegression(solver = "lbfgs", penalty = "none", random_state = self.__random_generator)
+        estimator = LogisticRegression(solver="lbfgs", penalty=None, random_state=self.__random_generator)
         estimator.fit(train_input, train_output)
         return estimator
 
@@ -144,6 +145,7 @@ class InnerExamAccusationsLayer(Layer):
                     accused_by_dropout += sum(accusedPlayer == player for accusedPlayer in accusations)
 
         return [times_accused, accused_dropout, accused_by_dropout, accused_like_others]
+
 
 class ExamAccusationsLayer(PotentialMolLayer):
     """ The Exam Accusations Layer predicts whether a player is the Mol based on spoken accusations. """

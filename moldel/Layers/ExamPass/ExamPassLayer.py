@@ -15,6 +15,7 @@ import itertools as it
 import numpy as np
 import sys
 
+
 class InnerExamPassLayer(Layer):
     def __init__(self, random_generator: RandomState):
         self.__random_generator = random_generator
@@ -46,7 +47,7 @@ class InnerExamPassLayer(Layer):
             The estimator used to estimate the likelihood that someone drops out based on the joker usage.
         """
         train_input, train_output = self.__get_train_data(train_seasons)
-        estimator = LogisticRegression(solver = "lbfgs", penalty = "none", random_state = self.__random_generator)
+        estimator = LogisticRegression(solver="lbfgs", penalty=None, random_state=self.__random_generator)
         estimator.fit(train_input, train_output)
         return estimator
 
@@ -144,6 +145,7 @@ class InnerExamPassLayer(Layer):
         same_jokers = sum(usage == own_usage for p, usage in joker_usage.items() if p != player)
         more_1_joker = sum(usage >= own_usage + 1 for p, usage in joker_usage.items() if p != player)
         return [less_1_joker, same_jokers, more_1_joker]
+
 
 class ExamPassLayer(PotentialMolLayer):
     """ The Exam Pass Layer predicts whether a player is the Mol based on how many jokers and exemptions players used
