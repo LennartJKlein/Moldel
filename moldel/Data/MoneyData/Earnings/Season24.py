@@ -52,25 +52,10 @@ exercises3 = [
     ]),
     # Opdracht 2: Per definitie
     Exercise(episode=3, alive=players3, maximum=2000, earned=[
-        # Glansgans: 0 euro
-        # Suurstofdieffies: 50 euro
-        Earning(money=50, major={Player.JURRE_24, Player.ANNICK_24}),
-        # Blerkas: 2 x 50 euro
-        Earning(money=100, major={Player.JURRE_24, Player.ANNICK_24, Player.SOY_24, Player.RANOMI_24}),
-        # Windpompsherry: ? euro
-        Earning(money=50),
-        # Skeletklets: 3 x 50 euro
-        Earning(money=100, major={Player.DANIEL_24, Player.SANDER_24, Player.SOY_24, Player.RANOMI_24}),
-        Earning(money=50),
-        # Gelytydigheidsafrigter: 50 euro
-        Earning(money=50, major={Player.JURRE_24, Player.ANNICK_24}),
-        # Inklimgordel: 50 euro
-        Earning(money=50, major={Player.ANKE_24, Player.NABIL_24}),
-        # Patpredikant: ? euro
-        Earning(money=200),
-        # Begrafenispote: 2 x 50 euro
-        Earning(money=100, major={Player.JURRE_24, Player.ANNICK_24, Player.ANKE_24, Player.NABIL_24}),
-        # Molafspraak: 0 euro
+        Earning(money=300, major={Player.JURRE_24, Player.ANNICK_24}),
+        Earning(money=150, major={Player.SOY_24, Player.RANOMI_24}),
+        Earning(money=100, major={Player.DANIEL_24, Player.SANDER_24}),
+        Earning(money=200, major={Player.ANKE_24, Player.NABIL_24}),
     ]),
     # Opdracht 3: Schip ingaan
     Exercise(episode=3, alive=players3, maximum=2000, earned=[])
