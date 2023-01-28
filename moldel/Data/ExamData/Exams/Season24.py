@@ -202,12 +202,81 @@ result3 = Result(DropType.EXECUTION_DROP, [Player.SANDER_24])
 episode3 = Episode(players3, result3, input3, questions3)
 
 ################
+# Aflevering 4
+players4 = [Player.ANKE_24, Player.ANNICK_24, Player.DANIEL_24, Player.JURRE_24,
+            Player.NABIL_24, Player.RANOMI_24, Player.SOY_24]
+questions4 = {
+    # Wat is de geboorteplaats van de Mol?
+    2: Question({
+        # Eindhoven
+        1: [Player.SOY_24],
+        # Heerenveen
+        2: [Player.ANKE_24],
+        # Hilversum
+        3: [Player.ANNICK_24],
+        # Luxemburg
+        4: [Player.DANIEL_24],
+        # Sauwerd
+        5: [Player.RANOMI_24],
+        # Waalwijk
+        6: [Player.NABIL_24],
+        # Wageningen
+        7: [Player.JURRE_24]
+    }),
+    # Als hoeveelste betrad de Mol het doolhof?
+    5: Question({
+        1: [Player.DANIEL_24],
+        2: [Player.NABIL_24],
+        3: [Player.JURRE_24],
+        4: [Player.ANKE_24],
+        5: [Player.ANNICK_24],
+        6: [Player.RANOMI_24],
+        7: [Player.SOY_24]
+    }),
+    # In welke groep zat de Mol tijdens de opdracht met de badeend?
+    13: Question({
+        # In de groep met 2 kandidaten
+        1: [Player.DANIEL_24, Player.ANNICK_24],
+        # In de groep met 5 kandidaten
+        2: [Player.ANKE_24, Player.DANIEL_24, Player.RANOMI_24, Player.NABIL_24, Player.JURRE_24]
+    }),
+    # Heeft de Mol het kistje geopend tijdens de opdracht met de badeend?
+    15: Question({
+        # Ja
+        1: [Player.JURRE_24],
+        # Nee
+        2: [Player.DANIEL_24, Player.ANNICK_24, Player.ANKE_24, Player.DANIEL_24, Player.RANOMI_24, Player.NABIL_24]
+    }),
+    # Wie is de Mol?
+    20: Question({
+        1: [Player.ANKE_24],
+        2: [Player.ANNICK_24],
+        3: [Player.DANIEL_24],
+        4: [Player.JURRE_24],
+        5: [Player.NABIL_24],
+        6: [Player.RANOMI_24],
+        7: [Player.SOY_24]
+    }),
+}
+input4 = {
+    Player.NABIL_24: TestInput(accusations=[Player.RANOMI_24]),
+    Player.DANIEL_24: TestInput({5: 3}, accusations=[Player.JURRE_24, Player.RANOMI_24, Player.SOY_24, Player.ANNICK_24]),
+    Player.ANNICK_24: TestInput({2: 4}, accusations=[Player.DANIEL_24]),
+    Player.RANOMI_24: TestInput({13: 2}, accusations=[Player.SOY_24, Player.ANNICK_24]),
+    Player.SOY_24: TestInput({15: 2}),
+    Player.ANKE_24: TestInput({20: 5}, accusations=[Player.RANOMI_24, Player.NABIL_24, Player.SOY_24])
+}
+result4 = Result(DropType.EXECUTION_DROP, [Player.ANNICK_24])
+episode4 = Episode(players4, result4, input4, questions4)
+
+################
 # Summary
 season24 = Season(
     players1,
     {
         1: episode1,
         2: episode2,
-        3: episode3
+        3: episode3,
+        4: episode4
     }
 )

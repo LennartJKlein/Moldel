@@ -61,8 +61,22 @@ exercises3 = [
     Exercise(episode=3, alive=players3, maximum=2000, earned=[])
 ]
 
+################
+# Aflevering 4
+players4 = {Player.ANKE_24, Player.ANNICK_24, Player.DANIEL_24, Player.JURRE_24,
+            Player.NABIL_24, Player.RANOMI_24, Player.SOY_24}
+exercises4 = [
+    # Opdracht 1: Padvinden
+    Exercise(episode=4, alive=players4, maximum=2000, earned=[
+        Earning(money=300, major={Player.RANOMI_24}),
+    ]),
+    # Opdracht 2: (eend)zame hoogte
+    Exercise(episode=4, alive=players4, maximum=3000, earned=[])
+]
+
 season24 = Season(
     exercises1
     + exercises2
     + exercises3
+    + exercises4
 )
