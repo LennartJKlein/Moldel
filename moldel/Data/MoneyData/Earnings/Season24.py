@@ -74,9 +74,27 @@ exercises4 = [
     Exercise(episode=4, alive=players4, maximum=3000, earned=[])
 ]
 
+################
+# Aflevering 5
+players5 = {Player.ANKE_24, Player.DANIEL_24, Player.JURRE_24, Player.NABIL_24, Player.RANOMI_24, Player.SOY_24}
+exercises5 = [
+    # Opdracht 1: Altaar Ego
+    Exercise(episode=5, alive=players5, maximum=2000, earned=[
+        Earning(money=700, major={Player.RANOMI_24, Player.DANIEL_24}, minor={Player.JURRE_24, Player.ANKE_24}),
+    ]),
+    # Opdracht 2: Verschijning
+    Exercise(episode=5, alive=players5, maximum=4750, earned=[
+        Earning(money=-1250, major={Player.RANOMI_24, Player.DANIEL_24, Player.JURRE_24}),
+        Earning(money=-1125, major={Player.ANKE_24}),
+        Earning(money=-1125, major={Player.JURRE_24}),
+        Earning(money=1250, major={Player.DANIEL_24}),
+    ])
+]
+
 season24 = Season(
     exercises1
     + exercises2
     + exercises3
     + exercises4
+    + exercises5
 )
