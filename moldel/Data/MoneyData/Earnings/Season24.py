@@ -80,7 +80,8 @@ players5 = {Player.ANKE_24, Player.DANIEL_24, Player.JURRE_24, Player.NABIL_24, 
 exercises5 = [
     # Opdracht 1: Altaar Ego
     Exercise(episode=5, alive=players5, maximum=2000, earned=[
-        Earning(money=700, major={Player.RANOMI_24, Player.DANIEL_24}, minor={Player.JURRE_24, Player.ANKE_24}),
+        Earning(money=100, major={Player.RANOMI_24, Player.DANIEL_24}, minor={Player.JURRE_24}),
+        Earning(money=600, major={Player.RANOMI_24, Player.DANIEL_24}, minor={Player.ANKE_24}),
     ]),
     # Opdracht 2: Verschijning
     Exercise(episode=5, alive=players5, maximum=4750, earned=[
