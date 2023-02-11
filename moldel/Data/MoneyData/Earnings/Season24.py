@@ -92,10 +92,34 @@ exercises5 = [
     ])
 ]
 
+################
+# Aflevering 6
+players6 = {Player.ANKE_24, Player.DANIEL_24, Player.JURRE_24, Player.NABIL_24, Player.RANOMI_24, Player.SOY_24}
+exercises6 = [
+    # Opdracht 1: Op eieren lopen
+    Exercise(episode=6, alive=players6, maximum=2000, earned=[
+        Earning(money=1000, major={Player.SOY_24, Player.DANIEL_24, Player.ANKE_24}),
+    ]),
+    # Opdracht 2: Op eieren schieten
+    Exercise(episode=6, alive=players6, maximum=2000, earned=[
+        Earning(money=1000, major={Player.SOY_24, Player.DANIEL_24, Player.ANKE_24}),
+    ]),
+    # Opdracht 3: Kop in het zand
+    Exercise(episode=6, alive=players6, maximum=2000, earned=[]),
+    # Opdracht 4: Roadtrip
+    Exercise(episode=6, alive=players6, maximum=0, earned=[
+        Earning(money=-500, major={Player.SOY_24, Player.DANIEL_24}, minor={Player.ANKE_24}),
+        Earning(money=-500, major={Player.SOY_24, Player.DANIEL_24, Player.ANKE_24}),
+        Earning(money=-500, major={Player.RANOMI_24, Player.NABIL_24, Player.JURRE_24}),
+        Earning(money=-500, major={Player.RANOMI_24, Player.NABIL_24, Player.JURRE_24}),
+    ])
+]
+
 season24 = Season(
     exercises1
     + exercises2
     + exercises3
     + exercises4
     + exercises5
+    + exercises6
 )

@@ -276,6 +276,99 @@ result5 = Result(DropType.NO_DROP_NOR_SCREENS, players5)
 episode5 = Episode(players5, result5, dict(), dict())
 
 ################
+# Aflevering 6
+players6 = [Player.ANKE_24, Player.DANIEL_24, Player.JURRE_24, Player.NABIL_24, Player.RANOMI_24, Player.SOY_24]
+questions6 = {
+    # Als welk beroep werd de Mol afgebeeld tijdens de opdracht in het Lord Milner hotel?
+    9: Question({
+        # Bankier
+        1: [Player.SOY_24],
+        # Barman
+        2: [Player.JURRE_24],
+        # Chauffeur
+        3: [Player.NABIL_24],
+        # Conducteur
+        4: [Player.ANKE_24],
+        # Pastoor
+        5: [Player.DANIEL_24],
+        # Schooljuf
+        6: [Player.RANOMI_24],
+    }),
+    # Wat zat er in de envelop die de Mol opende aan het einde van de opdracht in het Lord Milner hotel?
+    14: Question({
+        # Geld
+        1: [Player.DANIEL_24],
+        # Joker
+        2: [Player.JURRE_24, Player.ANKE_24],
+        # De Mol opende geen envelop
+        3: [Player.RANOMI_24, Player.NABIL_24, Player.SOY_24],
+    }),
+    # Wie is de Mol?
+    15: Question({
+        1: [Player.ANKE_24],
+        2: [Player.DANIEL_24],
+        3: [Player.JURRE_24],
+        4: [Player.NABIL_24],
+        5: [Player.RANOMI_24],
+        6: [Player.SOY_24]
+    }),
+    # Als hoeveelste liep de Mol weg van de test voordat de roadtrip begon?
+    16: Question({
+        # Als eerste
+        1: [Player.DANIEL_24],
+        # Als tweede
+        2: [Player.JURRE_24],
+        # Als derde
+        3: [Player.SOY_24],
+        # Als vierde
+        4: [Player.RANOMI_24],
+        # Als vijfde
+        5: [Player.NABIL_24],
+        # Als zesde
+        6: [Player.ANKE_24],
+    }),
+    # Wat was het kenteken van de auto waarin de Mol zat tijdens de roadtrip?
+    17: Question({
+        # KG 16 SV GP
+        1: [Player.RANOMI_24, Player.NABIL_24, Player.JURRE_24],
+        # KG 24 YJ GP
+        2: [Player.SOY_24, Player.DANIEL_24, Player.ANKE_24],
+    }),
+    # Hoeveel eieren heeft de Mol geraakt tijdens de opdracht op eieren schieten?
+    19: Question({
+        # 0
+        1: [Player.RANOMI_24, Player.ANKE_24, Player.DANIEL_24],
+        # 2
+        2: [],
+        # 4
+        3: [],
+        # 1
+        4: [Player.NABIL_24, Player.JURRE_24],
+        # 3
+        5: [],
+        # 5
+        6: [Player.SOY_24],
+    }),
+    # Heeft de Mol diens kist meegenomen tijdens de roadtrip?
+    20: Question({
+        # Ja
+        1: [Player.ANKE_24, Player.NABIL_24, Player.RANOMI_24, Player.SOY_24],
+        # Nee
+        2: [Player.DANIEL_24, Player.JURRE_24],
+    }),
+}
+input6 = {
+    Player.DANIEL_24: TestInput(immunity=True, accusations=[Player.JURRE_24]),
+    Player.JURRE_24: TestInput({9: 1}, jokers=1, immunity=True, accusations=[Player.SOY_24]),
+    Player.SOY_24: TestInput({15: 4, 19: 4}),
+    Player.RANOMI_24: TestInput({14: 3, 17: 2}, jokers=1, accusations=[Player.SOY_24]),
+    Player.NABIL_24: TestInput({20: 1}, accusations=[Player.ANKE_24, Player.RANOMI_24]),
+    Player.ANKE_24: TestInput({16: 5}, accusations=[Player.NABIL_24, Player.RANOMI_24, Player.SOY_24]),
+}
+result6 = Result(DropType.EXECUTION_DROP, [Player.NABIL_24])
+episode6 = Episode(players6, result6, input6, questions6)
+
+################
 # Summary
 season24 = Season(
     players1,
@@ -284,6 +377,7 @@ season24 = Season(
         2: episode2,
         3: episode3,
         4: episode4,
-        5: episode5
+        5: episode5,
+        6: episode6
     }
 )
