@@ -4,7 +4,7 @@ from ..Dataclasses.Episode import Episode
 from ..Dataclasses.Question import Question
 from ..Dataclasses.Result import Result
 from ..Dataclasses.Season import Season
-from ..Dataclasses.TestInput import TestInput, DelayedAnswer
+from ..Dataclasses.TestInput import TestInput
 
 ################
 # Aflevering 1
@@ -196,7 +196,8 @@ input3 = {
     Player.ANNICK_24: TestInput({20: 6}, jokers=1, accusations=[Player.RANOMI_24]),
     Player.RANOMI_24: TestInput(jokers=1, accusations=[Player.SOY_24, Player.ANNICK_24]),
     Player.JURRE_24: TestInput({18: 1}, jokers=2, accusations=[Player.RANOMI_24, Player.NABIL_24, Player.ANNICK_24, Player.DANIEL_24]),
-    Player.DANIEL_24: TestInput(jokers=1, accusations=[Player.RANOMI_24, Player.SOY_24, Player.ANNICK_24])
+    Player.DANIEL_24: TestInput(jokers=1, accusations=[
+                                Player.RANOMI_24, Player.SOY_24, Player.ANNICK_24])
 }
 result3 = Result(DropType.EXECUTION_DROP, [Player.SANDER_24])
 episode3 = Episode(players3, result3, input3, questions3)
@@ -264,20 +265,23 @@ input4 = {
     Player.ANNICK_24: TestInput({2: 4}, accusations=[Player.DANIEL_24]),
     Player.RANOMI_24: TestInput({13: 2}, accusations=[Player.SOY_24, Player.ANNICK_24]),
     Player.SOY_24: TestInput({15: 2}),
-    Player.ANKE_24: TestInput({20: 5}, accusations=[Player.RANOMI_24, Player.NABIL_24, Player.SOY_24])
+    Player.ANKE_24: TestInput({20: 5}, accusations=[
+                              Player.RANOMI_24, Player.NABIL_24, Player.SOY_24])
 }
 result4 = Result(DropType.EXECUTION_DROP, [Player.ANNICK_24])
 episode4 = Episode(players4, result4, input4, questions4)
 
 ################
 # Aflevering 5
-players5 = [Player.ANKE_24, Player.DANIEL_24, Player.JURRE_24, Player.NABIL_24, Player.RANOMI_24, Player.SOY_24]
+players5 = [Player.ANKE_24, Player.DANIEL_24, Player.JURRE_24,
+            Player.NABIL_24, Player.RANOMI_24, Player.SOY_24]
 result5 = Result(DropType.NO_DROP_NOR_SCREENS, players5)
 episode5 = Episode(players5, result5, dict(), dict())
 
 ################
 # Aflevering 6
-players6 = [Player.ANKE_24, Player.DANIEL_24, Player.JURRE_24, Player.NABIL_24, Player.RANOMI_24, Player.SOY_24]
+players6 = [Player.ANKE_24, Player.DANIEL_24, Player.JURRE_24,
+            Player.NABIL_24, Player.RANOMI_24, Player.SOY_24]
 questions6 = {
     # Als welk beroep werd de Mol afgebeeld tijdens de opdracht in het Lord Milner hotel?
     9: Question({
@@ -355,7 +359,7 @@ questions6 = {
         1: [Player.ANKE_24, Player.NABIL_24, Player.RANOMI_24, Player.SOY_24],
         # Nee
         2: [Player.DANIEL_24, Player.JURRE_24],
-    }),
+    })
 }
 input6 = {
     Player.DANIEL_24: TestInput(immunity=True, accusations=[Player.JURRE_24]),
@@ -363,10 +367,162 @@ input6 = {
     Player.SOY_24: TestInput({15: 4, 19: 4}),
     Player.RANOMI_24: TestInput({14: 3, 17: 2}, jokers=1, accusations=[Player.SOY_24]),
     Player.NABIL_24: TestInput({20: 1}, accusations=[Player.ANKE_24, Player.RANOMI_24]),
-    Player.ANKE_24: TestInput({16: 5}, accusations=[Player.NABIL_24, Player.RANOMI_24, Player.SOY_24]),
+    Player.ANKE_24: TestInput({16: 5}, accusations=[
+                              Player.NABIL_24, Player.RANOMI_24, Player.SOY_24])
 }
 result6 = Result(DropType.EXECUTION_DROP, [Player.NABIL_24])
 episode6 = Episode(players6, result6, input6, questions6)
+
+################
+# Aflevering 7
+players7 = [Player.ANKE_24, Player.DANIEL_24,
+            Player.JURRE_24, Player.RANOMI_24, Player.SOY_24]
+questions7 = {
+    # Welke kleur heeft de Mol in het doolhof?
+    0: Question({
+        # Blauw
+        1: [Player.ANKE_24],
+        # Geel
+        2: [Player.DANIEL_24],
+        # Groen
+        3: [Player.SOY_24],
+        # Rood
+        4: [Player.RANOMI_24],
+        # Zwart
+        5: [Player.JURRE_24],
+    }),
+    # Wat is het lievelingseten van de Mol?
+    3: Question({
+        # Curry
+        1: [],
+        # Kipsate
+        2: [],
+        # Pannenkoeken
+        3: [Player.RANOMI_24],
+        # Pasta Carbonara
+        4: [Player.JURRE_24],
+        # Rendang, spruitjes, pizza, quattro formaggi
+        5: [],
+    }),
+    # Naast wie stond de Mol tijdens de uitleg over de paraglide opdracht?
+    5: Question({
+        # Anke en Jurre
+        1: [Player.SOY_24],
+        # Anke en Ranomi
+        2: [Player.DANIEL_24],
+        # Daniel
+        3: [Player.RANOMI_24],
+        # Daniel en Soy
+        4: [Player.ANKE_24],
+        # Soy
+        5: [Player.JURRE_24],
+    }),
+    # Welke kleur helm droeg de Mol tijdens het paragliden?
+    6: Question({
+        # Rood
+        1: [Player.DANIEL_24],
+        # Wit
+        2: [Player.RANOMI_24],
+        # Zwart
+        3: [Player.ANKE_24, Player.SOY_24, Player.JURRE_24],
+    }),
+    # Als hoeveelste ging de Mol paragliden?
+    7: Question({
+        # Eerste
+        1: [Player.RANOMI_24],
+        # Tweede
+        2: [Player.SOY_24],
+        # Derde
+        3: [Player.JURRE_24],
+        # Vierde
+        4: [Player.DANIEL_24],
+        # Vijfde
+        5: [Player.ANKE_24],
+    }),
+    # In welk vak eindigde de Mol na het paragliden?
+    8: Question({
+        # Vak 1
+        1: [Player.DANIEL_24],
+        # Vak 2
+        2: [Player.ANKE_24],
+        # Vak 3
+        3: [Player.JURRE_24],
+        # Vak 4
+        4: [Player.RANOMI_24],
+        # Vak 5
+        5: [Player.SOY_24],
+    }),
+    # Wat heeft de Mol het liefst altijd bij zich?
+    10: Question({
+        # Ketting
+        1: [],
+        # Oplader
+        2: [],
+        # Powerbank
+        3: [],
+        # Telefoon
+        4: [],
+    }),
+    # Had de Mol schoenen aan tijdens de opdracht op het strand?
+    12: Question({
+        # Ja
+        1: [Player.ANKE_24, Player.RANOMI_24, Player.SOY_24],
+        # Nee
+        2: [Player.JURRE_24, Player.DANIEL_24],
+    }),
+    # Met wie had Jurre een molafspraak?
+    17: Question({
+        1: [Player.ANKE_24],
+        2: [Player.DANIEL_24],
+        3: [Player.JURRE_24],
+        4: [Player.RANOMI_24],
+        5: [Player.SOY_24],
+    }),
+    # Hoeveel jokers heeft de Mol ingezet voor de test?
+    18: Question({
+        # 1 joker
+        1: [Player.ANKE_24, Player.DANIEL_24, Player.JURRE_24, Player.RANOMI_24],
+        # 2 jokers
+        2: [Player.SOY_24],
+    }),
+    # Wie is de Mol?
+    20: Question({
+        1: [Player.ANKE_24],
+        2: [Player.DANIEL_24],
+        3: [Player.JURRE_24],
+        4: [Player.RANOMI_24],
+        5: [Player.SOY_24],
+    })
+}
+input7 = {
+    Player.SOY_24: TestInput(
+        {0: 4, 5: 3, 7: 1, 8: 4, 12: 1, 17: 4, 20: 4},
+        jokers=2,
+        accusations=[Player.JURRE_24, Player.RANOMI_24]
+    ),
+    Player.JURRE_24: TestInput(
+        {17: 1, 20: 2},
+        jokers=1,
+        accusations=[Player.DANIEL_24]
+    ),
+    Player.DANIEL_24: TestInput(
+        {3: 4, 5: 3, 12: 2, 17: 3, 20: 3},
+        jokers=1,
+        accusations=[Player.JURRE_24]
+    ),
+    Player.ANKE_24: TestInput(
+        {0: 4, 3: 3, 5: 3, 7: 1, 8: 4, 17: 4, 20: 4},
+        jokers=1,
+        accusations=[Player.RANOMI_24, Player.SOY_24]
+    ),
+    Player.RANOMI_24: TestInput(
+        {0: 5, 3: 4, 5: 2, 6: 3, 7: 2, 8: 1, 12: 1, 20: 5},
+        jokers=1,
+        accusations=[Player.SOY_24]
+    )
+}
+result7 = Result(DropType.EXECUTION_DROP, [Player.ANKE_24])
+episode7 = Episode(players7, result7, input7, questions7)
 
 ################
 # Summary
@@ -378,6 +534,7 @@ season24 = Season(
         3: episode3,
         4: episode4,
         5: episode5,
-        6: episode6
+        6: episode6,
+        7: episode7
     }
 )

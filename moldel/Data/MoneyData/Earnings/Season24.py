@@ -115,6 +115,21 @@ exercises6 = [
     ])
 ]
 
+################
+# Aflevering 7
+players7 = {Player.ANKE_24, Player.DANIEL_24, Player.JURRE_24, Player.RANOMI_24, Player.SOY_24}
+exercises7 = [
+    # Opdracht 1: Uitvlakken
+    Exercise(episode=7, alive=players7, maximum=3000, earned=[
+        Earning(money=1000, major={Player.DANIEL_24}),
+    ]),
+    # Opdracht 2: Zandlopen
+    Exercise(episode=7, alive=players7, maximum=1935, earned=[
+        Earning(money=1935, major={Player.JURRE_24}, minor={Player.RANOMI_24, Player.SOY_24}),
+        Earning(money=-1335, major={Player.JURRE_24}),
+    ])
+]
+
 season24 = Season(
     exercises1
     + exercises2
@@ -122,4 +137,5 @@ season24 = Season(
     + exercises4
     + exercises5
     + exercises6
+    + exercises7
 )
