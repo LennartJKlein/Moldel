@@ -183,7 +183,7 @@ input4 = {
     Player.LEONIE_20: TestInput({20: 5}, accusations=[Player.BUDDY_20, Player.MILJUSCHKA_20, Player.JOHAN_20]),
     Player.MILJUSCHKA_20: TestInput({20: 6}, accusations=[Player.NATHAN_20])
 }
-result4 = Result(DropType.NO_DROP_NOR_SCREENS, [])
+result4 = Result(DropType.NO_DROP_NOR_SCREENS, players4)
 episode4 = Episode(players4, result4, input4, {
                    1: question4_1, 5: question4_5, 7: question4_7, 14: question4_14, 20: question4_20})
 

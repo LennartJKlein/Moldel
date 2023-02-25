@@ -525,6 +525,16 @@ result7 = Result(DropType.EXECUTION_DROP, [Player.ANKE_24])
 episode7 = Episode(players7, result7, input7, questions7)
 
 ################
+# Aflevering 8
+players8 = [Player.DANIEL_24, Player.JURRE_24, Player.RANOMI_24, Player.SOY_24]
+input8 = {
+    Player.DANIEL_24: TestInput(accusations=[Player.JURRE_24]),
+    Player.JURRE_24: TestInput(immunity=True),
+}
+result8 = Result(DropType.NO_DROP_NOR_SCREENS, players8)
+episode8 = Episode(players8, result8, input8, dict())
+
+################
 # Summary
 season24 = Season(
     players1,
@@ -535,6 +545,7 @@ season24 = Season(
         4: episode4,
         5: episode5,
         6: episode6,
-        7: episode7
+        7: episode7,
+        8: episode8
     }
 )

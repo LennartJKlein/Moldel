@@ -474,7 +474,8 @@ episode6 = Episode(players6, result6, input6, questions6)
 
 ################
 # Aflevering 7
-players7 = [Player.EVERON_23, Player.FRESIA_23, Player.KIM_LIAN_23, Player.LAETITIA_23, Player.THOMAS_23]
+players7 = [Player.EVERON_23, Player.FRESIA_23,
+            Player.KIM_LIAN_23, Player.LAETITIA_23, Player.THOMAS_23]
 questions7 = {
     # Schoot de Mol als eerste alle flessen kapot tijdens de opdracht 'Testafette'?
     18: Question({
@@ -523,7 +524,8 @@ episode7 = Episode(players7, result7, input7, questions7)
 
 ################
 # Aflevering 8
-players8 = [Player.EVERON_23, Player.FRESIA_23, Player.KIM_LIAN_23, Player.THOMAS_23]
+players8 = [Player.EVERON_23, Player.FRESIA_23,
+            Player.KIM_LIAN_23, Player.THOMAS_23]
 questions8 = {
     # Bracht de Mol als eerste een kleed naar het middelpunt tijdens de opdracht 'Carpe Diem'?
     3: Question({
@@ -661,7 +663,7 @@ input9 = {
         accusations=[Player.KIM_LIAN_23]
     )
 }
-result9 = Result(DropType.NO_DROP_NOR_SCREENS, [])
+result9 = Result(DropType.NO_DROP_NOR_SCREENS, players9)
 episode9 = Episode(players9, result9, input9, questions9, num_questions=40)
 
 ################

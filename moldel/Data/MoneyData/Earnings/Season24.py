@@ -10,7 +10,8 @@ players1 = {Player.ANKE_24, Player.ANNICK_24, Player.DANIEL_24, Player.FROUKJE_2
 exercises1 = [
     # Opdracht 1: Gulden middenweg
     Exercise(episode=1, alive=players1, maximum=4000, earned=[
-        Earning(money=500, major={Player.SARAH_24, Player.SANDER_24, Player.JURRE_24, Player.ANKE_24}),
+        Earning(money=500, major={
+                Player.SARAH_24, Player.SANDER_24, Player.JURRE_24, Player.ANKE_24}),
     ]),
     # Opdracht 2: Toonaangevend
     Exercise(episode=1, alive=players1, maximum=4000, earned=[
@@ -76,16 +77,20 @@ exercises4 = [
 
 ################
 # Aflevering 5
-players5 = {Player.ANKE_24, Player.DANIEL_24, Player.JURRE_24, Player.NABIL_24, Player.RANOMI_24, Player.SOY_24}
+players5 = {Player.ANKE_24, Player.DANIEL_24, Player.JURRE_24,
+            Player.NABIL_24, Player.RANOMI_24, Player.SOY_24}
 exercises5 = [
     # Opdracht 1: Altaar Ego
     Exercise(episode=5, alive=players5, maximum=2000, earned=[
-        Earning(money=100, major={Player.RANOMI_24, Player.DANIEL_24}, minor={Player.JURRE_24}),
-        Earning(money=600, major={Player.RANOMI_24, Player.DANIEL_24}, minor={Player.ANKE_24}),
+        Earning(money=100, major={Player.RANOMI_24,
+                Player.DANIEL_24}, minor={Player.JURRE_24}),
+        Earning(money=600, major={Player.RANOMI_24,
+                Player.DANIEL_24}, minor={Player.ANKE_24}),
     ]),
     # Opdracht 2: Verschijning
     Exercise(episode=5, alive=players5, maximum=4750, earned=[
-        Earning(money=-1250, major={Player.RANOMI_24, Player.DANIEL_24, Player.JURRE_24}),
+        Earning(money=-1250, major={Player.RANOMI_24,
+                Player.DANIEL_24, Player.JURRE_24}),
         Earning(money=-1125, major={Player.ANKE_24}),
         Earning(money=-1125, major={Player.JURRE_24}),
         Earning(money=1250, major={Player.DANIEL_24}),
@@ -94,30 +99,38 @@ exercises5 = [
 
 ################
 # Aflevering 6
-players6 = {Player.ANKE_24, Player.DANIEL_24, Player.JURRE_24, Player.NABIL_24, Player.RANOMI_24, Player.SOY_24}
+players6 = {Player.ANKE_24, Player.DANIEL_24, Player.JURRE_24,
+            Player.NABIL_24, Player.RANOMI_24, Player.SOY_24}
 exercises6 = [
     # Opdracht 1: Op eieren lopen
     Exercise(episode=6, alive=players6, maximum=2000, earned=[
-        Earning(money=1000, major={Player.SOY_24, Player.DANIEL_24, Player.ANKE_24}),
+        Earning(money=1000, major={Player.SOY_24,
+                Player.DANIEL_24, Player.ANKE_24}),
     ]),
     # Opdracht 2: Op eieren schieten
     Exercise(episode=6, alive=players6, maximum=2000, earned=[
-        Earning(money=1000, major={Player.SOY_24, Player.DANIEL_24, Player.ANKE_24}),
+        Earning(money=1000, major={Player.SOY_24,
+                Player.DANIEL_24, Player.ANKE_24}),
     ]),
     # Opdracht 3: Kop in het zand
     Exercise(episode=6, alive=players6, maximum=2000, earned=[]),
     # Opdracht 4: Roadtrip
     Exercise(episode=6, alive=players6, maximum=0, earned=[
-        Earning(money=-500, major={Player.SOY_24, Player.DANIEL_24}, minor={Player.ANKE_24}),
-        Earning(money=-500, major={Player.SOY_24, Player.DANIEL_24, Player.ANKE_24}),
-        Earning(money=-500, major={Player.RANOMI_24, Player.NABIL_24, Player.JURRE_24}),
-        Earning(money=-500, major={Player.RANOMI_24, Player.NABIL_24, Player.JURRE_24}),
+        Earning(money=-500, major={Player.SOY_24,
+                Player.DANIEL_24}, minor={Player.ANKE_24}),
+        Earning(money=-500, major={Player.SOY_24,
+                Player.DANIEL_24, Player.ANKE_24}),
+        Earning(money=-500, major={Player.RANOMI_24,
+                Player.NABIL_24, Player.JURRE_24}),
+        Earning(money=-500, major={Player.RANOMI_24,
+                Player.NABIL_24, Player.JURRE_24}),
     ])
 ]
 
 ################
 # Aflevering 7
-players7 = {Player.ANKE_24, Player.DANIEL_24, Player.JURRE_24, Player.RANOMI_24, Player.SOY_24}
+players7 = {Player.ANKE_24, Player.DANIEL_24,
+            Player.JURRE_24, Player.RANOMI_24, Player.SOY_24}
 exercises7 = [
     # Opdracht 1: Uitvlakken
     Exercise(episode=7, alive=players7, maximum=3000, earned=[
@@ -125,8 +138,23 @@ exercises7 = [
     ]),
     # Opdracht 2: Zandlopen
     Exercise(episode=7, alive=players7, maximum=1935, earned=[
-        Earning(money=1935, major={Player.JURRE_24}, minor={Player.RANOMI_24, Player.SOY_24}),
+        Earning(money=1935, major={Player.JURRE_24},
+                minor={Player.RANOMI_24, Player.SOY_24}),
         Earning(money=-1335, major={Player.JURRE_24}),
+    ])
+]
+
+################
+# Aflevering 8
+players8 = {Player.DANIEL_24, Player.JURRE_24, Player.RANOMI_24, Player.SOY_24}
+exercises8 = [
+    # Opdracht 1: Focusgroep
+    Exercise(episode=8, alive=players8, maximum=2000, earned=[]),
+    # Opdracht 2: Vuurproef
+    Exercise(episode=8, alive=players8, maximum=3000, earned=[
+        Earning(money=1250, major={Player.RANOMI_24, Player.SOY_24}, minor={
+                Player.JURRE_24, Player.DANIEL_24}),
+        Earning(money=1000, major={Player.RANOMI_24, Player.DANIEL_24}),
     ])
 ]
 
@@ -138,4 +166,5 @@ season24 = Season(
     + exercises5
     + exercises6
     + exercises7
+    + exercises8
 )

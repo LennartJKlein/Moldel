@@ -31,8 +31,7 @@ episode3 = Episode(players3, result3, dict(), dict())
 # Antwoorden: -
 players4 = [Player.ELLEN_3, Player.GEORGE_3, Player.HARRY_3, Player.JANTIEN_3, Player.JOHN_3, Player.KAREN_3,
             Player.KERSTIN_3, Player.PRINCE_3]
-result4 = Result(DropType.NO_DROP_NOR_SCREENS, [Player.ELLEN_3, Player.GEORGE_3, Player.HARRY_3, Player.JANTIEN_3,
-                                                Player.JOHN_3, Player.KAREN_3, Player.KERSTIN_3, Player.PRINCE_3])
+result4 = Result(DropType.NO_DROP_NOR_SCREENS,  players4)
 episode4 = Episode(players4, result4, dict(), dict())
 
 # Aflevering 5 (afvaller: Kerstin)
@@ -51,13 +50,15 @@ episode6 = Episode(players6, result6, dict(), dict())
 
 # Aflevering 7 (afvaller: Prince)
 # Antwoorden: -
-players7 = [Player.ELLEN_3, Player.GEORGE_3, Player.HARRY_3, Player.JANTIEN_3, Player.JOHN_3, Player.PRINCE_3]
+players7 = [Player.ELLEN_3, Player.GEORGE_3, Player.HARRY_3,
+            Player.JANTIEN_3, Player.JOHN_3, Player.PRINCE_3]
 result7 = Result(DropType.EXECUTION_DROP, [Player.PRINCE_3])
 episode7 = Episode(players7, result7, dict(), dict())
 
 # Aflevering 8 (afvaller: Harry)
 # Antwoorden: -
-players8 = [Player.ELLEN_3, Player.GEORGE_3, Player.HARRY_3, Player.JANTIEN_3, Player.JOHN_3]
+players8 = [Player.ELLEN_3, Player.GEORGE_3,
+            Player.HARRY_3, Player.JANTIEN_3, Player.JOHN_3]
 result8 = Result(DropType.EXECUTION_DROP, [Player.HARRY_3])
 episode8 = Episode(players8, result8, dict(), dict())
 

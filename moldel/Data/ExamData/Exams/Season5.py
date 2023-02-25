@@ -10,9 +10,7 @@ from ..Dataclasses.TestInput import TestInput, DelayedAnswer
 # Antwoorden: -
 players1 = [Player.GIJS_5, Player.ISABELLE_5, Player.JIM_5, Player.LOTTIE_5, Player.MARC_MARIE_5, Player.ROELAND_5,
             Player.SANDER_5, Player.VICTORIA_5, Player.YVON_5, Player.YVONNE_5]
-result1 = Result(DropType.NO_DROP_NOR_SCREENS, [Player.GIJS_5, Player.ISABELLE_5, Player.JIM_5, Player.LOTTIE_5,
-                                                Player.MARC_MARIE_5, Player.ROELAND_5, Player.SANDER_5,
-                                                Player.VICTORIA_5, Player.YVON_5, Player.YVONNE_5])
+result1 = Result(DropType.NO_DROP_NOR_SCREENS, players1)
 episode1 = Episode(players1, result1, dict(), dict())
 
 # Aflevering 2 (afvaller: Gijs)
@@ -35,10 +33,10 @@ players4 = [Player.GIJS_5, Player.ISABELLE_5, Player.JIM_5, Player.LOTTIE_5, Pla
             Player.VICTORIA_5, Player.YVON_5, Player.YVONNE_5]
 result4 = Result(DropType.EXECUTION_DROP, [Player.YVONNE_5])
 episode4 = Episode(players4, result4,
-                   {Player.GIJS_5: TestInput(jokers = 1), Player.ISABELLE_5: TestInput(jokers = 4),
-                    Player.JIM_5: TestInput(jokers = 1), Player.LOTTIE_5: TestInput(jokers = 1),
-                    Player.MARC_MARIE_5: TestInput(jokers = 1), Player.SANDER_5: TestInput(jokers = 1),
-                    Player.YVON_5: TestInput(jokers = 1), Player.YVONNE_5: TestInput(jokers = 1)},
+                   {Player.GIJS_5: TestInput(jokers=1), Player.ISABELLE_5: TestInput(jokers=4),
+                    Player.JIM_5: TestInput(jokers=1), Player.LOTTIE_5: TestInput(jokers=1),
+                    Player.MARC_MARIE_5: TestInput(jokers=1), Player.SANDER_5: TestInput(jokers=1),
+                    Player.YVON_5: TestInput(jokers=1), Player.YVONNE_5: TestInput(jokers=1)},
                    dict())
 
 # Aflevering 5 (afvaller: Victoria)
@@ -47,7 +45,8 @@ players5 = [Player.GIJS_5, Player.ISABELLE_5, Player.JIM_5, Player.LOTTIE_5, Pla
             Player.VICTORIA_5, Player.YVON_5]
 result5 = Result(DropType.EXECUTION_DROP, [Player.VICTORIA_5])
 episode5 = Episode(players5, result5,
-                   {Player.JIM_5: TestInput(jokers = 3), Player.LOTTIE_5: TestInput(immunity = True)},
+                   {Player.JIM_5: TestInput(
+                       jokers=3), Player.LOTTIE_5: TestInput(immunity=True)},
                    dict())
 
 # Aflevering 6 (afvallers: Gijs, Jim)
@@ -59,16 +58,18 @@ episode6 = Episode(players6, result6, dict(), dict())
 
 # Aflevering 7 (afvaller: Sander)
 # Antwoorden: -
-players7 = [Player.ISABELLE_5, Player.LOTTIE_5, Player.MARC_MARIE_5, Player.SANDER_5, Player.YVON_5]
+players7 = [Player.ISABELLE_5, Player.LOTTIE_5,
+            Player.MARC_MARIE_5, Player.SANDER_5, Player.YVON_5]
 result7 = Result(DropType.EXECUTION_DROP, [Player.SANDER_5])
 episode7 = Episode(players7, result7, dict(), dict())
 
 # Aflevering 8 (afvaller: Isabelle)
 # Antwoorden: Yvon (Vrijstelling)
-players8 = [Player.ISABELLE_5, Player.LOTTIE_5, Player.MARC_MARIE_5, Player.YVON_5]
+players8 = [Player.ISABELLE_5, Player.LOTTIE_5,
+            Player.MARC_MARIE_5, Player.YVON_5]
 result8 = Result(DropType.EXECUTION_DROP, [Player.ISABELLE_5])
 episode8 = Episode(players8, result8,
-                   {Player.YVON_5: TestInput(immunity = True)},
+                   {Player.YVON_5: TestInput(immunity=True)},
                    dict())
 
 # Aflevering 9 (afvaller: Lottie)

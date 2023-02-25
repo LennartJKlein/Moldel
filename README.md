@@ -2,9 +2,9 @@
 
 Een algoritme om de Mol te voorspellen.
 
-## 🔦 Nieuwste voorspelling (s24e7, 2023)
+## 🔦 Nieuwste voorspelling (s24e8, 2023)
 
-![Voorspelling na aflevering 7, seizoen 24 (2023)](https://github.com/LennartJKlein/Moldel/blob/master/results/Season%2024%20(2023)/s24e7.png?raw=true)
+![Voorspelling na aflevering 8, seizoen 24 (2023)](https://github.com/LennartJKlein/Moldel/blob/master/results/Season%2024%20(2023)/s24e8.png?raw=true)
 
 ## 📺 Over Wie is de Mol
 
@@ -103,4 +103,4 @@ Het Moldel kun je trainen, zodat z'n geheugen groter wordt. Doe dit elke keer da
 
 ## 📚 Verdiepende uitleg van Multifacio
 
-[In de README en Thesis van Haico lees je meer over de verschillende layers en tactieken van het Moldel](https://github.com/Multifacio/Moldel/tree/master/readmes)
+[In de README en thesis van Haico lees je meer over de verschillende layers en tactieken van het Moldel](https://github.com/Multifacio/Moldel/tree/master/readmes)

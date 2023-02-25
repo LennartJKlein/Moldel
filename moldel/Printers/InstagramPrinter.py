@@ -103,14 +103,14 @@ class InstagramPrinter(Printer):
 
         if (self.__latest_episode == 0):
             plt.title(
-                r"$\bf{Overeenkomst\ met\ een\ Mol}$" + f"\n(voor seizoen {self.__season} begint)",
+                r"$\bf{Overeenkomst\ met\ een\ Mol}$" + f"\n(voor seizoen 2023 begint)",
                 fontname="Avenir",
                 fontsize=28
             )
         else:
             plt.title(
                 r"$\bf{Overeenkomst\ met\ een\ Mol}$" +
-                "\n(na aflevering " + f"{self.__latest_episode}, seizoen {self.__season})",
+                "\n(na aflevering " + f"{self.__latest_episode}, seizoen 2023)",
                 fontname="Avenir",
                 fontsize=28
             )
