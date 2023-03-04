@@ -158,6 +158,18 @@ exercises8 = [
     ])
 ]
 
+################
+# Aflevering 9
+players9 = {Player.DANIEL_24, Player.JURRE_24, Player.RANOMI_24, Player.SOY_24}
+exercises9 = [
+    # Opdracht 1: Abvallers
+    Exercise(episode=9, alive=players9, maximum=2000, earned=[
+        Earning(money=1000, major={Player.SOY_24}, minor={Player.RANOMI_24}),
+    ]),
+    # Opdracht 2: Van ruilen komt huilen
+    Exercise(episode=9, alive=players9, maximum=2500, earned=[])
+]
+
 season24 = Season(
     exercises1
     + exercises2
@@ -167,4 +179,5 @@ season24 = Season(
     + exercises6
     + exercises7
     + exercises8
+    + exercises9
 )

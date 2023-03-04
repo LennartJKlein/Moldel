@@ -2,9 +2,9 @@
 
 Een algoritme om de Mol te voorspellen.
 
-## 🔦 Nieuwste voorspelling (s24e8, 2023)
+## 🔦 Nieuwste voorspelling (s24e9, 2023)
 
-![Voorspelling na aflevering 8, seizoen 24 (2023)](https://github.com/LennartJKlein/Moldel/blob/master/results/Season%2024%20(2023)/s24e8.png?raw=true)
+![Voorspelling na aflevering 9, seizoen 24 (2023)](https://github.com/LennartJKlein/Moldel/blob/master/results/Season%2024%20(2023)/s24e9.png?raw=true)
 
 ## 📺 Over Wie is de Mol
 

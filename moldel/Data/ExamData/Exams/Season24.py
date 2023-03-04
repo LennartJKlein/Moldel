@@ -379,7 +379,7 @@ players7 = [Player.ANKE_24, Player.DANIEL_24,
             Player.JURRE_24, Player.RANOMI_24, Player.SOY_24]
 questions7 = {
     # Welke kleur heeft de Mol in het doolhof?
-    0: Question({
+    1: Question({
         # Blauw
         1: [Player.ANKE_24],
         # Geel
@@ -496,7 +496,7 @@ questions7 = {
 }
 input7 = {
     Player.SOY_24: TestInput(
-        {0: 4, 5: 3, 7: 1, 8: 4, 12: 1, 17: 4, 20: 4},
+        {1: 4, 5: 3, 7: 1, 8: 4, 12: 1, 17: 4, 20: 4},
         jokers=2,
         accusations=[Player.JURRE_24, Player.RANOMI_24]
     ),
@@ -511,12 +511,12 @@ input7 = {
         accusations=[Player.JURRE_24]
     ),
     Player.ANKE_24: TestInput(
-        {0: 4, 3: 3, 5: 3, 7: 1, 8: 4, 17: 4, 20: 4},
+        {1: 4, 3: 3, 5: 3, 7: 1, 8: 4, 17: 4, 20: 4},
         jokers=1,
         accusations=[Player.RANOMI_24, Player.SOY_24]
     ),
     Player.RANOMI_24: TestInput(
-        {0: 5, 3: 4, 5: 2, 6: 3, 7: 2, 8: 1, 12: 1, 20: 5},
+        {1: 5, 3: 4, 5: 2, 6: 3, 7: 2, 8: 1, 12: 1, 20: 5},
         jokers=1,
         accusations=[Player.SOY_24]
     )
@@ -527,12 +527,110 @@ episode7 = Episode(players7, result7, input7, questions7)
 ################
 # Aflevering 8
 players8 = [Player.DANIEL_24, Player.JURRE_24, Player.RANOMI_24, Player.SOY_24]
-input8 = {
+result8 = Result(DropType.NO_DROP_NOR_SCREENS, players8)
+episode8 = Episode(players8, result8, dict(), dict())
+
+################
+# Aflevering 9
+# (executie)
+players9a = [Player.DANIEL_24, Player.JURRE_24,
+             Player.RANOMI_24, Player.SOY_24]
+input9a = {
     Player.DANIEL_24: TestInput(accusations=[Player.JURRE_24]),
     Player.JURRE_24: TestInput(immunity=True),
+    Player.RANOMI_24: TestInput(accusations=[Player.SOY_24]),
 }
-result8 = Result(DropType.NO_DROP_NOR_SCREENS, players8)
-episode8 = Episode(players8, result8, input8, dict())
+result9a = Result(DropType.EXECUTION_DROP, [Player.SOY_24])
+episode9a = Episode(players9a, result9a, input9a, dict())
+
+################
+# Aflevering 9
+# (finale test)
+players9b = [Player.DANIEL_24, Player.JURRE_24, Player.RANOMI_24]
+questions9b = {
+    # De Mol is een...
+    1: Question({
+        # Man
+        1: [Player.JURRE_24, Player.DANIEL_24],
+        # Vrouw
+        2: [Player.RANOMI_24],
+    }),
+    # In welke kleur kist zat de Mol opgesloten?
+    3: Question({
+        # Blauw
+        1: [Player.RANOMI_24],
+        # Groen
+        2: [Player.JURRE_24],
+        # Rood
+        3: [Player.DANIEL_24],
+    }),
+    # Hoeveel levens is de Mol kwijtgeraakt tijdens de opdracht in de staalfabriek?
+    7: Question({
+        # Geen levens
+        1: [Player.DANIEL_24],
+        # Eén leven
+        2: [],
+    }),
+    # Met wie vormde de Mol een team op de Ijsbreker?
+    12: Question({
+        # Anke en Annick
+        1: [Player.RANOMI_24],
+        # Daniel en Soy
+        2: [Player.JURRE_24],
+        # Jurre en Soy
+        3: [Player.DANIEL_24],
+    }),
+    # Als hoeveelste betrad de Mol het doolhof met de fruitkratten?
+    15: Question({
+        # Als eerste
+        1: [Player.DANIEL_24],
+        # Als derde
+        2: [],
+        # Als zesde
+        3: [],
+    }),
+    # Hoeveel pakbonnen heeft de Mol in handen gehad in het doolhof?
+    16: Question({
+        # Twee
+        1: [],
+        # Vier
+        2: [],
+        # Vijf
+        3: [Player.DANIEL_24],
+    }),
+    # Als welk beroep werd de Mol afgebeeld in het Lord Milner Hotel?
+    20: Question({
+        # Barman
+        1: [Player.JURRE_24],
+        # Pastoor
+        2: [Player.DANIEL_24],
+        # Schooljuf
+        3: [Player.RANOMI_24],
+    }),
+    # Hoeveel tegenstanders heeft de Mol geraakt tijdens de lasergame opdracht?
+    35: Question({
+        # Nul
+        1: [],
+        # Twee
+        2: [],
+        # Drie
+        3: [Player.DANIEL_24],
+    }),
+    # Wie is de Mol?
+    40: Question({
+        1: [Player.DANIEL_24],
+        2: [Player.JURRE_24],
+        3: [Player.RANOMI_24],
+    })
+}
+input9b = {
+    Player.JURRE_24: TestInput({1: 1, 12: 3, 15: 1, 40: 1}, accusations=[Player.DANIEL_24]),
+    Player.DANIEL_24: TestInput({3: 2, 20: 1, 40: 2}, accusations=[Player.JURRE_24]),
+    Player.RANOMI_24: TestInput({7: 1, 16: 3, 35: 3, 40: 1}, accusations=[Player.DANIEL_24]),
+}
+result9b = Result(DropType.NO_DROP_NOR_SCREENS, players9b)
+episode9b = Episode(players9b, result9b, input9b,
+                    questions9b, num_questions=40)
 
 ################
 # Summary
@@ -546,6 +644,8 @@ season24 = Season(
         5: episode5,
         6: episode6,
         7: episode7,
-        8: episode8
+        8: episode8,
+        8.5: episode9a,
+        9: episode9b
     }
 )
