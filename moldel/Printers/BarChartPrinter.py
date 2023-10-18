@@ -20,7 +20,7 @@ class BarChartPrinter(Printer):
 
     # Up to how many decimals the likelihoods will be rounded before printing them (if you do not round the likelihoods
     # then the pie chart will be cluttered).
-    __PRECISION = 3
+    __PRECISION = 5
 
     def __init__(self, season, latest_episode, file_name: Union[str, None] = None):
         """ Constructor of the Bar Chart Printer.

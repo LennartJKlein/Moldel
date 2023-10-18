@@ -101,10 +101,10 @@ class MolPrinter(Printer):
                 im = OffsetImage(img, zoom=0.14)
                 im.image.axes = ax
                 if is_mol:
-                    ab = AnnotationBbox(im, (0, coord), xybox=(0, 0.), frameon=True, bboxprops=dict(boxstyle='circle', edgecolor='red'),
+                    ab = AnnotationBbox(im, (0, coord), xybox=(0, 0), frameon=True, bboxprops=dict(boxstyle='circle', edgecolor='red'),
                                         xycoords="data", boxcoords="offset points", pad=0)
                 else:
-                    ab = AnnotationBbox(im, (0, coord), xybox=(0, 0.), frameon=False,
+                    ab = AnnotationBbox(im, (0, coord), xybox=(0, 0), frameon=False,
                                         xycoords="data", boxcoords="offset points", pad=0)
                 ax.add_artist(ab)
                 plt.gca().tick_params(axis="y", which="major", pad=30)
