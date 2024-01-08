@@ -97,7 +97,7 @@ Het Moldel neemt van de eerste 5 afleveringen mee hoeveel seconden elke kandidaa
 1. Zorg dat voor elke kandidaat van het seizoen een portretfoto in de map `Data/Faces` staat
 2. Voeg de aflevering die geanalyseerd moet worden toe in de map `Data/AppearanceData`
 3. Pas de instellingen in het bestand `Layers/Appearance/VideoParserSettings.py` aan, zodat ze kloppen voor jouw seizoen en aflevering.
-4. Laat de aflevering automatisch analyseren vanuit de map 'moldel' met het commando: `python -m Layers.Appearance.VideoParser`
+4. Laat de aflevering automatisch analyseren (vanuit de map 'moldel') met het commando: `python -m Layers.Appearance.VideoParser`
 
 Hoe veel een kandidaat in beeld komt tijdens deze aflevering, is nu opgeslagen in het Moldel.
 
