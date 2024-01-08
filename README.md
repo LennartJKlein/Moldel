@@ -2,9 +2,9 @@
 
 Een algoritme om de Mol te voorspellen.
 
-## 🔦 Nieuwste voorspelling (s24e9, 2023)
+## 🔦 Nieuwste voorspelling (s25e1, 2024)
 
-![Voorspelling na aflevering 9, seizoen 24 (2023)](https://github.com/LennartJKlein/Moldel/blob/master/results/Season%2024%20(2023)/s24e9.png?raw=true)
+![Voorspelling na aflevering 1, seizoen 24 (2024)](https://github.com/LennartJKlein/Moldel/blob/master/results/Season%2025%20(2024)/s25e1.png?raw=true)
 
 ## 📺 Over Wie is de Mol
 
@@ -67,6 +67,8 @@ Nu is het zo ver; laat het algoritme op basis van de 5 tactieken een kansbereken
 
 _De optie `--file` is optioneel en zorgt ervoor dat de uitkomst als bestand wordt opgeslagen, ipv als popup geopend._
 
+⚠️ _Let op: voor MacOS met M1 chips dien je bij elke nieuwe terminal eerst dit commando uit te voeren: `export PYENCHANT_LIBRARY_PATH=/opt/homebrew/lib/libenchant-2.dylib`_
+
 ## 📝 Nieuwe data invoeren
 
 ### Exam Drop Layer
@@ -79,13 +81,18 @@ Alleen gesproken beschuldigingen opschrijven.
 
 ### Wikipedia Layer
 
-Kopieer de wikipediapagina van de persoon van titel tot en met de categorieën onderaan diens pagina. Plak dit in een .txt bestand in de map `WikiFiles` . Voeg de nieuwe file toe in het bestand `Linker.py` om hem te koppelen aan de bijbehorende kandidaat.
+Kopieer de wikipediapagina van de persoon van titel tot en met de categorieën onderaan diens pagina.
+
+* Plak dit in een .txt bestand in de map `Data/Wikipedia/WikiFiles`.
+* Voeg de nieuwe file toe in het bestand `Linker.py` om hem te koppelen aan de bijbehorende kandidaat.
 
 ### Social Media Layer
 
+Wanneer uit de social media kanalen van een deelnemer blijkt dat deze persoon niet bij alle opnames van de serie aanwezig kon zijn, is deze persoon niet de Mol. Vul de naam daarom handmatig in in het bestand `Data/SocialMediaData/SocialMediaData.py`.
+
 ### Appearance Layer
 
-In het Moldel wordt **elke** aflevering geanalyseerd hoe vaak iemand in beeld komt. Je moet voor elke nieuwe aflevering de volgende stappen volgen:
+Het Moldel neemt van de eerste 5 afleveringen mee hoeveel seconden elke kandidaat in beeld komt. Voor elke nieuwe aflevering die je wil laten analyseren moet je de volgende stappen volgen:
 
 1. Zorg dat voor elke kandidaat van het seizoen een portretfoto in de map `Data/Faces` staat
 2. Voeg de aflevering die geanalyseerd moet worden toe in de map `Data/AppearanceData`

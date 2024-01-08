@@ -4,18 +4,27 @@ from Data.Player import Player
 
 # The season and episode number which are used to save the Appearance results of the videos and to load them
 # during training of the Appearance layer.
-SEASON_NUMBER = 24
-EPISODE_NUMBER = 5
+SEASON_NUMBER = 25
+EPISODE_NUMBER = 1
 
 # The location to the video file of the episode on which you want to run the VideoParser. Only mp4 and mkv files have
 # been tested with the VideoParser, other video formats might not work. Make sure that only the episode is included in
 # video. MolTalk and commercial breaks should not be contained in the video.
-EPISODE_VIDEO_LOCATION = "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/AppearanceData/S24E05.mp4"
+EPISODE_VIDEO_LOCATION = "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/AppearanceData/S25E01.mp4"
 
 # A set of all players that were alive during this episode, including the person that dropped off during this
 # episode. But excluding players that dropped off during earlier episodes and did not return during this episode.
 ALIVE_PLAYERS = {
-    Player.ANKE_24, Player.DANIEL_24, Player.JURRE_24, Player.NABIL_24, Player.RANOMI_24, Player.SOY_24
+    Player.ANNA_25,
+    Player.BABS_25,
+    Player.FONS_25,
+    Player.JEROEN_25,
+    Player.JIP_25,
+    Player.JUSTIN_25,
+    Player.KEES_25,
+    Player.RIAN_25,
+    Player.ROSARIO_25,
+    Player.TOOSKE_25
 }
 
 # The locations of the pictures for each player. Make sure that the quality of this pictures is good enough. This means
@@ -33,16 +42,16 @@ ALIVE_PLAYERS = {
 # If this new picture still does not give higher detection values then you should pick the best picture and stick to the
 # low detection values of the player.
 FACE_IMAGE_LOCATIONS = {
-    Player.ANKE_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/24-ANKE.jpg",
-    Player.ANNICK_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/24-ANNICK.jpg",
-    Player.DANIEL_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/24-DANIEL.jpg",
-    Player.FROUKJE_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/24-FROUKJE.jpg",
-    Player.JURRE_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/24-JURRE.jpg",
-    Player.NABIL_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/24-NABIL.jpg",
-    Player.RANOMI_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/24-RANOMI.jpg",
-    Player.SANDER_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/24-SANDER.jpg",
-    Player.SARAH_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/24-SARAH.jpg",
-    Player.SOY_24: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/24-SOY.jpg"
+    Player.ANNA_25: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/25-ANNA.jpg",
+    Player.BABS_25: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/25-BABS.jpg",
+    Player.FONS_25: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/25-FONS.jpg",
+    Player.JEROEN_25: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/25-JEROEN.jpg",
+    Player.JIP_25: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/25-JIP.jpg",
+    Player.JUSTIN_25: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/25-JUSTIN.jpg",
+    Player.KEES_25: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/25-KEES.jpg",
+    Player.RIAN_25: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/25-RIAN.jpg",
+    Player.ROSARIO_25: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/25-ROSARIO.jpg",
+    Player.TOOSKE_25: "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/Faces/25-TOOSKE.jpg"
 }
 
 # How many frames get skipped before analysing a frame (setting this value higher will make the script run faster,

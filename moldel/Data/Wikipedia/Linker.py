@@ -7,6 +7,16 @@ WIKI_FILES_PATH = "moldel/Data/Wikipedia/WikiFiles/"
 
 # The LINKER maps players to their corresponding Wikipedia data.
 LINKER = {
+    Player.ANNA_25: "Anna_25.txt",
+    Player.BABS_25: "Babs_25.txt",
+    Player.FONS_25: "Fons_25.txt",
+    Player.JEROEN_25: "Jeroen_25.txt",
+    Player.JIP_25: "Jip_25.txt",
+    Player.JUSTIN_25: "Justin_25.txt",
+    Player.KEES_25: "Kees_25.txt",
+    Player.RIAN_25: "Rianne_25.txt",
+    Player.ROSARIO_25: "Rosario_25.txt",
+    Player.TOOSKE_25: "Tooske_25.txt",
     Player.ANKE_24: "Anke_24.txt",
     Player.ANNICK_24: "Annick_24.txt",
     Player.DANIEL_24: "Daniel_24.txt",
@@ -35,7 +45,8 @@ LINKER = {
     Player.LAKSHMI_22: "Lakshmi_22.txt",
     Player.MARIJE_22: "Marije_22.txt",
     Player.RENEE_22: "Renee_22.txt",
-    Player.REMCO_22: "Remco_22.txt",  Player.ROCKY_22: "Rocky_22.txt",
+    Player.REMCO_22: "Remco_22.txt",
+    Player.ROCKY_22: "Rocky_22.txt",
     Player.SPLINTER_22: "Splinter_22.txt",
     Player.ELLIE_21: "Ellie_21.txt",
     Player.HORACE_21: "Horace_21.txt",

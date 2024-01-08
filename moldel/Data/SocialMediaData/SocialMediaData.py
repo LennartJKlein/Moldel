@@ -38,6 +38,9 @@ from Data.Player import *
 #   publishing a book.
 
 # Based on manual Social Media Analysis
+SEASON25 = set()
+
+# Based on manual Social Media Analysis
 SEASON24 = set()
 
 # Based on manual Social Media Analysis

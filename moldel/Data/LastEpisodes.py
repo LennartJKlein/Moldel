@@ -24,7 +24,8 @@ LAST_EPISODES = {
     21: 7,
     22: 9,
     23: 9,
-    24: 9
+    24: 9,
+    25: 8
 }
 
 def get_last_episode(season: int) -> int:

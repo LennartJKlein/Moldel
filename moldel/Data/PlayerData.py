@@ -263,16 +263,27 @@ __ALL_PLAYER_DATA = {
     Player.THOMAS_23: PlayerData("Thomas", 23, False, 53),
     Player.WELMOED_23: PlayerData("Welmoed", 23, False, 30),
 
-    Player.ANKE_24: PlayerData("Anke", 24, None, 35),
-    Player.ANNICK_24: PlayerData("Annick", 24, None, 51),
-    Player.DANIEL_24: PlayerData("Daniel", 24, None, 33),
-    Player.FROUKJE_24: PlayerData("Froukje", 24, None, 50),
-    Player.JURRE_24: PlayerData("Jurre", 24, None, 30),
-    Player.NABIL_24: PlayerData("Nabil", 24, None, 38),
-    Player.RANOMI_24: PlayerData("Ranomi", 24, None, 32),
-    Player.SANDER_24: PlayerData("Sander", 24, None, 49),
-    Player.SARAH_24: PlayerData("Sarah", 24, None, 28),
-    Player.SOY_24: PlayerData("Soy", 24, None, 27)
+    Player.ANKE_24: PlayerData("Anke", 24, False, 35),
+    Player.ANNICK_24: PlayerData("Annick", 24, False, 51),
+    Player.DANIEL_24: PlayerData("Daniel", 24, False, 33),
+    Player.FROUKJE_24: PlayerData("Froukje", 24, False, 50),
+    Player.JURRE_24: PlayerData("Jurre", 24, True, 30),
+    Player.NABIL_24: PlayerData("Nabil", 24, False, 38),
+    Player.RANOMI_24: PlayerData("Ranomi", 24, False, 32),
+    Player.SANDER_24: PlayerData("Sander", 24, False, 49),
+    Player.SARAH_24: PlayerData("Sarah", 24, False, 28),
+    Player.SOY_24: PlayerData("Soy", 24, False, 27),
+
+    Player.ANNA_25: PlayerData("Anna", 25, None, 37),
+    Player.BABS_25: PlayerData("Babs", 25, False, 24),
+    Player.FONS_25: PlayerData("Fons", 25, None, 37),
+    Player.JEROEN_25: PlayerData("Jeroen", 25, None, 47),
+    Player.JIP_25: PlayerData("Jip", 25, None, 30),
+    Player.JUSTIN_25: PlayerData("Justin", 25, None, 31),
+    Player.KEES_25: PlayerData("Kees", 25, None, 59),
+    Player.RIAN_25: PlayerData("Rianne", 25, None, 52),
+    Player.ROSARIO_25: PlayerData("Rosario", 25, None, 26),
+    Player.TOOSKE_25: PlayerData("Tooske", 25, None, 49)
 }
 
 def get_name(player: Player) -> str:
