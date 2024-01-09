@@ -89,7 +89,7 @@ class PieChartPrinter(Printer):
                 plt.annotate(name.get_text(), xy=(x, y), xytext=(x_text, y_text),
                              horizontalalignment=horizontalalignment, **kw)
 
-        plt.title(f"Overeenkomst met een Mol (na aflevering {self.__latest_episode}, seizoen {self.__season})")
+        plt.title(f"Overeenkomst met een Mol (na aflevering {self.__latest_episode}, seizoen {self.__season + 1999})")
         if self.__file_name is None:
             plt.show()
         else:
