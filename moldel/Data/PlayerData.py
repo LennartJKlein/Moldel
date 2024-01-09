@@ -281,7 +281,7 @@ __ALL_PLAYER_DATA = {
     Player.JIP_25: PlayerData("Jip", 25, None, 30),
     Player.JUSTIN_25: PlayerData("Justin", 25, None, 31),
     Player.KEES_25: PlayerData("Kees", 25, None, 59),
-    Player.RIAN_25: PlayerData("Rianne", 25, None, 52),
+    Player.RIAN_25: PlayerData("Rian", 25, None, 52),
     Player.ROSARIO_25: PlayerData("Rosario", 25, None, 26),
     Player.TOOSKE_25: PlayerData("Tooske", 25, None, 49)
 }

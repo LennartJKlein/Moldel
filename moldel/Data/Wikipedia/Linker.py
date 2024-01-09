@@ -14,7 +14,7 @@ LINKER = {
     Player.JIP_25: "Jip_25.txt",
     Player.JUSTIN_25: "Justin_25.txt",
     Player.KEES_25: "Kees_25.txt",
-    Player.RIAN_25: "Rianne_25.txt",
+    Player.RIAN_25: "Rian_25.txt",
     Player.ROSARIO_25: "Rosario_25.txt",
     Player.TOOSKE_25: "Tooske_25.txt",
     Player.ANKE_24: "Anke_24.txt",
