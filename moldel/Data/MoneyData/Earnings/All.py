@@ -22,6 +22,7 @@ from Data.MoneyData.Earnings.Season21 import season21
 from Data.MoneyData.Earnings.Season22 import season22
 from Data.MoneyData.Earnings.Season23 import season23
 from Data.MoneyData.Earnings.Season24 import season24
+from Data.MoneyData.Earnings.Season25 import season25
 
 MONEY_DATA = {
     1: season1,
@@ -47,5 +48,6 @@ MONEY_DATA = {
     21: season21,
     22: season22,
     23: season23,
-    24: season24
+    24: season24,
+    25: season25
 }
