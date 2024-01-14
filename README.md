@@ -1,4 +1,4 @@
-# Moldel
+# Moldel AI
 
 Een algoritme om de Mol te voorspellen.
 
@@ -73,11 +73,27 @@ _De optie `--file` is optioneel en zorgt ervoor dat de uitkomst als bestand word
 
 ### Exam Drop Layer
 
+1. Maak een bestand aan in de map `Data/ExamData/Exams` met het nummer van het seizoen.
+2. Voeg het pad naar dit nieuwe bestand toe aan `All.py` (in diezelfde map).
+3. Vul het bestand met enkel de informatie die tijdens en na de test in de aflevering is. Zie ook [`ModelTechniques.md`](/LennartJKlein/Moldel/blob/master/moldel/Data/ExamData/ModelTechniques.md) voor meer toelichting.
+
 ### Exam Pass Layer
+
+1. Maak een bestand aan in de map `Data/ExamData/Exams` met het nummer van het seizoen.
+2. Voeg het pad naar dit nieuwe bestand toe aan `All.py` (in diezelfde map).
+3. Vul het bestand met enkel de informatie die tijdens en na de test in de aflevering te zien is. Denk aan jokers, vrijstellingen, of er een afvaller is, wie dat is. Zie ook [`ModelTechniques.md`](/LennartJKlein/Moldel/blob/master/moldel/Data/ExamData/ModelTechniques.md) voor meer toelichting.
 
 ### Exam Accusations Layer
 
-Alleen gesproken beschuldigingen opschrijven.
+1. Maak een bestand aan in de map `Data/ExamData/Exams` met het nummer van het seizoen.
+2. Voeg het pad naar dit nieuwe bestand toe aan `All.py` (in diezelfde map).
+3. Vul de array `accusations` bij elke `TestInput` enkel met de hardop uitgesproken beschuldigingen.
+
+### Money Layer
+
+1. Maak een bestand aan in de map `Data/MoneyData/Earnings` met het nummer van het seizoen.
+2. Voeg het pad naar dit nieuwe bestand toe aan `All.py` (in diezelfde map).
+3. Noteer elke opdracht in een aflevering. Noteer daarin het maximaal te halen bedrag. Als er geld is verdiend, voeg per bedrag dan toe wie daar `major` en wie `minor` heeft bijgedragen. Gebruik dit systeem ook als er min-geld is verdiend dat uit de pot gaat. Voor meer info zie de comments bij de [DataClasses](/LennartJKlein/Moldel/blob/master/moldel/Data/MoneyData/Dataclasses).
 
 ### Wikipedia Layer
 
@@ -97,7 +113,7 @@ Het Moldel neemt van de eerste 5 afleveringen mee hoeveel seconden elke kandidaa
 1. Zorg dat voor elke kandidaat van het seizoen een portretfoto in de map `Data/Faces` staat
 2. Voeg de aflevering die geanalyseerd moet worden toe in de map `Data/AppearanceData`
 3. Pas de instellingen in het bestand `Layers/Appearance/VideoParserSettings.py` aan, zodat ze kloppen voor jouw seizoen en aflevering.
-4. Laat de aflevering automatisch analyseren (vanuit de map 'moldel') met het commando: `python -m Layers.Appearance.VideoParser`
+4. Voer het volgende commando uit vanuit de map `moldel`, zodat de aflevering automatisch geanalyseerd wordt: `python -m Layers.Appearance.VideoParser`
 
 Hoe veel een kandidaat in beeld komt tijdens deze aflevering, is nu opgeslagen in het Moldel.
 
