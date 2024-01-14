@@ -5,18 +5,17 @@ from Data.Player import Player
 # The season and episode number which are used to save the Appearance results of the videos and to load them
 # during training of the Appearance layer.
 SEASON_NUMBER = 25
-EPISODE_NUMBER = 1
+EPISODE_NUMBER = 2
 
 # The location to the video file of the episode on which you want to run the VideoParser. Only mp4 and mkv files have
 # been tested with the VideoParser, other video formats might not work. Make sure that only the episode is included in
 # video. MolTalk and commercial breaks should not be contained in the video.
-EPISODE_VIDEO_LOCATION = "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/AppearanceData/S25E01.mp4"
+EPISODE_VIDEO_LOCATION = "/Users/LKLEIN/Ontwikkelomgeving/Moldel/moldel/Data/AppearanceData/S25E02.mp4"
 
 # A set of all players that were alive during this episode, including the person that dropped off during this
 # episode. But excluding players that dropped off during earlier episodes and did not return during this episode.
 ALIVE_PLAYERS = {
     Player.ANNA_25,
-    Player.BABS_25,
     Player.FONS_25,
     Player.JEROEN_25,
     Player.JIP_25,
