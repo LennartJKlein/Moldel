@@ -22,7 +22,7 @@ players1 = [
 ]
 questions1 = {
     # Naar welk symbool was de Mol, als kandidaat, op zoek tijdens 'Dia del Top(it)o'?
-    8: Question(
+    7: Question(
         {
             # Bel
             1: [Player.FONS_25],
@@ -127,10 +127,61 @@ result1 = Result(DropType.EXECUTION_DROP, [Player.BABS_25])
 episode1 = Episode(players1, result1, input1, questions1)
 
 ################
+# Aflevering 2
+players2 = [
+    Player.ANNA_25,
+    Player.FONS_25,
+    Player.JEROEN_25,
+    Player.JIP_25,
+    Player.JUSTIN_25,
+    Player.KEES_25,
+    Player.RIAN_25,
+    Player.ROSARIO_25,
+    Player.TOOSKE_25,
+]
+questions2 = {
+    # Is de Mol een man of een vrouw?
+    1: Question(
+     { # Man
+      1: [ Player.JEROEN_25, Player.JUSTIN_25, Player.KEES_25, Player.ROSARIO_25, Player.FONS_25],
+      # Vrouw
+      2: [ Player.ANNA_25, Player.JIP_25, Player.RIAN_25, Player.TOOSKE_25]
+      }
+    ),
+    # Wat was de positie van de Mol bij aanvang van de opdracht in het stadion?
+    4: Question({
+      # Atletiekbaan
+      1: [Player.JEROEN_25, Player.TOOSKE_25, Player.ROSARIO_25, Player.KEES_25, Player.FONS_25],
+      # Middenstip
+      2: [Player.ANNA_25],
+      # Tribune
+      3: [Player.JIP_25, Player.JUSTIN_25, Player.RIAN_25],
+    }),
+    # Heeft de Mol het Molympisch vuur onstoken?
+    6: Question({
+      # Ja
+      1: [Player.JUSTIN_25],
+      # Nee
+      2: [Player.JIP_25, Player.ANNA_25, Player.RIAN_25, Player.JEROEN_25, Player.TOOSKE_25, Player.ROSARIO_25, Player.KEES_25, Player.FONS_25],
+    }),
+}
+input2 = {
+    Player.JUSTIN_25: TestInput(accusations=[Player.ANNA_25, Player.JIP_25, Player.TOOSKE_25, Player.FONS_25]),
+    Player.FONS_25: TestInput({1: 2}, accusations=[Player.TOOSKE_25, Player.JIP_25, Player.ANNA_25]),
+    Player.RIAN_25: TestInput(accusations=[Player.KEES_25]),
+    Player.KEES_25: TestInput({4:3}, accusations=[Player.RIAN_25]),
+    Player.ROSARIO_25: TestInput(accusations=[Player.JIP_25, Player.TOOSKE_25]),
+    Player.JIP_25: TestInput({6:1}, accusations=[Player.JUSTIN_25]),
+}
+result2 = Result(DropType.EXECUTION_DROP, [Player.JIP_25])
+episode2 = Episode(players2, result2, input2, questions2)
+
+################
 # Summary
 season25 = Season(
     players1,
     {
         1: episode1,
+        2: episode2,
     },
 )
