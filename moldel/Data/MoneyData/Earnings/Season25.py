@@ -232,6 +232,7 @@ exercises3 = [
         earned=[
             Earning(
                 money=150,
+                major={Player.KEES_25},
                 minor={
                     Player.JEROEN_25,
                     Player.ROSARIO_25,
@@ -239,6 +240,7 @@ exercises3 = [
             ),
             Earning(
                 money=150,
+                major={Player.KEES_25},
                 minor={
                     Player.JUSTIN_25,
                     Player.KEES_25,
