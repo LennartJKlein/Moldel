@@ -150,7 +150,6 @@ exercises3 = [
                     Player.RIAN_25,
                     Player.ROSARIO_25,
                     Player.TOOSKE_25,
-                    Player.ANNA_25,
                     Player.JEROEN_25,
                     Player.JUSTIN_25,
                 },
@@ -232,33 +231,19 @@ exercises3 = [
         earned=[
             Earning(
                 money=150,
-                major={Player.KEES_25},
-                minor={
-                    Player.JEROEN_25,
-                    Player.ROSARIO_25,
-                },
+                major={Player.ROSARIO_25, Player.ANNA_25},
             ),
             Earning(
                 money=150,
-                major={Player.KEES_25},
-                minor={
-                    Player.JUSTIN_25,
-                    Player.KEES_25,
-                },
+                major={Player.JEROEN_25, Player.ROSARIO_25},
             ),
             Earning(
                 money=150,
-                minor={
-                    Player.ANNA_25,
-                    Player.FONS_25,
-                },
+                major={Player.KEES_25, Player.RIAN_25},
             ),
             Earning(
                 money=150,
-                minor={
-                    Player.RIAN_25,
-                    Player.TOOSKE_25,
-                },
+                major={Player.KEES_25, Player.JUSTIN_25},
             ),
         ],
     ),
