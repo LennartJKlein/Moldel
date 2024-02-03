@@ -3,4 +3,7 @@
 
 *.pyc
 *.mp4
+*.mkv
+*.wov
+*.mp3
 **/.DS_Store
