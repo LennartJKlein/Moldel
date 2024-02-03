@@ -270,12 +270,143 @@ exercises3 = [
     ),
 ]
 
+################
+# Aflevering 4
+players4 = {
+    Player.ANNA_25,
+    Player.FONS_25,
+    Player.JEROEN_25,
+    Player.KEES_25,
+    Player.RIAN_25,
+    Player.ROSARIO_25,
+    Player.TOOSKE_25,
+}
+exercises4 = [
+    # Opdracht 1: Kijken kijken wel kopen
+    Exercise(
+        episode=4,
+        alive=players4,
+        maximum=3000,
+        earned=[
+            Earning(
+                money=100,
+                major={
+                  Player.FONS_25,
+                  Player.KEES_25,
+                  Player.TOOSKE_25
+                },
+                minor={
+                  Player.JEROEN_25,
+                  Player.ANNA_25,
+                  Player.RIAN_25
+                },
+            ),
+            Earning(
+                money=100,
+                major={
+                  Player.FONS_25,
+                  Player.KEES_25,
+                  Player.ROSARIO_25
+                },
+                minor={
+                  Player.JEROEN_25,
+                  Player.ANNA_25,
+                  Player.RIAN_25
+                },
+            ),
+            Earning(
+                money=100,
+                major={
+                  Player.FONS_25,
+                },
+                minor={
+                  Player.JEROEN_25,
+                  Player.ANNA_25,
+                  Player.RIAN_25
+                },
+            ),
+            Earning(
+                money=100,
+                major={
+                  Player.FONS_25,
+                  Player.KEES_25,
+                },
+                minor={
+                  Player.JEROEN_25,
+                  Player.ANNA_25,
+                  Player.RIAN_25
+                },
+            ),
+            Earning(
+                money=100,
+                major={
+                  Player.ROSARIO_25,
+                  Player.TOOSKE_25
+                },
+                minor={
+                  Player.JEROEN_25,
+                  Player.ANNA_25,
+                  Player.RIAN_25
+                },
+            ),
+            Earning(
+                money=100,
+                major={
+                  Player.FONS_25,
+                  Player.KEES_25,
+                },
+                minor={
+                  Player.JEROEN_25,
+                  Player.ANNA_25,
+                  Player.RIAN_25
+                },
+            ),
+            Earning(
+                money=100,
+                major={
+                  Player.FONS_25,
+                  Player.TOOSKE_25
+                },
+                minor={
+                  Player.JEROEN_25,
+                  Player.ANNA_25,
+                  Player.RIAN_25
+                },
+            ),
+        ],
+    ),
+    # Opdracht 2: Op het spel zetten
+    Exercise(
+        episode=4,
+        alive=players4,
+        maximum=3500,
+        earned=[
+            Earning(
+                money=-100,
+                minor={
+                    Player.ANNA_25,
+                    Player.KEES_25,
+                    Player.FONS_25,
+                    Player.ROSARIO_25,
+                },
+            ),
+            Earning(
+                money=-400,
+                minor={
+                    Player.JEROEN_25,
+                    Player.RIAN_25,
+                    Player.TOOSKE_25,
+                },
+            ),
+        ],
+    ),
+]
 
 season25 = Season(
     exercises1
     + exercises2
     + exercises3
-    # + exercises4
+    + exercises4
     # + exercises5
     # + exercises6
     # + exercises7

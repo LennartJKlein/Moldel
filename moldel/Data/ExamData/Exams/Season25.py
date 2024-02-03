@@ -297,6 +297,18 @@ input3 = {
 result3 = Result(DropType.EXECUTION_DROP, [Player.JUSTIN_25])
 episode3 = Episode(players3, result3, input3, questions3)
 
+################
+# Aflevering 4
+players4 = [
+    Player.ANNA_25,
+    Player.FONS_25,
+    Player.JEROEN_25,
+    Player.KEES_25,
+    Player.RIAN_25,
+    Player.ROSARIO_25,
+    Player.TOOSKE_25,
+]
+episode4 = Episode(players4, Result(DropType.NO_DROP_NOR_SCREENS, players4), dict(), dict())
 
 ################
 # Summary
@@ -306,5 +318,6 @@ season25 = Season(
         1: episode1,
         2: episode2,
         3: episode3,
+        4: episode4,
     },
 )
