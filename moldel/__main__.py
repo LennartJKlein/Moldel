@@ -4,7 +4,7 @@ __main__.py: main entry of the moldel to run any command
 
 import sys
 import Settings as s
-LAYERS = ["all", "appearance", "exam-accusations", "exam-drop", "exam-pass", "money", "wikipedia"]
+LAYERS = ["all", "appearance", "exam-accusations", "power", "exam-drop", "exam-pass", "money", "wikipedia"]
 
 if len(sys.argv) < 2 \
         or not (sys.argv[1] == 'train' or sys.argv[1] == 'predict' or sys.argv[1] == 'performance'):

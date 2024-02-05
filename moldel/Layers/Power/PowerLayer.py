@@ -13,11 +13,10 @@ from sklearn.linear_model import LogisticRegression
 from typing import Dict, List, Set, Tuple
 import itertools as it
 import numpy as np
-import sys
 import math
 
 
-class InnerExamPassLayer(Layer):
+class InnerPowerLayer(Layer):
     def __init__(self, random_generator: RandomState):
         self.__random_generator = random_generator
 
@@ -38,7 +37,9 @@ class InnerExamPassLayer(Layer):
             for player in get_players_in_season(predict_season)
         }
         for exercise in EXERCISES_DATA[predict_season].get_exercises(latest_episode):
-            prediction = self.__predict_for_exercise(exercise, alive_players, estimator)
+            prediction = self.__predict_for_exercise(
+                exercise, previous_exercise, alive_players, estimator
+            )
             for player, likelihood in prediction.items():
                 result[player] *= likelihood
         return result
@@ -63,6 +64,7 @@ class InnerExamPassLayer(Layer):
     def __predict_for_exercise(
         self,
         exercise: Exercise,
+        previous_exercise: Exercise,
         alive_players: Set[Player],
         estimator: LogisticRegression,
     ) -> Dict[Player, float]:
@@ -76,7 +78,9 @@ class InnerExamPassLayer(Layer):
         Returns:
             A dictionary with as key a player that could be the Mol and as value the probability that he/she is in the powerful position.
         """
-        power_likelihoods = self.__get_power_likelihoods(exercise, estimator)
+        power_likelihoods = self.__get_power_likelihoods(
+            exercise, previous_exercise, estimator
+        )
         mol_likelihoods = dict()
         powerful = exercise.powerful
         power_likelihood = np.prod([power_likelihoods[p] for p in powerful])
@@ -96,25 +100,28 @@ class InnerExamPassLayer(Layer):
             train_seasons (Set[int]):  All seasons used as training data.
 
         Returns:
-            All train input, which is powerful past of every player, and all train output, which
-            is whether that player is powerful.
+
         """
         train_input = []
         train_output = []
         for train_season in train_seasons:
             train_season = EXERCISES_DATA[train_season]
+            previous_exercise = Exercise()
             for exercise in EXERCISES_DATA[train_season].get_exercises(math.inf):
-                total_powerful = exercise.total_powerful()
                 for player in exercise.alive:
-                    train_input.append(self.__get_input(player, total_powerful))
-                    train_output.append(
-                        1.0 if player in exercise.powerful else 0.0
+                    train_input.append(
+                        self.__get_input(player, previous_exercise.powerful)
                     )
+                    train_output.append(1.0 if player in exercise.powerful else 0.0)
+                previous_exercise = exercise
         return np.array(train_input), np.array(train_output)
 
     @classmethod
     def __get_power_likelihoods(
-        self, exercise: Exercise, estimator: LogisticRegression
+        self,
+        exercise: Exercise,
+        previous_exercise: Exercise,
+        estimator: LogisticRegression,
     ) -> Dict[Player, float]:
         """Get the powerful likelihoods for all players in an episode, based on being powerful in the past.
 
@@ -126,48 +133,34 @@ class InnerExamPassLayer(Layer):
         Returns:
             A dictionary with as key a player that was alive in this episode and as value the likelihood of being powerful (float).
         """
-        past_power = exercise.total_joker_usage(sys.maxsize)
-        drop_likelihoods = dict()
-        for player in episode.players:
-            if episode.input[player].immunity:
-                drop_likelihoods[player] = 0.0
-            else:
-                features = self.__get_input(player, joker_usage)
-                drop_likelihoods[player] = estimator.predict_proba(
-                    np.array([features])
-                )[0][1]
-        probability_sum = sum(drop_likelihoods.values())
+        past_power = previous_exercise.powerful
+        power_likelihoods = dict()
+        for player in exercise.alive:
+            features = self.__get_input(player, past_power)
+            power_likelihoods[player] = estimator.predict_proba(np.array([features]))[
+                0
+            ][1]
+        probability_sum = sum(power_likelihoods.values())
         return {
             player: likelihood / probability_sum
-            for player, likelihood in drop_likelihoods.items()
+            for player, likelihood in power_likelihoods.items()
         }
 
     @staticmethod
-    def __get_input(player: Player, joker_usage: Dict[Player, int]) -> List[float]:
-        """Get the input encoding for a player based on the joker usage.
+    def __get_input(player: Player, past_power: Set[Player]) -> List[float]:
+        """Get the input encoding for a player based on the previous power
 
         Arguments:
             player (Player): The input encoding for a player.
-            joker_usage (Dict[Player, int]): How many jokers are used by every player during this episode. The value
-                is sys.maxsize if the player used an exemption.
+            previous_power (Dict[Player, int]): If player was in power previous exercise
 
         Returns:
             The feature encoding for that player.
         """
-        own_usage = joker_usage[player]
-        less_1_joker = sum(
-            usage <= own_usage - 1 for p, usage in joker_usage.items() if p != player
-        )
-        same_jokers = sum(
-            usage == own_usage for p, usage in joker_usage.items() if p != player
-        )
-        more_1_joker = sum(
-            usage >= own_usage + 1 for p, usage in joker_usage.items() if p != player
-        )
-        return [less_1_joker, same_jokers, more_1_joker]
+        return [sum(1.0 for p in past_power if p != player)]
 
 
-class ExamPassLayer(PotentialMolLayer):
+class PowerLayer(PotentialMolLayer):
     """The Exam Pass Layer predicts whether a player is the Mol based on how many jokers and exemptions players used
     during the test."""
 
@@ -177,4 +170,4 @@ class ExamPassLayer(PotentialMolLayer):
         Arguments:
             random_generator (RandomState): The random generator used to generate random values.
         """
-        super().__init__(NormalizeLayer(InnerExamPassLayer(random_generator)))
+        super().__init__(NormalizeLayer(InnerPowerLayer(random_generator)))
