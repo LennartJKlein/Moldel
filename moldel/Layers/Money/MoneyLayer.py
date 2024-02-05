@@ -1,4 +1,4 @@
-from Data.MoneyData.Earnings.All import MONEY_DATA
+from Data.ExerciseData.Exercises.All import EXERCISES_DATA
 from Data.Player import Player
 from Data.PlayerData import get_players_in_season
 from Layers.Money.MoneyExtractor import MoneyExtractor
@@ -20,7 +20,7 @@ class InnerMoneyLayer(MultiLayer):
         self.__random_generator = random_generator
 
     def predict(self, predict_season: int, latest_episode: int, train_seasons: Set[int]) -> Dict[Player, MultiLayerResult]:
-        available_seasons = MONEY_DATA.keys()
+        available_seasons = EXERCISES_DATA.keys()
         train_seasons = train_seasons.intersection(available_seasons)
         if predict_season not in available_seasons:
             return EmptyMultiLayer().predict(predict_season, latest_episode, train_seasons)
@@ -67,7 +67,7 @@ class InnerMoneyLayer(MultiLayer):
         for player in season_players:
             all_predictions[player] = []
 
-        alive_players = MONEY_DATA[predict_season].get_alive(latest_episode)
+        alive_players = EXERCISES_DATA[predict_season].get_alive(latest_episode)
         for player, all_rows in predict_data.items():
             for row in all_rows:
                 likelihood = classifier.predict_proba(np.array([row]))[0][1]

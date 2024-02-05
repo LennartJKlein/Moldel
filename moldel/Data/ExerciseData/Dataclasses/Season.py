@@ -1,6 +1,7 @@
 from __future__ import annotations
 from dataclasses import dataclass
 from typing import List, Set, TYPE_CHECKING
+from Exercise import Exercise
 from ...Player import Player
 from ...PlayerData import get_players_in_season
 

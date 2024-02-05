@@ -1,5 +1,5 @@
-from Data.MoneyData.Dataclasses.Exercise import Exercise
-from Data.MoneyData.Earnings.All import MONEY_DATA
+from Data.ExerciseData.Dataclasses.Exercise import Exercise
+from Data.ExerciseData.Exercises.All import EXERCISES_DATA
 from Data.Player import Player
 from Data.PlayerData import get_is_mol
 from Tools.Encoders.NaturalSplineEncoding import NaturalSplineEncoding
@@ -47,7 +47,7 @@ class MoneyEncoder:
         """
         samples = []
         for season in seasons:
-            exercises = MONEY_DATA[season].get_exercises(latest_episode)
+            exercises = EXERCISES_DATA[season].get_exercises(latest_episode)
             for exercise in exercises:
                 samples.extend(self.__extract_samples_exercise(exercise))
         return samples

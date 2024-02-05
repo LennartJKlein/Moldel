@@ -1,11 +1,11 @@
 from __future__ import annotations
 from collections import Counter as counter
 from dataclasses import dataclass
-from typing import Set, TYPE_CHECKING, Union, List, Counter
+from typing import Set, TYPE_CHECKING, Union, List, Counter, Dict
 import itertools as it
 
 if TYPE_CHECKING:
-    from . import Earning
+    from Earning import Earning
     from ...Player import Player
 
 @dataclass
@@ -24,6 +24,7 @@ class Exercise:
     alive: Set[Player]
     maximum: Union[float, None]
     earned: List[Earning]
+    powerful: Set[Player]
 
     def contains_information(self) -> bool:
         """ Check if the exercise has any information.
@@ -31,7 +32,7 @@ class Exercise:
         Returns:
             True if this exercise contains information, false otherwise.
         """
-        return bool(self.earned)
+        return bool(self.earned) & bool(self.powerful)
 
     def major_earned(self) -> Counter[Player]:
         """ Determine how much money all players directly earned in this exercise.
@@ -54,3 +55,17 @@ class Exercise:
         for player, earning in it.product(self.alive, self.earned):
             earned[player] += earning.minor_earned(player)
         return earned
+    
+
+    def previous_powerful(self) -> Dict[Player, int]:
+        """ Compute the total of players in this exercise that were powerful.
+
+        Returns:
+            powerfulness of all players.
+        """
+        powerful = dict()
+        for player in self.alive:
+            if player in self.powerful:
+                powerful[player] = 1.0
+        return powerful
+    

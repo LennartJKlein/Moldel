@@ -4,8 +4,8 @@ from Layers.Special.MemoryLayer import MemoryLayer
 from scipy.stats import pearsonr, kendalltau
 import math
 
-TRAIN_SEASONS = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}
-TEST_SEASONS = {9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}
+TRAIN_SEASONS = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24}
+TEST_SEASONS = {9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24}
 layer1 = MemoryLayer("Wikipedia Stacker")
 layer2 = MemoryLayer("Appearance Stacker")
 

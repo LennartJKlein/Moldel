@@ -74,9 +74,6 @@ for season_id in TRAIN_SEASONS:
             player: prob / probability_sum
             for player, prob in drop_probabilities.items()
         }
-        # print(drop_probabilities)
-        # for player in episode.result.players:
-        # print(player)
         # print(drop_probabilities[player])
         print(
             "Probability comparison s"

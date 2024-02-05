@@ -86,7 +86,7 @@ class Episode:
         return len(self.players)
 
     def episode_number(self) -> int:
-        """ Get the episode number of this episode. The episode has number 1.
+        """ Get the episode number of this episode.
 
         Returns:
             The episode number of this episode.

@@ -4,7 +4,7 @@ from Layers.Wikipedia.WikipediaParser import WikipediaParser
 from scipy.stats import kruskal, levene
 import numpy as np
 
-TRAIN_SEASONS = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}
+TRAIN_SEASONS = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24}
 
 data = WikipediaParser.parse(TRAIN_SEASONS)
 predict_input = np.array([d.job_features for p, d in data.items()])

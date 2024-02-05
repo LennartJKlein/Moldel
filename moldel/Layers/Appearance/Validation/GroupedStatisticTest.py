@@ -7,7 +7,7 @@ import itertools
 import matplotlib.pyplot as plt
 import numpy as np
 
-TEST_SEASONS = {13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}
+TEST_SEASONS = {13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24}
 
 appearances = dict()
 for season in TEST_SEASONS:

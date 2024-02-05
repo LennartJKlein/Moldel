@@ -2,7 +2,7 @@ from Layers.Appearance.AppearanceExtractor import AppearanceExtractor
 import matplotlib.pyplot as plt
 import numpy as np
 
-TEST_SEASONS = {13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}
+TEST_SEASONS = {13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24}
 AUGMENTATION_CUTS = 1
 AUGMENTATION_MIN_CUTS_ON = 1
 OUTLIER_CUTOFF = 0.00

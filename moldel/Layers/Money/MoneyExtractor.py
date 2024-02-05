@@ -1,4 +1,4 @@
-from Data.MoneyData.Earnings.All import MONEY_DATA
+from Data.ExerciseData.Exercises.All import EXERCISES_DATA
 from Data.Player import Player
 from Data.PlayerData import get_is_mol, get_players_in_season
 from Layers.Money.MoneyEncoder import MoneyEncoder
@@ -69,7 +69,7 @@ class MoneyExtractor:
                                 for sample in samples])
         predict_input = self.__pca.transform(predict_input)
 
-        alive_players = MONEY_DATA[self.__predict_season].get_alive(self.__predict_episode)
+        alive_players = EXERCISES_DATA[self.__predict_season].get_alive(self.__predict_episode)
         predict_data = dict()
         for row, sample in zip(predict_input, samples):
             if sample.player in alive_players:

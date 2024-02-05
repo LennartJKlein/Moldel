@@ -16,6 +16,7 @@ Het **Moldel** is een algoritme, bedacht door Haico Dorenbos ([Multifacio](https
 
 * **Exam Drop Layer**: Kijkt voor elke kandidaat of de afvaller van de aflevering antwoorden op hem/haar had ingevuld tijdens de test.
 * **Exam Accusations Layer**: Kijkt naar gesproken beschuldigingen tijdens de test. Voor elke kandidaat wordt gekeken hoe vaak hij/zij wordt verdacht, of hij/zij door de afvaller wordt verdacht, of hij/zij de afvaller verdacht en of hij/zij dezelfde beschuldigingen als andere spelers doet. ©[Lennart Klein](https://github.com/LennartJKlein)
+* **Power Layer**: @TODO. ©[Erik Driessen](https://codeerik.nl/widm-2023-resultaten-data-analyse/)
 * **Exam Pass Layer**: Kijkt voor elke kandidaat hoeveel jokers hij/zij heeft ingezet bij de test.
 * **Money Layer**: Kijkt voor elke kandidaat welke invloed hij/zij had op het bedrag in de pot.
 * **Wikipedia Layer**: Kijkt voor elke kandidaat naar diens beroep en de grootte van diens wikipedia-pagina.
@@ -91,9 +92,9 @@ _De optie `--file` is optioneel en zorgt ervoor dat de uitkomst als bestand word
 
 ### Money Layer
 
-1. Maak een bestand aan in de map `Data/MoneyData/Earnings` met het nummer van het seizoen.
+1. Maak een bestand aan in de map `Data/ExerciseData/Exercises` met het nummer van het seizoen.
 2. Voeg het pad naar dit nieuwe bestand toe aan `All.py` (in diezelfde map).
-3. Noteer elke opdracht in een aflevering. Noteer daarin het maximaal te halen bedrag. Als er geld is verdiend, voeg per bedrag dan toe wie daar `major` en wie `minor` heeft bijgedragen. Gebruik dit systeem ook als er min-geld is verdiend dat uit de pot gaat. Voor meer info zie de comments bij de [DataClasses](/LennartJKlein/Moldel/blob/master/moldel/Data/MoneyData/Dataclasses).
+3. Noteer elke opdracht in een aflevering. Noteer daarin het maximaal te halen bedrag. Als er geld is verdiend, voeg per bedrag dan toe wie daar `major` en wie `minor` heeft bijgedragen. Gebruik dit systeem ook als er min-geld is verdiend dat uit de pot gaat. Voor meer info zie de comments bij de [DataClasses](/LennartJKlein/Moldel/blob/master/moldel/Data/ExerciseData/Dataclasses).
 
 ### Wikipedia Layer
 

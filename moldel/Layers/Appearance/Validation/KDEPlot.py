@@ -4,7 +4,7 @@ from Tools.Classifiers.NaiveKDEClassifier import NaiveKDEClassifier
 import matplotlib.pyplot as plt
 import numpy as np
 
-TEST_SEASONS = {13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}
+TEST_SEASONS = {13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24}
 AUGMENTATION_CUTS = 4
 AUGMENTATION_MIN_CUTS_ON = 2
 CDF_CUTOFF = 0.01

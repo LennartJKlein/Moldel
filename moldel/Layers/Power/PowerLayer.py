@@ -1,8 +1,8 @@
 from numpy.random import RandomState
 
-from Data.ExamData.Dataclasses.DropType import DropType
+from Data.ExerciseData.Dataclasses.Exercise import Exercise
 from Data.ExamData.Dataclasses.Episode import Episode
-from Data.ExamData.Exams.All import EXAM_DATA
+from Data.ExerciseData.Exercises.All import EXERCISES_DATA
 from Data.Player import Player
 from Data.PlayerData import get_players_in_season
 from Layers.Layer import Layer
@@ -14,6 +14,7 @@ from typing import Dict, List, Set, Tuple
 import itertools as it
 import numpy as np
 import sys
+import math
 
 
 class InnerExamPassLayer(Layer):
@@ -23,7 +24,7 @@ class InnerExamPassLayer(Layer):
     def compute_distribution(
         self, predict_season: int, latest_episode: int, train_seasons: Set[int]
     ) -> Dict[Player, float]:
-        available_seasons = EXAM_DATA.keys()
+        available_seasons = EXERCISES_DATA.keys()
         train_seasons = train_seasons.intersection(available_seasons)
         if predict_season not in available_seasons:
             return EqualLayer().compute_distribution(
@@ -31,30 +32,25 @@ class InnerExamPassLayer(Layer):
             )
 
         estimator = self.__train(train_seasons)
-        alive_players = EXAM_DATA[predict_season].get_alive_players(latest_episode)
+        alive_players = EXERCISES_DATA[predict_season].get_alive(latest_episode)
         result = {
             player: 1.0 if player in alive_players else 0.0
             for player in get_players_in_season(predict_season)
         }
-        for episode in EXAM_DATA[predict_season].episodes.values():
-            if (
-                episode.id > latest_episode
-                or episode.result.drop != DropType.EXECUTION_DROP
-            ):
-                continue
-            prediction = self.__predict_for_episode(episode, alive_players, estimator)
+        for exercise in EXERCISES_DATA[predict_season].get_exercises(latest_episode):
+            prediction = self.__predict_for_exercise(exercise, alive_players, estimator)
             for player, likelihood in prediction.items():
                 result[player] *= likelihood
         return result
 
     def __train(self, train_seasons: Set[int]) -> LogisticRegression:
-        """Train the estimator, which estimates the probability that someone drops off, based on the jokers used.
+        """Train the estimator, which estimates the probability that someone has the powerful positions in every exercise.
 
         Arguments:
             train_seasons (Set[int]): All seasons used as training data.
 
         Returns:
-            The estimator used to estimate the likelihood that someone drops out based on the joker usage.
+            The estimator used to estimate the likelihood that someone has the powerful positions in every exercise.
         """
         train_input, train_output = self.__get_train_data(train_seasons)
         estimator = LogisticRegression(
@@ -64,80 +60,73 @@ class InnerExamPassLayer(Layer):
         return estimator
 
     @classmethod
-    def __predict_for_episode(
+    def __predict_for_exercise(
         self,
-        episode: Episode,
+        exercise: Exercise,
         alive_players: Set[Player],
         estimator: LogisticRegression,
     ) -> Dict[Player, float]:
-        """Determine the probability that the execution result happens for each mol based on the dropouts and joker
-        usage during an episode.
+        """Determine the probability that the exercises happen for each mol, based on the powerful positions during the exercises.
 
         Arguments:
-            episode (Episode): The episode for which we estimate the probability that its execution result happens.
+            exercise (Exercise): The episode for which we estimate the probability that he/she is in the powerful position.
             alive_players (Set[Player]): The players that could still be the mol.
-            estimator (LogisticRegression): The estimator used to estimate the likelihood that someone drops out based
-                on the joker usage.
+            estimator (LogisticRegression): The estimator used to estimate the likelihood.
 
         Returns:
-            A dictionary with as key a player that could be the Mol and as value the probability that the execution
-            result of that episode happened.
+            A dictionary with as key a player that could be the Mol and as value the probability that he/she is in the powerful position.
         """
-        drop_likelihoods = self.__get_drop_likelihoods(episode, estimator)
+        power_likelihoods = self.__get_power_likelihoods(exercise, estimator)
         mol_likelihoods = dict()
-        dropouts = episode.result.players
-        drop_likelihood = np.prod([drop_likelihoods[p] for p in dropouts])
+        powerful = exercise.powerful
+        power_likelihood = np.prod([power_likelihoods[p] for p in powerful])
         for mol in alive_players:
-            possible_dropouts = set(episode.players).difference({mol})
-            drop_sum = 0.0
-            for players in it.combinations(possible_dropouts, len(dropouts)):
-                drop_sum += np.prod([drop_likelihoods[p] for p in players])
-            mol_likelihoods[mol] = drop_likelihood / drop_sum
+            possible_powerful = set(exercise.alive).difference({mol})
+            power_sum = 0.0
+            for players in it.combinations(possible_powerful, len(powerful)):
+                power_sum += np.prod([power_likelihoods[p] for p in players])
+            mol_likelihoods[mol] = power_likelihood / power_sum
         return mol_likelihoods
 
     @classmethod
     def __get_train_data(self, train_seasons: Set[int]) -> Tuple[np.array, np.array]:
-        """Get the train data used to estimate the likelihood of being the dropout based on joker usage.
+        """Get the train data used to estimate the likelihood of being powerful.
 
         Arguments:
             train_seasons (Set[int]):  All seasons used as training data.
 
         Returns:
-            All train input, which is an encoding of the jokers used for every player, and all train output, which
-            is whether that player dropped out.
+            All train input, which is powerful past of every player, and all train output, which
+            is whether that player is powerful.
         """
         train_input = []
         train_output = []
-        for season in train_seasons:
-            season = EXAM_DATA[season]
-            for episode in season.episodes.values():
-                if episode.result.drop != DropType.EXECUTION_DROP:
-                    continue
-
-                joker_usage = episode.total_joker_usage(sys.maxsize)
-                for player in episode.players:
-                    train_input.append(self.__get_input(player, joker_usage))
+        for train_season in train_seasons:
+            train_season = EXERCISES_DATA[train_season]
+            for exercise in EXERCISES_DATA[train_season].get_exercises(math.inf):
+                total_powerful = exercise.total_powerful()
+                for player in exercise.alive:
+                    train_input.append(self.__get_input(player, total_powerful))
                     train_output.append(
-                        1.0 if player in episode.result.players else 0.0
+                        1.0 if player in exercise.powerful else 0.0
                     )
         return np.array(train_input), np.array(train_output)
 
     @classmethod
-    def __get_drop_likelihoods(
-        self, episode: Episode, estimator: LogisticRegression
+    def __get_power_likelihoods(
+        self, exercise: Exercise, estimator: LogisticRegression
     ) -> Dict[Player, float]:
-        """Get the drop likelihoods for all players in an episode, based on only the joker usage.
+        """Get the powerful likelihoods for all players in an episode, based on being powerful in the past.
 
         Arguments:
-            episode (Episode): The episode for which we determine the drop likelihoods.
-            estimator (LogisticRegression): The estimator used to estimate the likelihood that someone drops out based
-                on the joker usage.
+            exercise (Exercise): The episode for which we determine the powerful likelihoods.
+            estimator (LogisticRegression): The estimator used to estimate the likelihood that someone is powerful based
+                on the past.
 
         Returns:
-            A dictionary with as key a player that was alive in this episode and as value the likelihood of dropping out
-            during the executie (float).
+            A dictionary with as key a player that was alive in this episode and as value the likelihood of being powerful (float).
         """
-        joker_usage = episode.total_joker_usage(sys.maxsize)
+        past_power = exercise.total_joker_usage(sys.maxsize)
         drop_likelihoods = dict()
         for player in episode.players:
             if episode.input[player].immunity:
