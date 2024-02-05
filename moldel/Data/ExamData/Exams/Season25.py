@@ -308,7 +308,107 @@ players4 = [
     Player.ROSARIO_25,
     Player.TOOSKE_25,
 ]
-episode4 = Episode(players4, Result(DropType.NO_DROP_NOR_SCREENS, players4), dict(), dict())
+episode4 = Episode(
+    players4, Result(DropType.NO_DROP_NOR_SCREENS, players4), dict(), dict()
+)
+
+################
+# Aflevering 5
+players5 = [
+    Player.ANNA_25,
+    Player.BABS_25,
+    Player.FONS_25,
+    Player.JEROEN_25,
+    Player.KEES_25,
+    Player.RIAN_25,
+    Player.ROSARIO_25,
+    Player.TOOSKE_25,
+]
+questions5 = {
+    # Heeft de Mol in het huis gestaan waar Dennis Weening aanwezig was?
+    7: Question(
+        {
+            # Ja
+            1: [
+                Player.BABS_25,
+                Player.FONS_25,
+            ],
+            # Nee
+            2: [
+                Player.ANNA_25,
+                Player.JEROEN_25,
+                Player.KEES_25,
+                Player.RIAN_25,
+                Player.ROSARIO_25,
+                Player.TOOSKE_25,
+            ],
+        }
+    ),
+    # Wat zat er in de envelop van de Mol aan het einde van de opdracht met de enveloppen?
+    10: Question(
+        {
+            # Min 3000 euro
+            1: [Player.ROSARIO_25],
+            # Min 500 euro
+            2: [Player.ANNA_25],
+            # Niets
+            3: [Player.JEROEN_25, Player.FONS_25, Player.KEES_25, Player.RIAN_25],
+            # 3 jokers
+            4: [Player.TOOSKE_25],
+            # 250 euro
+            5: [Player.BABS_25],
+        }
+    ),
+    # Met wie vormde de Mol een duo tijdens de opdracht met de paardentaxi's?
+    14: Question(
+        {
+            1: [Player.RIAN_25],
+            2: [Player.ROSARIO_25],
+            3: [Player.JEROEN_25],
+            4: [Player.FONS_25],
+            5: [Player.TOOSKE_25],
+            6: [Player.ANNA_25],
+            7: [Player.BABS_25],
+            8: [Player.KEES_25],
+        }
+    ),
+    # Wie is de Mol?
+    20: Question(
+        {
+            1: [Player.ANNA_25],
+            2: [Player.BABS_25],
+            3: [Player.FONS_25],
+            4: [Player.JEROEN_25],
+            5: [Player.KEES_25],
+            6: [Player.RIAN_25],
+            7: [Player.ROSARIO_25],
+            8: [Player.TOOSKE_25],
+        }
+    ),
+}
+input5 = {
+    Player.TOOSKE_25: TestInput(
+        jokers=3,
+        accusations=[
+            Player.ROSARIO_25,
+            Player.FONS_25,
+            Player.RIAN_25,
+            Player.JEROEN_25,
+        ],
+    ),
+    Player.ANNA_25: TestInput(
+        {20: 3}, accusations=[Player.FONS_25, Player.TOOSKE_25, Player.ROSARIO_25]
+    ),
+    Player.BABS_25: TestInput({14: 3}),
+    Player.ROSARIO_25: TestInput(jokers=1),
+    Player.FONS_25: TestInput(
+        {7: 2}, jokers=1, accusations=[Player.ANNA_25, Player.RIAN_25, Player.TOOSKE_25]
+    ),
+    Player.RIAN_25: TestInput(accusations=[Player.ROSARIO_25, Player.KEES_25]),
+    Player.KEES_25: TestInput({10: 5}, jokers=1),
+}
+result5 = Result(DropType.EXECUTION_DROP, [Player.JEROEN_25])
+episode5 = Episode(players5, result5, input5, questions5)
 
 ################
 # Summary
@@ -319,5 +419,6 @@ season25 = Season(
         2: episode2,
         3: episode3,
         4: episode4,
+        5: episode5,
     },
 )

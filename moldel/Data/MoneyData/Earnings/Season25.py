@@ -402,12 +402,98 @@ exercises4 = [
     ),
 ]
 
+################
+# Aflevering 5
+players5 = {
+    Player.ANNA_25,
+    Player.BABS_25,
+    Player.FONS_25,
+    Player.JEROEN_25,
+    Player.KEES_25,
+    Player.RIAN_25,
+    Player.ROSARIO_25,
+    Player.TOOSKE_25,
+}
+exercises5 = [
+    # Opdracht 1: Op elkaar rekenen
+    Exercise(
+        episode=5,
+        alive=players5,
+        maximum=2008,
+        earned=[],
+    ),
+    # Opdracht 2: Het gebaande pad
+    Exercise(
+        episode=5,
+        alive=players5,
+        maximum=38640,
+        earned=[
+            Earning(
+                money=-250,
+                major={
+                    Player.FONS_25,
+                },
+            ),
+            Earning(
+                money=-250,
+                major={
+                    Player.ANNA_25,
+                },
+            ),
+            Earning(
+                money=-250,
+                major={
+                    Player.JEROEN_25,
+                },
+            ),
+            Earning(
+                money=-1000,
+                minor={
+                    Player.ANNA_25,
+                    Player.BABS_25,
+                    Player.FONS_25,
+                    Player.JEROEN_25,
+                    Player.RIAN_25,
+                    Player.ROSARIO_25,
+                    Player.TOOSKE_25,
+                },
+            ),
+        ],
+    ),
+    # Opdracht 3: Afwegen
+    Exercise(
+        episode=5,
+        alive=players5,
+        maximum=2000,
+        earned=[
+            Earning(
+                money=-3000,
+                major={
+                    Player.ROSARIO_25,
+                },
+            ),
+            Earning(
+                money=250,
+                major={
+                    Player.BABS_25,
+                },
+            ),
+            Earning(
+                money=-500,
+                major={
+                    Player.ANNA_25,
+                },
+            ),
+        ],
+    ),
+]
+
 season25 = Season(
     exercises1
     + exercises2
     + exercises3
     + exercises4
-    # + exercises5
+    + exercises5
     # + exercises6
     # + exercises7
     # + exercises8
