@@ -26,7 +26,7 @@ class VideoParser:
     TOLERANCE = 0.50
 
     # Every this number of frames progress will be shown of the Video Parser
-    PROGRESS_FRAMES_FREQUENCY_PRINT = 100
+    PROGRESS_FRAMES_FREQUENCY_PRINT = 250
 
     @staticmethod
     def parse():

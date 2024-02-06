@@ -47,7 +47,13 @@ exercises1 = [
         episode=1,
         alive=players1,
         maximum=2500,
-        powerful=set(),
+        powerful=[
+            Player.ANNA_25,
+            Player.BABS_25,
+            Player.KEES_25,
+            Player.RIAN_25,
+            Player.TOOSKE_25,
+        ],
         earned=[
             Earning(
                 money=500,
@@ -82,7 +88,14 @@ exercises2 = [
         episode=2,
         alive=players2,
         maximum=1968,
-        powerful=set(),
+        powerful=[
+    Player.ANNA_25,
+    Player.FONS_25,
+    Player.JEROEN_25,
+    Player.KEES_25,
+    Player.ROSARIO_25,
+    Player.TOOSKE_25,
+    ],
         earned=[],
     ),
     # Opdracht 2: Uitzitten
@@ -90,7 +103,12 @@ exercises2 = [
         episode=2,
         alive=players2,
         maximum=4000,
-        powerful=set(),
+        powerful=[
+    Player.JEROEN_25,
+    Player.KEES_25,
+    Player.RIAN_25,
+    Player.TOOSKE_25,
+        ],
         earned=[
             Earning(money=750, major={Player.FONS_25}),
             Earning(money=750, major={Player.ANNA_25}),
@@ -233,7 +251,12 @@ exercises3 = [
         episode=3,
         alive=players3,
         maximum=2000,
-        powerful=set(),
+        powerful=[
+          Player.JEROEN_25,
+          Player.KEES_25,
+          Player.ROSARIO_25,
+          Player.RIAN_25,
+        ],
         earned=[
             Earning(
                 money=150,
@@ -258,7 +281,15 @@ exercises3 = [
         episode=3,
         alive=players3,
         maximum=2025,
-        powerful=set(),
+        powerful=[
+                    Player.ANNA_25,
+                    Player.BABS_25,
+                    Player.JEROEN_25,
+                    Player.KEES_25,
+                    Player.RIAN_25,
+                    Player.ROSARIO_25,
+                    Player.TOOSKE_25
+        ],
         earned=[
             Earning(
                 money=75,
@@ -294,7 +325,12 @@ exercises4 = [
         episode=4,
         alive=players4,
         maximum=3000,
-        powerful=set(),
+        powerful=[
+            Player.FONS_25,
+            Player.KEES_25,
+            Player.ROSARIO_25,
+            Player.TOOSKE_25,
+        ],
         earned=[
             Earning(
                 money=100,
@@ -387,6 +423,14 @@ exercises5 = [
         episode=5,
         alive=players5,
         maximum=2008,
+        powerful=[
+            Player.ANNA_25,
+            Player.BABS_25,
+            Player.KEES_25,
+            Player.RIAN_25,
+            Player.ROSARIO_25,
+            Player.TOOSKE_25,
+        ],
         earned=[],
     ),
     # Opdracht 2: Het gebaande pad
@@ -394,6 +438,7 @@ exercises5 = [
         episode=5,
         alive=players5,
         maximum=38640,
+        powerful=[],
         earned=[
             Earning(
                 money=-250,
@@ -432,6 +477,7 @@ exercises5 = [
         episode=5,
         alive=players5,
         maximum=2000,
+        powerful=[],
         earned=[
             Earning(
                 money=-3000,

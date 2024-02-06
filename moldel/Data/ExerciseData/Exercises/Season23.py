@@ -20,7 +20,19 @@ players1 = {
 }
 exercises1 = [
     # Opdracht 1: (Af)troeven
-    Exercise(episode=1, alive=players1, maximum=1500, powerful=set(), earned=[]),
+    Exercise(
+        episode=1,
+        alive=players1,
+        maximum=1500,
+        powerful=[
+            Player.EVERON_23,
+            Player.FRESIA_23,
+            Player.GLEN_23,
+            Player.KIM_LIAN_23,
+            Player.SAHIL_23,
+        ],
+        earned=[],
+    ),
     # Opdracht 2: Avondklok
     Exercise(
         episode=1,
@@ -78,7 +90,13 @@ exercises2 = [
         episode=2,
         alive=players2,
         maximum=2500,
-        powerful=set(),
+        powerful=[
+            Player.ARNO_23,
+            Player.EVERON_23,
+            Player.KIM_LIAN_23,
+            Player.SAHIL_23,
+            Player.THOMAS_23,
+        ],
         earned=[
             Earning(money=10, major={Player.FRESIA_23}),
             Earning(
@@ -108,7 +126,16 @@ exercises2 = [
         episode=2,
         alive=players2,
         maximum=3000,
-        powerful=set(),
+        powerful=[
+            Player.FRESIA_23,
+            Player.GLEN_23,
+            Player.HILA_23,
+            Player.KIM_LIAN_23,
+            Player.LAETITIA_23,
+            Player.SAHIL_23,
+            Player.THOMAS_23,
+            Player.WELMOED_23,
+        ],
         earned=[
             Earning(money=300, major={Player.ARNO_23}),
             Earning(money=320, major={Player.EVERON_23}),
@@ -127,7 +154,13 @@ exercises2 = [
         episode=2,
         alive=players2,
         maximum=1800,
-        powerful=set(),
+        powerful=[
+            Player.ARNO_23,
+            Player.GLEN_23,
+            Player.HILA_23,
+            Player.SAHIL_23,
+            Player.WELMOED_23,
+        ],
         earned=[
             Earning(
                 money=400,
@@ -167,7 +200,11 @@ exercises3 = [
         episode=3,
         alive=players3,
         maximum=7500,
-        powerful=set(),
+        powerful=[
+            Player.EVERON_23,
+            Player.LAETITIA_23,
+            Player.THOMAS_23,
+        ],
         earned=[
             Earning(money=250, major={Player.EVERON_23}),
             Earning(money=-250, major={Player.ARNO_23}),
@@ -285,7 +322,14 @@ exercises5 = [
         episode=5,
         alive=players5,
         maximum=3000,
-        powerful=set(),
+        powerful=[
+            Player.EVERON_23,
+            Player.FRESIA_23,
+            Player.HILA_23,
+            Player.KIM_LIAN_23,
+            Player.LAETITIA_23,
+            Player.SAHIL_23,
+        ],
         earned=[
             Earning(
                 money=725,
@@ -340,7 +384,11 @@ exercises6 = [
         episode=6,
         alive=players6,
         maximum=3500,
-        powerful=set(),
+        powerful=[
+            Player.EVERON_23,
+            Player.FRESIA_23,
+            Player.LAETITIA_23,
+        ],
         earned=[
             Earning(
                 money=1400,
@@ -438,7 +486,16 @@ exercises8 = [
         ],
     ),
     # Opdracht 2: Heftig
-    Exercise(episode=8, alive=players8, maximum=1500, powerful=set(), earned=[]),
+    Exercise(
+        episode=8,
+        alive=players8,
+        maximum=1500,
+        powerful=[
+            Player.EVERON_23,
+            Player.THOMAS_23,
+        ],
+        earned=[],
+    ),
     # Opdracht 3: Zand erover
     Exercise(
         episode=8,

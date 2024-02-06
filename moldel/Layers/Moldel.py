@@ -2,7 +2,6 @@ from Layers.Appearance.AppearanceLayer import AppearanceLayer
 from Layers.ExamAccusations.ExamAccusationsLayer import ExamAccusationsLayer
 from Layers.ExamDrop.ExamDropLayer import ExamDropLayer
 from Layers.ExamPass.ExamPassLayer import ExamPassLayer
-from Layers.Power.PowerLayer import PowerLayer
 from Layers.Money.MoneyLayer import MoneyLayer
 from Layers.MultiLayer.CombineLayer import CombineLayer
 from Layers.MultiLayer.StackLayer import StackLayer
@@ -21,7 +20,6 @@ class MoldelStacker(StackLayer):
         predict_layers = [
             AppearanceLayer(2/11, 13, 4, 2, 0.01),
             ExamAccusationsLayer(random_generator),
-            PowerLayer(random_generator),
             ExamDropLayer(120, 4, random_generator),
             ExamPassLayer(random_generator),
             MoneyLayer(0.99, 4, 9, random_generator),
@@ -30,7 +28,6 @@ class MoldelStacker(StackLayer):
         train_layers = [
             MemoryLayer("Appearance Stacker"),
             MemoryLayer("Exam Accusations Stacker"),
-            MemoryLayer("Power Stacker"),
             MemoryLayer("Exam Drop Stacker"),
             MemoryLayer("Exam Pass Stacker"),
             MemoryLayer("Money Stacker"),

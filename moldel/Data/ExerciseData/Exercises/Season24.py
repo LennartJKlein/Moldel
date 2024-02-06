@@ -41,7 +41,9 @@ exercises1 = [
         episode=1,
         alive=players1,
         maximum=4000,
-        powerful=set(),
+        powerful=[
+          Player.SOY_24, Player.SANDER_24, Player.ANKE_24, Player.SARAH_24
+        ],
         earned=[
             Earning(
                 money=1500,
@@ -122,7 +124,13 @@ exercises2 = [
         episode=2,
         alive=players2,
         maximum=3000,
-        powerful=set(),
+        powerful=[
+                    Player.JURRE_24,
+                    Player.NABIL_24,
+                    Player.ANNICK_24,
+                    Player.RANOMI_24,
+                    Player.SANDER_24,
+        ],
         earned=[
             Earning(
                 money=250,
@@ -188,7 +196,11 @@ exercises3 = [
         ],
     ),
     # Opdracht 3: Schip ingaan
-    Exercise(episode=3, alive=players3, maximum=2000, powerful=set(), earned=[]),
+    Exercise(episode=3, alive=players3, maximum=2000, powerful=[
+      Player.SOY_24,
+      Player.JURRE_24,
+      Player.DANIEL_24
+    ], earned=[]),
 ]
 
 ################
@@ -208,13 +220,21 @@ exercises4 = [
         episode=4,
         alive=players4,
         maximum=2000,
-        powerful=set(),
+        powerful=[
+          Player.DANIEL_24, Player.NABIL_24, Player.JURRE_24, Player.ANKE_24
+        ],
         earned=[
             Earning(money=300, major={Player.RANOMI_24}),
         ],
     ),
     # Opdracht 2: (eend)zame hoogte
-    Exercise(episode=4, alive=players4, maximum=3000, powerful=set(), earned=[]),
+    Exercise(episode=4, alive=players4, maximum=3000, powerful=[
+    Player.ANKE_24,
+    Player.JURRE_24,
+    Player.NABIL_24,
+    Player.RANOMI_24,
+    Player.SOY_24,
+      ], earned=[]),
 ]
 
 ################
@@ -252,7 +272,11 @@ exercises5 = [
         episode=5,
         alive=players5,
         maximum=4750,
-        powerful=set(),
+        powerful=[
+    Player.DANIEL_24,
+    Player.JURRE_24,
+    Player.RANOMI_24,
+        ],
         earned=[
             Earning(
                 money=-1250, major={Player.RANOMI_24, Player.DANIEL_24, Player.JURRE_24}
@@ -341,7 +365,11 @@ exercises7 = [
         episode=7,
         alive=players7,
         maximum=3000,
-        powerful=set(),
+        powerful=[
+          Player.SOY_24,
+          Player.RANOMI_24,
+          Player.JURRE_24
+        ],
         earned=[
             Earning(money=1000, major={Player.DANIEL_24}),
         ],

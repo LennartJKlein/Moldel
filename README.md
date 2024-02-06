@@ -16,7 +16,6 @@ Het **Moldel** is een algoritme, bedacht door Haico Dorenbos ([Multifacio](https
 
 * **Exam Drop Layer**: Kijkt voor elke kandidaat of de afvaller van de aflevering antwoorden op hem/haar had ingevuld tijdens de test.
 * **Exam Accusations Layer**: Kijkt naar gesproken beschuldigingen tijdens de test. Voor elke kandidaat wordt gekeken hoe vaak hij/zij wordt verdacht, of hij/zij door de afvaller wordt verdacht, of hij/zij de afvaller verdacht en of hij/zij dezelfde beschuldigingen als andere spelers doet. ©[Lennart Klein](https://github.com/LennartJKlein)
-* **Power Layer**: @TODO. ©[Erik Driessen](https://codeerik.nl/widm-2023-resultaten-data-analyse/)
 * **Exam Pass Layer**: Kijkt voor elke kandidaat hoeveel jokers hij/zij heeft ingezet bij de test.
 * **Money Layer**: Kijkt voor elke kandidaat welke invloed hij/zij had op het bedrag in de pot.
 * **Wikipedia Layer**: Kijkt voor elke kandidaat naar diens beroep en de grootte van diens wikipedia-pagina.
